@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISBSDetials" pageWidth="2160" pageHeight="572" orientation="Landscape" columnWidth="2160" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.6105100000000068"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<field name="amount" class="java.lang.Double"/>
+	<field name="divisionName" class="java.lang.String"/>
+	<field name="divisionId" class="java.lang.Integer"/>
+	<field name="accountName" class="java.lang.String"/>
+	<field name="accountId" class="java.lang.Integer"/>
+	<field name="level" class="java.lang.Integer"/>
+	<field name="parentAccountId" class="java.lang.String"/>
+	<field name="acctNo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="18">
+			<crosstab>
+				<reportElement x="0" y="0" width="2160" height="18"/>
+				<crosstabParameter name="accountType">
+					<parameterValueExpression><![CDATA[$P{accountType}]]></parameterValueExpression>
+				</crosstabParameter>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="245" height="16"/>
+							<textElement textAlignment="Left">
+								<font fontName="Arial" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$P{accountType}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="acctNo" width="0">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{acctNo}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<textFieldExpression><![CDATA[""+$V{acctNo}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="245" height="12"/>
+								<box leftPadding="20" rightPadding="2">
+									<topPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Left" markup="none">
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["TOTAL " + $P{accountType}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="accountId" width="0">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{accountId}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<textFieldExpression><![CDATA[$V{accountId}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Opaque">
+							<staticText>
+								<reportElement style="Crosstab Data Text" x="0" y="83" width="299" height="44"/>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="accountName" width="245">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{accountName}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="245" height="12"/>
+								<box leftPadding="20" rightPadding="2"/>
+								<textElement textAlignment="Left" markup="html">
+									<font fontName="Arial"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{accountName}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="divisionId" height="0">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{divisionId}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<textFieldExpression><![CDATA[$V{divisionId}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="divisionName" height="16">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{divisionName}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque">
+							<box>
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement>
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{divisionName}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="amountMeasure" class="java.lang.Double">
+					<measureExpression><![CDATA[$F{amount}]]></measureExpression>
+				</measure>
+				<crosstabCell width="130" height="12">
+					<cellContents>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="130" height="12"/>
+							<box leftPadding="2" rightPadding="4"/>
+							<textElement textAlignment="Right">
+								<font fontName="Arial"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="158" height="152" rowTotalGroup="accountId">
+					<cellContents mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="divisionId">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountId" columnTotalGroup="divisionId">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="divisionName">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountId" columnTotalGroup="divisionName">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="130" height="12" rowTotalGroup="acctNo">
+					<cellContents mode="Opaque">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="130" height="12" isPrintWhenDetailOverflows="true"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="acctNo" columnTotalGroup="divisionId">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="acctNo" columnTotalGroup="divisionName">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName" columnTotalGroup="divisionId">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName" columnTotalGroup="divisionName">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

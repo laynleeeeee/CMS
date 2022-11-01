@@ -1,0 +1,143 @@
+/**
+*CSS for Elasticbooks Data table
+
+*/
+@CHARSET "UTF-8";
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-family: sans-serif;
+}
+
+.ebDataTable {
+	white-space: nowrap;
+	width: 100%;
+}
+
+.ebDataTable th {
+	background-color:  	#C0C0C0;
+}
+
+.ebDataTable thead th {
+	padding: 3px;
+	font-size: x-small;
+}
+
+.ebDataTable tbody td{
+	padding: 3px;
+	font-size: small;
+}
+
+.ebDataTable th, td.tdProperties {
+	border: 1px solid #000000;
+}
+
+.tblSelectClass {
+	text-transform: uppercase;
+	background-color: #0000;
+	border: 1px solid gray;
+	font-weight: bold;
+	padding: 2px;
+	width: 100%;
+}
+.tblInputNumeric {
+	text-align: right;
+	border: none;
+	width: 100%;
+}
+.tblInputText {
+	text-align: left;
+	border: none;
+	width: 100%;
+}
+
+tbody td span .tblLabelNumeric, .existingStock,
+.existingStocks, .srp, .discount, .amount,
+.vatAmount, .quantityTxt, .prevUC, .grossAmount {
+	float: right;
+	width: 100%;
+	text-align: right;
+}
+
+.tblLabelText {
+	text-align: left;
+	width: 100%;
+}
+
+#cashSaleTable {
+	overflow: auto;
+}
+
+/* Data Table for Form Template */
+.dataTable{
+	border: 1px solid #ccc;
+	cellspacing: 0;
+	border: none;
+
+	width: 100%;
+	cellspacing: 0;
+	overflow-x: scroll;
+	border: 1px thin gray;
+	font-family: sans-serif;
+	border-collapse: collapse;
+}
+
+.dataTable thead th {
+	border-bottom: 1px solid black;
+	background-color: white;
+	background-color:  	#C0C0C0;
+	white-space: nowrap;
+	font-size: x-small;
+	color: black;
+	padding: 3px;
+}
+
+.dataTable thead tr.alignLeft {
+       text-align: left;
+}
+
+.dataTable tbody td {
+	padding: 3px;
+	font-size: small;
+	border: 1px solid gray;	
+}
+
+/* Data Table for Report Template */
+.rptDataTable {
+	width: 100%;
+	cellspacing: 0;
+	padding-top: 350px;
+	overflow-x: scroll;
+	border: 1px thin gray;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	border-bottom: 1px solid gray;
+}
+
+.rptDataTable thead th {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color: white;
+	white-space: nowrap;
+	font-size: x-small;
+	color: black;
+	padding: 3px;
+}
+
+.rptDataTable tbody td{
+	padding: 3px;
+	font-size: small;
+	border: 1px solid gray;
+}
+
+.rptDataTable tfoot th {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color: white;
+	white-space: nowrap;
+	font-size: small;
+	color: black;
+	padding: 3px;
+	text-align: right;
+}

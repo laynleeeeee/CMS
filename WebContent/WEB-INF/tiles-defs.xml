@@ -1,0 +1,156 @@
+<!--
+
+	Description: Tiles definition template.
+ -->
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/jsp/tiles/baseLayout.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/jsp/tiles/header.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/footer.jsp"/>
+	</definition>
+
+	<definition name="mobileBaseLayout" template="/jsp/tiles/mobile/mobileBaseLayout.jsp">
+		<put-attribute name="title" value="EB Mobile Version"/>
+		<put-attribute name="header" value="/jsp/tiles/mobile/mobileHeader.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/mobile/mobileFooter.jsp"/>
+	</definition>
+
+	<definition name="basePrintable" template="/jsp/tiles/baseLayout.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/jsp/tiles/printable/header.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/printable/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/printable/footer.jsp"/>
+	</definition>
+
+	<definition name="clcsBaseLayout" template="/jsp/tiles/baseLayout.jsp">
+		<put-attribute name="title" value="Customer Loyalty System"/>
+		<put-attribute name="header" value="/jsp/tiles/clcs/header.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/clcs/footer.jsp"/>
+	</definition>
+	
+	<definition name="menuBaseLayout" template="/jsp/tiles/baseLayoutWithMenu.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/jsp/tiles/header.jsp"/>
+		<put-attribute name="menu" value="/jsp/tiles/menu.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="ebMenuBaseLayout" template="/jsp/tiles/baseLayoutWithMenu.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/jsp/tiles/header2.jsp"/>
+		<put-attribute name="menu" value="/jsp/tiles/menu.jsp"/>
+		<put-attribute name="body" value="/jsp/tiles/body.jsp"/>
+		<put-attribute name="footer" value="/jsp/tiles/footer.jsp"/>
+	</definition>
+
+	<definition name="mainPage" extends="baseLayout">
+		<put-attribute name="title" value="Main Page"></put-attribute>
+		<put-attribute name="body" value="/a/admin"></put-attribute>
+	</definition>
+
+	<!-- Company list-->
+	<definition name="showCompanyList" template="/jsp/ac/company/Company.jsp"></definition>
+	<definition name="showCompanyTable" template="/jsp/ac/company/CompanyTable.jsp"></definition>
+	<definition name="addCompany" template="/jsp/ac/company/CompanyForm.jsp"></definition>
+	<definition name="editCompany" template="/jsp/ac/company/CompanyForm.jsp"></definition>
+	<definition name="printCompany" template="/jsp/ac/printable/CompanyPrintable.jsp"></definition>
+	<!-- UserGroup list-->
+	<definition name="showUserGroupList" template="/jsp/ac/usergroup/UserGroup.jsp"></definition>
+	<definition name="showUserGroupTable" template="/jsp/ac/usergroup/UserGroupTable.jsp"></definition>
+	<definition name="addUserGroup" template="/jsp/ac/usergroup/UserGroupForm.jsp"></definition>
+	<definition name="editUserGroup" template="/jsp/ac/usergroup/UserGroupForm.jsp"></definition>
+	<definition name="printUserGroup" template="/jsp/ac/printable/UserGroupPrintable.jsp"></definition>
+	<!-- User List -->
+	<definition name="showUserList" template="/jsp/ac/user/User.jsp"></definition>
+	<definition name="showUserTable" template="/jsp/ac/user/UserTable.jsp"></definition>
+	<definition name="addUser" template="/jsp/ac/user/UserForm.jsp"></definition>
+	<definition name="editUser" template="/jsp/ac/user/UserForm.jsp"></definition>
+	<definition name="printUser" template="/jsp/ac/printable/UserPrintable.jsp"></definition>
+	<!--  Administration -->
+	<definition name="showAdministrator" template="/jsp/ac/administrator/Admin.jsp"></definition>
+	<!-- Login modules -->
+	<definition name="loginPage" template="/jsp/authentication/Login.jsp"></definition>
+	<definition name="redirectToMain" template="/jsp/authentication/LoginSuccess.jsp"></definition>
+	<definition name="changePassword" template="/jsp/authentication/ChangePassword.jsp"></definition>
+	<definition name="changePasswordForm" template="/jsp/authentication/ChangePasswordForm.jsp"></definition>
+	<definition name="loginFail" template="/jsp/authentication/LoginFail.jsp"></definition>
+	<!-- Logout -->
+	<definition name="logoutPage" template="/jsp/authentication/Logout.jsp"></definition>
+
+	<!-- Successfully saved -->
+	<definition name="successfullySaved" template="/jsp/SavedSuccess.jsp"></definition>
+	<!-- User Registration -->
+	<definition name="registerUser" template="/jsp/authentication/UserRegistrationForm.jsp"></definition>
+<!-- 
+END Items module
+ -->
+ 
+	<!-- Elastic books template -->
+	<definition name="baseAdmin" extends="ebMenuBaseLayout">
+		<put-attribute name="title" value="Elasticbooks"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/CMS/jsp/admin/Menu.jsp"></put-attribute>
+	</definition>
+
+<!-- New base layout -->
+	<definition name="newBaseLayout" extends="baseLayout">
+		<put-attribute name="title" value="Elasticbooks"/>
+		<put-attribute name="header" value="/jsp/tiles/header2.jsp"/>
+	</definition>
+<!-- Forms -->
+	<definition name="showFormsTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/form/MainForm.jsp"/>
+	</definition>
+<!-- Reports -->
+	<definition name="showReportsTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/report/MainReport.jsp"/>
+	</definition>
+<!-- Search -->
+	<definition name="showSearchFormTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/search/MainSearchForm.jsp"/>
+	</definition>
+<!-- Searchable Report-->
+	<definition name="showSearchReportTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/report/SearchableReport.jsp"/>
+	</definition>
+<!-- Approval -->
+	<definition name="showApprovalTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/approval/MainApproval.jsp"/>
+	</definition>
+<!-- Temporary and will be removed later on -->
+	<definition name="reallocatedTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/form/inventory/UnitCostReallocator.jsp"/>
+	</definition>	
+<!-- Main form workflow -->
+	<definition name="showMainWorkflowTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/approval/MainWorkflow.jsp"/>
+	</definition>
+<!-- Mobile Main form workflow -->
+	<definition name="showMobileMainWorkflowTemplate" extends="mobileBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/approval/mobile/MobileMainWorkflow.jsp"/>
+	</definition>
+<!-- Error Message -->
+	<definition name="showExceptionMessageTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/exceptionMessage.jsp"/>
+	</definition>
+
+	<!-- Uploading csv falure -->
+	<definition name="uploadError" template="/jsp/UploadError.jsp"></definition>
+
+	<!-- Fleet Profile -->
+	<definition name="fleetProfileTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/fleetProfile/FleetProfile.jsp"/>
+	</definition>
+
+	<!-- Employee Patient -->
+	<definition name="employeeProfileTemplate" extends="newBaseLayout">
+		<put-attribute name="body" value="/WEB-INF/CMS/jsp/employeeProfile/EmployeeProfile.jsp"/>
+	</definition>
+</tiles-definitions>

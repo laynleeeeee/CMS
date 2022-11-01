@@ -1,0 +1,42 @@
+/**
+*CSS for Elasticbooks Tabs
+
+*/
+@CHARSET "UTF-8";
+
+.divTab {
+	background-color: #fff;
+}
+
+ul.tabs{
+	margin-left: 3px;
+	margin-top: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: #ffffff;
+	color: #222;
+	display: inline-block;
+	padding: 3px 17px;
+	cursor: pointer;
+	border-top-right-radius: 1em;
+	border-top-left-radius: 1em;
+	border: 1px solid #afafaf;
+	margin-left : -3px;
+	margin-right : -3px;
+	font-size: small;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+ul.tabs li.current{
+	background: #afafaf;
+	color: #222;
+}
+.tab-content{
+	display: none;
+	padding: 10px;
+}
+.tab-content.current{
+	display: inherit;
+}

@@ -1,0 +1,20 @@
+
+#Description: Petty Cash Voucher Liquidation - NSB 8
+
+PettyCashVoucherLiquidation5.typeId=5
+PettyCashVoucherLiquidation5.form=pettyCashVoucherLiquidation/viewForm
+PettyCashVoucherLiquidation5.edit=petty_cash_voucher_liquidation_nsb8_edit
+PettyCashVoucherLiquidation5.print=pettyCashVoucherLiquidation/pdf
+PettyCashVoucherLiquidation5.service=eulap.eb.service.PettyCashVoucherLiquidationService
+PettyCashVoucherLiquidation5.oo.parent_to_child=1
+PettyCashVoucherLiquidation5.flow=1;2
+PettyCashVoucherLiquidation5.1.statusId=31
+PettyCashVoucherLiquidation5.1.required=
+PettyCashVoucherLiquidation5.1.next=2
+PettyCashVoucherLiquidation5.1.product_code=24137
+PettyCashVoucherLiquidation5.1.module_code=8
+PettyCashVoucherLiquidation5.2.statusId=1
+PettyCashVoucherLiquidation5.2.required=3
+PettyCashVoucherLiquidation5.2.next=0
+PettyCashVoucherLiquidation5.2.product_code=24137
+PettyCashVoucherLiquidation5.2.module_code=64

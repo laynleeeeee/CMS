@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ChartOfAccounts" pageWidth="572" pageHeight="752" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.4641000000000035"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="mianBold">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{childrenAccount} != null && !$F{childrenAccount}.isEmpty()]]></conditionExpression>
+			<style isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="space" class="java.lang.String"/>
+	<field name="number" class="java.lang.String"/>
+	<field name="accountName" class="java.lang.String"/>
+	<field name="active" class="java.lang.Boolean"/>
+	<field name="childrenAccount" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="mianBold" x="0" y="0" width="476" height="15"/>
+				<textElement markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{space} + $F{number}+ " - " +$F{accountName}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="15" width="572" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="space">
+					<subreportParameterExpression><![CDATA[$P{space} + "&#09;"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{childrenAccount})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ChartOfAccountsDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="476" y="0" width="96" height="15"/>
+				<textElement textAlignment="Right" markup="html">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{active} ? "ACTIVE" : "INACTIVE")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

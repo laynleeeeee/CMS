@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FrequencyReport" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.2100000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="dateFrom" class="java.util.Date"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="dateTo" class="java.util.Date"/>
+	<field name="strEmployeeNumber" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="position" class="java.lang.String"/>
+	<field name="date" class="java.util.Date"/>
+	<field name="frequency" class="java.lang.Integer"/>
+	<field name="minutes" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="171" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="65" width="572" height="19" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="45" width="572" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="14" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="0" y="0" width="572" height="45" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA["../../images/logo/"+$P{companyLogo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="86" width="572" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyTin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="107" width="572" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="141" width="572" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MM/dd/yyyy").format($P{dateFrom}) + " - " + new java.text.SimpleDateFormat("MM/dd/yyyy").format($P{dateTo})]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="51">
+			<crosstab ignoreWidth="false">
+				<reportElement x="0" y="0" width="572" height="51"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="99" height="24"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="10" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Employee ID]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="285" y="0" width="128" height="24"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="10" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Position]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="99" y="0" width="186" height="24"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="10" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Employee Name ]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="strEmployeeNumber" width="99">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{strEmployeeNumber}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="99" height="15"/>
+								<textElement textAlignment="Left">
+									<font fontName="Arial" size="10"/>
+									<paragraph leftIndent="3" rightIndent="3" spacingBefore="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{strEmployeeNumber}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="name" width="186">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{name}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="186" height="15"/>
+								<textElement textAlignment="Left">
+									<font fontName="Arial" size="10"/>
+									<paragraph leftIndent="3" rightIndent="3" spacingBefore="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="position" width="128">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{position}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="128" height="15"/>
+								<textElement textAlignment="Left">
+									<font fontName="Arial" size="10"/>
+									<paragraph leftIndent="3" rightIndent="3" spacingBefore="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{position}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="frequency" height="24">
+					<bucket class="java.lang.Integer">
+						<bucketExpression><![CDATA[$F{frequency}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<staticText>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="92" height="24"/>
+								<box>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font fontName="Arial" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Frequency]]></text>
+							</staticText>
+							<staticText>
+								<reportElement style="Crosstab Data Text" x="92" y="0" width="67" height="24"/>
+								<box>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font fontName="Arial" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[No. of
+minutes]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="frequencyMeasure" class="java.lang.Integer" calculation="Sum">
+					<measureExpression><![CDATA[$F{frequency}]]></measureExpression>
+				</measure>
+				<measure name="minutes" class="java.lang.Double" calculation="Sum">
+					<measureExpression><![CDATA[$F{minutes}]]></measureExpression>
+				</measure>
+				<crosstabCell width="159" height="15">
+					<cellContents>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="92" y="0" width="67" height="15"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" size="10"/>
+								<paragraph leftIndent="3" rightIndent="3" spacingBefore="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{minutes}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="92" height="15"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Left">
+								<font fontName="Arial" size="10"/>
+								<paragraph leftIndent="3" rightIndent="3" spacingBefore="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="strEmployeeNumber">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="frequency">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="strEmployeeNumber" columnTotalGroup="frequency">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="name">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="name" columnTotalGroup="frequency">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{frequencyMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="position">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="position" columnTotalGroup="frequency">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

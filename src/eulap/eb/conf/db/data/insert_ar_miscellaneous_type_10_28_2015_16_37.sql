@@ -1,0 +1,9 @@
+
+-- Description: Insert script AR_MISCELLANEOUS_TYPE for eb-fa clean db.
+
+-- AR_MISCELLANEOUS_TYPE
+SYSTEM echo 'Inserting AR_MISCELLANEOUS_TYPE';
+INSERT INTO `AR_MISCELLANEOUS_TYPE` VALUES 
+(1,'CASH',1,NOW(),1,NOW()), 
+(2,'CHECK',1,NOW(),1,NOW()),
+(3,'BANK TRANSFER',1,NOW(),1,NOW());

@@ -1,0 +1,20 @@
+
+#Description: Petty Cash Voucher - Central
+
+PettyCashVoucher1.typeId=1
+PettyCashVoucher1.form=pettyCashVoucher/viewForm
+PettyCashVoucher1.edit=petty_cash_voucher_central_edit
+PettyCashVoucher1.print=pettyCashVoucher/pdf
+PettyCashVoucher1.service=eulap.eb.service.PettyCashVoucherService
+PettyCashVoucher1.oo.parent_to_child=1
+PettyCashVoucher1.flow=1;2
+PettyCashVoucher1.1.statusId=31
+PettyCashVoucher1.1.required=
+PettyCashVoucher1.1.next=2
+PettyCashVoucher1.1.product_code=24096
+PettyCashVoucher1.1.module_code=8
+PettyCashVoucher1.2.statusId=1
+PettyCashVoucher1.2.required=3
+PettyCashVoucher1.2.next=0
+PettyCashVoucher1.2.product_code=24096
+PettyCashVoucher1.2.module_code=64

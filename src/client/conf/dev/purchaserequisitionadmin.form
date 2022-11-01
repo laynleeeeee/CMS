@@ -1,0 +1,22 @@
+
+# Description: Requisition Form
+
+PurchaseRequisition6.typeId=1
+PurchaseRequisition6.form=purchaseRequisition/6/view
+PurchaseRequisition6.edit=purchase_requisition_admin_edit
+PurchaseRequisition6.print=purchaseRequisition/6/pdf
+PurchaseRequisition6.service=eulap.eb.service.PurchaseRequisitionService
+PurchaseRequisition6.acct_transaction_types=2
+PurchaseRequisition6.oo.parent_to_child=1
+PurchaseRequisition6.oo.child_to_child=3012
+PurchaseRequisition6.flow=1;2
+PurchaseRequisition6.1.statusId=1
+PurchaseRequisition6.1.required=
+PurchaseRequisition6.1.next=2
+PurchaseRequisition6.1.product_code=40033
+PurchaseRequisition6.1.module_code=8
+PurchaseRequisition6.2.statusId=3
+PurchaseRequisition6.2.required=1
+PurchaseRequisition6.2.next=0
+PurchaseRequisition6.2.product_code=40033
+PurchaseRequisition6.2.module_code=16

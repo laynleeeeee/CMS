@@ -1,0 +1,21 @@
+
+#Description: Sales order form workflow and report configuration file
+
+SalesOrder.typeId=1
+SalesOrder.form=salesOrder/viewForm
+SalesOrder.edit=sales_order_jy_edit
+SalesOrder.print=salesOrder/printout
+SalesOrder.service=eulap.eb.service.SalesOrderService
+SalesOrder.oo.parent_to_child=1
+SalesOrder.oo.child_to_child=12002
+SalesOrder.flow=1;2
+SalesOrder.1.statusId=1
+SalesOrder.1.required=
+SalesOrder.1.next=2
+SalesOrder.1.product_code=12001
+SalesOrder.1.module_code=8
+SalesOrder.2.statusId=3
+SalesOrder.2.required=1
+SalesOrder.2.next=0
+SalesOrder.2.product_code=12001
+SalesOrder.2.module_code=16

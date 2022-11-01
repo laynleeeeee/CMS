@@ -1,0 +1,20 @@
+
+#Description: Petty Cash Voucher - NSB 8
+
+PettyCashVoucher5.typeId=1
+PettyCashVoucher5.form=pettyCashVoucher/viewForm
+PettyCashVoucher5.edit=petty_cash_voucher_nsb8_edit
+PettyCashVoucher5.print=pettyCashVoucher/pdf
+PettyCashVoucher5.service=eulap.eb.service.PettyCashVoucherService
+PettyCashVoucher5.oo.parent_to_child=1
+PettyCashVoucher5.flow=1;2
+PettyCashVoucher5.1.statusId=31
+PettyCashVoucher5.1.required=
+PettyCashVoucher5.1.next=2
+PettyCashVoucher5.1.product_code=24100
+PettyCashVoucher5.1.module_code=8
+PettyCashVoucher5.2.statusId=1
+PettyCashVoucher5.2.required=3
+PettyCashVoucher5.2.next=0
+PettyCashVoucher5.2.product_code=24100
+PettyCashVoucher5.2.module_code=64

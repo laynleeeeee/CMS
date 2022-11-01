@@ -1,0 +1,129 @@
+<project name="CMS" basedir="." default="package">  
+	 <!-- PROJECT SETTINGS -->  
+	<property name="project.name" value="cbs" />  
+	<property name="project.war" value="${project.name}.war" />  
+
+	<!-- FIXED PATHS -->  
+	<property name="path.build" value="build" />
+	<property name="path.sources" value="src" />
+	<property name="path.classes" value="build/WEB-INF/classes" />  
+	<property name="path.dist" value="dist" />  
+	<property name="path.lib" value="WebContent/WEB-INF/lib" /> 
+	<property name="path.lib.tomcat" value="../tomcat7/lib"/>
+	<property name="path.web" value="WebContent" /> 
+	<property name="path.web.resource" value="WebContent/WEB-INF/CMS/" />
+	
+	<property name="path.jasper" value="WebContent/WEB-INF/CMS/jasper"/>
+	<property name="path.jrxml" value="WebContent/WEB-INF/CMS/jrxml"/>
+	
+	<!-- Common paths -->
+	<property name="path.web.common.image" value="WebContent/images"/>
+	<property name="path.web.common.css" value="WebContent/css"/>
+	<property name="path.web.common.js" value="WebContent/js"/>
+	<property name="path.web.configuration" value="WebContent/WEB-INF"/>
+	<property name="path.common.classes" value="build/eulap/common"/>
+    <!-- CLEAN -->  
+    <target name="clean">  
+        <echo message="CLEANING PROJECT" />  
+        <delete includeemptydirs="true" failonerror="false">  
+            <fileset dir="${path.build}" />  
+            <fileset dir="${path.dist}" />
+            <fileset dir="${path.jasper}" />
+        </delete>
+    	<mkdir dir="${path.classes}" />  
+    	<mkdir dir="${path.dist}" />
+    	<mkdir dir="${path.jasper}" />
+    </target>  
+   <path id="classpath">
+		<pathelement location="${path.classes}"/>
+		<fileset dir="${path.lib}" erroronmissingdir="false">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${path.lib.tomcat}" erroronmissingdir="false">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	<target name="jasper" depends="clean">
+	    <echo message="COMPILING JRXML files" />   
+       <taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask"> 
+			<classpath refid="classpath"/>
+		</taskdef>
+		
+       <jrc destdir="${path.jasper}"
+			tempdir="${path.jasper}"
+			keepjava="false">
+			<src>
+				<fileset dir="${path.jrxml}">
+					<include name="**/*.jrxml"/>
+				</fileset>
+			</src>
+			<classpath refid="classpath"/>
+		</jrc>
+	</target>
+	
+    <!-- COMPILE -->  
+    <target name="compile" depends="jasper">  
+        <echo message="COMPILING PROJECT" />   
+  
+        <javac srcdir="${path.sources}"  
+         destdir="${path.classes}"  
+         debug="true">  
+         	<classpath refid="classpath"/>
+        </javac> 
+    </target> 
+
+	<target name="lib" depends="compile">
+	    <copy todir="${path.classes}/META-INF/" includeEmptyDirs="yes">
+	        <fileset dir="${path.web}/META-INF/">
+	            <filename name="**/*.xml" />
+	        </fileset>
+	    </copy>
+	    <copy todir="${path.classes}/META-INF/resources/WEB-INF/CMS/" includeEmptyDirs="yes">
+	        <fileset dir="${path.web.resource}" >
+                <exclude name="**/*.jrxml" />
+            </fileset>
+	    </copy>
+	    <jar destfile="${path.dist}/elasticbook.jar" basedir="${path.classes}" >
+	         <exclude name="**/*.properties" />
+	    </jar>
+	    <jar destfile="${path.dist}/elasticbook.jar" basedir="${path.classes}" >
+	         <exclude name="**/*.form" />
+	    </jar>
+	</target>  
+	
+    <!-- PACKAGE -->  
+    <target name="package" depends="lib">  
+        <echo message="PACKAGING PROJECT" />  
+        <copy todir="${path.build}" includeEmptyDirs="yes"> 
+            <fileset dir="${path.web}" >
+                <exclude name="**/*.jrxml" />
+            </fileset> 
+        </copy>
+        <copy todir="${path.build}/WEB-INF/classes">  
+            <fileset dir="${path.sources}">  
+                <filename name="**/*.properties" />  
+            </fileset>
+            <fileset dir="${path.sources}">  
+                <filename name="**/*.form" />  
+            </fileset>
+            <fileset dir="${path.sources}">  
+                <filename name="**/*.incomestatement" />  
+            </fileset>
+            <fileset dir="${path.sources}">  
+                <filename name="**/*.balancesheet" />  
+            </fileset>
+        	<fileset dir="${path.sources}">  
+                <filename name="**/*.xml" />  
+            </fileset>
+        </copy>
+        <copy todir="${path.build}/WEB-INF/lib"  
+         includeEmptyDirs="yes">  
+            <fileset dir="${path.lib}" />  
+        </copy>  
+        <war destfile="${path.dist}/${project.war}"  
+         basedir="${path.build}"/>
+    	<delete includeemptydirs="true" failonerror="false">  
+            <fileset dir="${path.build}" />  
+        </delete>
+    </target>  
+</project>

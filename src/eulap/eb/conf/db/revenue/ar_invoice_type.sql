@@ -1,0 +1,9 @@
+
+-- Description	: SQL script that will create AR_INVOICE_TYPE table
+
+CREATE TABLE AR_INVOICE_TYPE (
+	AR_INVOICE_TYPE_ID int(10) unsigned NOT NULL AUTO_INCREMENT,
+	NAME varchar(50) NOT NULL,
+	ACTIVE tinyint(1) NOT NULL,
+	PRIMARY KEY (AR_INVOICE_TYPE_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

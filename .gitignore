@@ -1,0 +1,6 @@
+/build/*
+*.class
+/dist/*
+*.jasper
+/WebContent/WEB-INF/CMS/jasper/*
+/build

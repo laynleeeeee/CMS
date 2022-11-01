@@ -1,0 +1,20 @@
+
+#Description: Petty Cash Voucher Liquidation - Central
+
+PettyCashVoucherLiquidation1.typeId=1
+PettyCashVoucherLiquidation1.form=pettyCashVoucherLiquidation/viewForm
+PettyCashVoucherLiquidation1.edit=petty_cash_voucher_liquidation_central_edit
+PettyCashVoucherLiquidation1.print=pettyCashVoucherLiquidation/pdf
+PettyCashVoucherLiquidation1.service=eulap.eb.service.PettyCashVoucherLiquidationService
+PettyCashVoucherLiquidation1.oo.parent_to_child=1
+PettyCashVoucherLiquidation1.flow=1;2
+PettyCashVoucherLiquidation1.1.statusId=31
+PettyCashVoucherLiquidation1.1.required=
+PettyCashVoucherLiquidation1.1.next=2
+PettyCashVoucherLiquidation1.1.product_code=24133
+PettyCashVoucherLiquidation1.1.module_code=8
+PettyCashVoucherLiquidation1.2.statusId=1
+PettyCashVoucherLiquidation1.2.required=3
+PettyCashVoucherLiquidation1.2.next=0
+PettyCashVoucherLiquidation1.2.product_code=24133
+PettyCashVoucherLiquidation1.2.module_code=64

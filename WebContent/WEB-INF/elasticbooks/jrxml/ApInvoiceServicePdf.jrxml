@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GemmaApInvoiceServicePdf" pageWidth="612" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="supplier" class="java.lang.String"/>
+	<parameter name="supplierAddress" class="java.lang.String"/>
+	<parameter name="supplierTin" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<parameter name="invoiceNumber" class="java.lang.String"/>
+	<parameter name="invoiceDate" class="java.util.Date"/>
+	<parameter name="glDate" class="java.util.Date"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="sequenceNumber" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="formDate" class="java.util.Date"/>
+	<parameter name="formName" class="java.lang.String"/>
+	<parameter name="companyContactNo" class="java.lang.String"/>
+	<parameter name="printDate" class="java.lang.String"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="createdDate" class="java.util.Date"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="verifiedBy" class="java.lang.String"/>
+	<parameter name="verifiedDate" class="java.util.Date"/>
+	<parameter name="verifierPosition" class="java.lang.String"/>
+	<parameter name="approverName" class="java.lang.String"/>
+	<parameter name="birLogo" class="java.lang.String"/>
+	<parameter name="companyZipCode" class="java.lang.String"/>
+	<parameter name="supplierZipCode" class="java.lang.String"/>
+	<parameter name="hasWtax" class="java.lang.Boolean"/>
+	<parameter name="birFormSignatory" class="java.lang.String"/>
+	<parameter name="birFormTin" class="java.lang.String"/>
+	<parameter name="birFormPosition" class="java.lang.String"/>
+	<field name="apInvoiceItemDtos" class="java.util.List"/>
+	<field name="cocTaxDtos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100"/>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierTin">
+					<subreportParameterExpression><![CDATA[$P{supplierTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="formName">
+					<subreportParameterExpression><![CDATA[$P{formName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printDate">
+					<subreportParameterExpression><![CDATA[$P{printDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceNumber">
+					<subreportParameterExpression><![CDATA[$P{invoiceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorPosition">
+					<subreportParameterExpression><![CDATA[$P{creatorPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sequenceNumber">
+					<subreportParameterExpression><![CDATA[$P{sequenceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="formDate">
+					<subreportParameterExpression><![CDATA[$P{formDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyContactNo">
+					<subreportParameterExpression><![CDATA[$P{companyContactNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="verifiedDate">
+					<subreportParameterExpression><![CDATA[$P{verifiedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdBy">
+					<subreportParameterExpression><![CDATA[$P{createdBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAddress">
+					<subreportParameterExpression><![CDATA[$P{supplierAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="verifierPosition">
+					<subreportParameterExpression><![CDATA[$P{verifierPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="description">
+					<subreportParameterExpression><![CDATA[$P{description}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="glDate">
+					<subreportParameterExpression><![CDATA[$P{glDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdDate">
+					<subreportParameterExpression><![CDATA[$P{createdDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approverName">
+					<subreportParameterExpression><![CDATA[$P{approverName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="verifiedBy">
+					<subreportParameterExpression><![CDATA[$P{verifiedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{apInvoiceItemDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ApInvoiceService.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="101">
+			<printWhenExpression><![CDATA[$P{hasWtax}]]></printWhenExpression>
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="1" width="612" height="100"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdBy">
+					<subreportParameterExpression><![CDATA[$P{birFormSignatory}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierTin">
+					<subreportParameterExpression><![CDATA[$P{supplierTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAddress">
+					<subreportParameterExpression><![CDATA[$P{supplierAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorTin">
+					<subreportParameterExpression><![CDATA[$P{birFormTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyZipCode">
+					<subreportParameterExpression><![CDATA[$P{companyZipCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorPosition">
+					<subreportParameterExpression><![CDATA[$P{birFormPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierZipCode">
+					<subreportParameterExpression><![CDATA[$P{supplierZipCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cocTaxDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307_2018.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="101">
+			<printWhenExpression><![CDATA[$P{hasWtax}]]></printWhenExpression>
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="1" width="612" height="100"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307Back.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

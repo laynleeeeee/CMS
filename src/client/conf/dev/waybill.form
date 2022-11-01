@@ -1,0 +1,26 @@
+
+#Description: Waybill form workflow and report configuration file
+
+DeliveryReceipt2.typeId=1
+DeliveryReceipt2.form=deliveryReceipt/2/view
+DeliveryReceipt2.edit=waybill_edit
+DeliveryReceipt2.print=deliveryReceipt/2/pdf
+DeliveryReceipt2.service=eulap.eb.service.DeliveryReceiptService
+DeliveryReceipt2.oo.parent_to_child=1
+DeliveryReceipt2.oo.child_to_child=12009
+DeliveryReceipt2.flow=1;2;3
+DeliveryReceipt2.1.statusId=1
+DeliveryReceipt2.1.required=
+DeliveryReceipt2.1.next=2
+DeliveryReceipt2.1.product_code=12007
+DeliveryReceipt2.1.module_code=8
+DeliveryReceipt2.2.statusId=3
+DeliveryReceipt2.2.required=1
+DeliveryReceipt2.2.next=3
+DeliveryReceipt2.2.product_code=12007
+DeliveryReceipt2.2.module_code=16
+DeliveryReceipt2.3.statusId=28
+DeliveryReceipt2.3.required=2
+DeliveryReceipt2.3.next=0
+DeliveryReceipt2.3.product_code=12007
+DeliveryReceipt2.3.module_code=32

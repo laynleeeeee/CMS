@@ -1,0 +1,138 @@
+/**
+*CSS for Elasticbooks School
+
+*/
+@CHARSET "UTF-8";
+
+.container {
+    height: 100%;
+    width: 95%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr.thin{
+	width:100%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 90%);
+	height: 1px;
+	align: center;
+}
+
+.frmField_set {
+	background-color: #fff;
+ 	color: black;
+	width: 1000px;
+	padding: 4px;
+	text-align: left;
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: small;
+	font-weight: bold;
+/* 	margin-left: 100px; */
+
+}
+
+.formDiv{
+	background-color: #fff;
+	width: 100%;
+}
+
+.modForm {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 40px;
+}
+
+.modFormLabel{
+	color: black;
+	padding: 4px;
+	text-align: left;
+	font-family: sans-serif;
+	font-style: normal;
+	border-bottom: 1px solid #909090;
+	background-color: #F8F8F8;
+	text-indent: 30px;
+}
+
+.labels{
+	text-align: right;
+	width: 180px;
+	font-size: small;
+}
+
+.value{
+	text-align: left;
+	padding-left: 15px;
+	font-size: small;
+}
+
+.frmSelectClass {
+	border: 1px solid gray;
+	padding: 4px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #0000;
+	width: 350px;
+}
+
+.frmMediumSelectClass {
+	border: 1px solid gray;
+	padding: 4px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #0000;
+	width: 220px;
+}
+
+.frmSmallSelectClass {
+	border: 1px solid gray;
+	padding: 4px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #0000;
+	width: 172px;
+}
+
+.input{
+	border: 1px solid gray;
+	padding: 3px;
+	width: 350px;
+}
+
+.inputSmall{
+	border: 1px solid gray;
+	padding: 4px;
+	width: 172px;
+}
+
+input.dateClass2 {
+	border: 1px solid gray;
+	padding: 3px;
+	width: 100px;
+}
+
+input.standard {
+	border: 1px solid gray;
+	padding: 3px;
+	width: 175px;
+}
+
+input.numeric {
+	border: 1px solid gray;
+	text-align: right;
+	padding: 3px;
+	width: 88px;
+}
+
+input.year {
+	border: 1px solid gray;
+	text-align: right;
+	padding: 3px;
+	width: 40px;
+}
+
+.textBoxLabel {
+	border: none;
+}

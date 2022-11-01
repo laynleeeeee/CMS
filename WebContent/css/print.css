@@ -1,0 +1,114 @@
+/**
+*Cascading style sheet for printing. 
+
+*/
+@CHARSET "UTF-8";
+
+.printStyle {
+	width: 100%;
+	border-color: black;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+	font-size: 13px;
+}
+
+.printStyle thead, .dataTable th {
+	background: graytext;
+	color: #000000;
+}
+
+.printStyle thead, .printStyle th, .printStyle tbody, .printStyle td {
+	padding: 2px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.printStyle td {
+	height: 25px;
+}
+
+.printStyle tr.highlight td {
+	background-color: #F0F0F0;
+}
+
+.printReportHeader {
+	font-size: 14px;
+	width: 100%;
+}
+
+.printSummaryTotal {
+	font-style: inherit;
+	font-weight: bold;
+}
+
+.printStyle td.numberClass {
+	text-align: right;
+}
+
+.printStyle td.timeClass {
+	text-align: right;
+}
+
+.status {
+	text-align: center;
+}
+
+.printStyle td table, .printStyle td table tbody, .printStyle td table td {
+    border:none;
+}
+
+@media print {
+	#controls {
+		display: none;
+	}
+	
+	.printStyle {
+		width: 100%;
+		border-color: black;
+		border-collapse: collapse;
+		border-right: 1px solid black;
+		font-size: 13px;
+	}
+	
+	.printStyle thead, .dataTable th {
+		background: graytext;
+		color: #000000;
+	}
+	
+	.printStyle thead, .printStyle th, .printStyle tbody, .printStyle td {
+		padding: 2px;
+		border-top: 1px solid black;
+		border-left: 1px solid black;
+		border-bottom: 1px solid black;
+		border-right: 1px solid black;
+	}
+
+	.printStyle td {
+		height: 25px;
+	}
+	
+	.printReportHeader {
+		font-size: 14px;
+		width: 100%;
+	}
+	.printReportHeader {
+	font-size: 14px;
+	width: 100%;
+	}
+	
+	.printSummaryTotal {
+		font-style: inherit;
+		font-weight: bold;
+	}
+	.printStyle td.numberClass {
+		text-align: right;
+	}
+	.printStyle td.timeClass {
+		text-align: right;
+	}
+	.status {
+		text-align: center;
+	}
+}

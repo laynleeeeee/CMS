@@ -1,0 +1,21 @@
+
+#Description: Sales order - NSB 5 form workflow and journal entries configuration
+
+SalesOrder4.typeId=1
+SalesOrder4.form=salesOrder/viewForm
+SalesOrder4.edit=sales_order_nsb5_edit
+SalesOrder4.print=salesOrder/printout
+SalesOrder4.service=eulap.eb.service.SalesOrderService
+SalesOrder4.oo.parent_to_child=1
+SalesOrder4.oo.child_to_child=12002
+SalesOrder4.flow=1;2
+SalesOrder4.1.statusId=1
+SalesOrder4.1.required=
+SalesOrder4.1.next=2
+SalesOrder4.1.product_code=24043
+SalesOrder4.1.module_code=8
+SalesOrder4.2.statusId=30
+SalesOrder4.2.required=1
+SalesOrder4.2.next=0
+SalesOrder4.2.product_code=24043
+SalesOrder4.2.module_code=16

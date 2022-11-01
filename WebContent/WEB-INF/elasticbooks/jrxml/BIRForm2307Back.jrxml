@@ -1,0 +1,3328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BIRForm2307Back" pageWidth="612" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="576" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18">
+	<property name="ireport.zoom" value="0.6830134553651354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="900">
+			<frame>
+				<reportElement x="0" y="0" width="576" height="848"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="576" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SCHEDULES OF ALPHANUMERIC TAX CODES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="15" width="496" height="18" backcolor="#C0C0C0"/>
+					<box leftPadding="3">
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[A. Income Payments subject to Expanded Withholding Tax]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="496" y="24" width="40" height="9"/>
+					<box>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="7" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IND]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="536" y="24" width="40" height="9"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="7" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CORP]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="496" y="15" width="80" height="9"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="7" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ATC]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="32" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[1]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="1" width="40" height="16"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 010]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="409" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 011]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Professional/talent fees paid to juridical persons/individuals (lawyers, CPAs, etc.)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 011]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="56" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[2]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 020]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 021]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Professional entertainers-]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="80" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[3]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 030]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="0" width="40" height="17" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 031]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Professional athletes-]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="104" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[4]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 040]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 041]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Movie, stage, radio, television and musical directors-]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="128" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[5]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 050]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 051]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Management & technical consultants]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="152" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[6]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 060]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 061]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Bookkeeping agents and agencies]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="176" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[7]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 070]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="15" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 071]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Insurance agents & insurance adjusters]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="200" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[8]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 080]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 081]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Other recipient of talents fees-]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="224" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[9]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 090]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="409" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 091]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Fees of directors who are not employee of the company]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="248" width="576" height="57"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="15" y="24" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Income distribution for beneficiaries of estates & trusts]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="32" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Gross commission or service fees of customs, insurance, stock, real estate, immigration & commercial brokers]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="48" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<pen lineWidth="0.5"/>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments to medical practitioners thru a duly registered professional partnership]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[10]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Rentals - Real Properties and Personal Properties, Poles, Satellites and Transmission facilities and Billboards]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Cinematographic film rentals]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Prime contractors/Sub-contractors]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[11]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[12]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="24" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[13]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="32" width="15" height="16"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[14]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="48" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[15]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="39" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[& fees of agents of professional entertaineres]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 100]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 110]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 120]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 130]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="32" width="40" height="16"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 140]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="48" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 141]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 100]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 110]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 120]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="32" width="40" height="16"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 140]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="48" width="40" height="9" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="304" width="576" height="33"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[16]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="24" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="1" width="40" height="24"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 151]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="24" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments for medical/dental veterinary services thru hospitals/clinics/health maintenance organizations including]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[direct payments to service providers]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 150]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="25" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="336" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[17]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 152]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="16" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="8" width="461" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income does not exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="35" y="16" width="461" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[-if current year's gross income exceed P720,000.00]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 153]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="17" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payment to partners in general professional partnership]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="360" width="576" height="49"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="15" y="24" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments made by top 10,000 private corporations to their local/resident suppliers of goods]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="32" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments made by top 10,000 private corporations to their local/residents suppliers of services]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="40" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<pen lineWidth="0.5"/>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Additional payments to gov't. personnel from importers, shipping and airline companies or their agents]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[18]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Income payments made by credit card companies to any business entity]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Income payments made by the government to its local/resident suppliers of goods]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments made by government offices on their purchases of goods and services from local/resident suppliers]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[19]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[20]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="24" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[21]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="32" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[22]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="40" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[23]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 156]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 156]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 640]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 640]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 157]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 157]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 158]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 158]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="32" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 160]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="32" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 160]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="41" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="40" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 159]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="408" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="25"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[24]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="1" width="40" height="24"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 515]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="0" width="40" height="25"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 115]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[distributors, medical/technical and sales representatives and marketing agents and sub-agents of]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[multi-level marketing companies]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Comissions, rebates, discounts, and other similar considerations paid/granted to independent and exclusive]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="432" width="576" height="25"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[25]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Gross payments made to suppliers of agricultural products]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Payments made by pre-need companies to funeral parlors]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tolling fee paid to refineries]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[26]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[27]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 530]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="536" y="1" width="40" height="8" backcolor="#C0C0C0"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 535]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 535]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 540]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 540]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="457" width="576" height="33"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="32"/>
+						<box leftPadding="3"/>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[28]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 555]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 555]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="172" y="8" width="324" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="172" y="0" width="324" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[1.5%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 557]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 557]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="157" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Sale of Real Property (Ordinary Asset)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="172" y="24" width="324" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="172" y="16" width="324" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[1.5%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 556]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 556]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 558]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 558]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="489" width="576" height="26"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[29]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Income payments made to suppliers of agricultural products]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Interest payments by any person other than those subject to final tax]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Income payments on purchase of minerals, mineral products & quarry resources]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[30]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[31]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 610]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="0" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 610]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 620]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 620]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WI 630]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="536" y="16" width="40" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WC 630]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="514" width="576" height="13" backcolor="#C0C0C0"/>
+					<box leftPadding="13">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement>
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[B. Money Payments Subject to Withholding of Business Tax by Government Payor only]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="526" width="576" height="50"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[32]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on carriers and keepers of garages]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Franchise Tax on Gas and Water Utilities]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Franchise Tax on radio & TV broadcasting companies whose annual gross receipts does not exceed P10M]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[33]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="17"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[34]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 030]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 040]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="80" height="17"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 050]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="33" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[35]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="33" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on life insurance premiuims]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="41" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Overseas Dispatch, Message or Conversation originating from the Phils.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="41" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[36]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="33" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 070]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="41" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 090]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="24" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[     and who are not Value-Added Tax registered taxpayers]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="575" width="576" height="74"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="496" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Banks and Non-Bank Financial Intermediaries Performing Quasi-Banking Functions]]></text>
+					</staticText>
+					<frame>
+						<reportElement x="0" y="9" width="576" height="33"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[37]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="15" y="0" width="481" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[A. On interest, commissions and discounts from lending activities as well as income from financial leasing, on the basis]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="25" y="8" width="471" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[basis of the remaining maturities of instruments from which such receipts are derived]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="24" width="219" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[- Maturity period is more than five yeras]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="16" width="219" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[- Maturity period is five years or less]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="24" width="80" height="9"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 303]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="24" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[1%]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="16" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[5%]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="2" width="80" height="23"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 301]]></text>
+						</staticText>
+					</frame>
+					<frame>
+						<reportElement x="0" y="41" width="576" height="17"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[38]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="15" y="0" width="481" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[Tax on royalties, rentals of property, real or personal, profits from exchange & all other items treated as gross income]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="25" y="8" width="259" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[under Section 32 of the code]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="1" width="80" height="16"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 103]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="8" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[7%]]></text>
+						</staticText>
+					</frame>
+					<frame>
+						<reportElement x="0" y="57" width="576" height="17"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[39]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="15" y="0" width="481" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[On net trading gains within the taxable year on foreign currency, debt securities, derivatives, and other]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="25" y="8" width="259" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[financial instruments]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="0" width="80" height="17"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 104]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="8" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[7%]]></text>
+						</staticText>
+					</frame>
+					<staticText>
+						<reportElement x="496" y="1" width="80" height="10"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="648" width="576" height="50"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="496" height="9" isPrintWhenDetailOverflows="true"/>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Banks and Non-Bank Financial Intermediaries Performing Quasi-Banking Functions]]></text>
+					</staticText>
+					<frame>
+						<reportElement x="0" y="9" width="576" height="33"/>
+						<staticText>
+							<reportElement x="0" y="16" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[40]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="15" y="0" width="481" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[A. On iterest, commissions and discounts from lending activities as well as income from financial leasing, on the basis]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="29" y="8" width="467" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[of the remaining maturities of instruments from which such receipts are derived]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="24" width="219" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[- Maturity period is more than five years]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="65" y="16" width="219" height="9" isPrintWhenDetailOverflows="true"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[- Maturity period is five years or less]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="16" width="80" height="9"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 108]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="0" y="24" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[41]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="16" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[5%]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="24" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[1%]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="24" width="80" height="9"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 109]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="0" width="80" height="17"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+					<frame>
+						<reportElement x="0" y="41" width="576" height="9"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="9"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font fontName="Arial" size="7" isBold="true"/>
+							</textElement>
+							<text><![CDATA[42]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="15" y="0" width="269" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[B. On all other items treated as gross income under the code]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="496" y="0" width="80" height="9"/>
+							<box>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[WB 110]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="284" y="0" width="212" height="9"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement>
+								<font fontName="Arial" size="7"/>
+							</textElement>
+							<text><![CDATA[5%]]></text>
+						</staticText>
+					</frame>
+					<staticText>
+						<reportElement x="496" y="1" width="80" height="8"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="697" width="576" height="106"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="15" y="24" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Cockpits]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="32" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Cabaret, night and day club]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="40" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<pen lineWidth="0.5"/>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Boxing exhibitions]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[43]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="269" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Business Tax on Agents of foreign insurance co.- insurance agents]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="269" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Business Tax on Agents of foreign insurance co.- owner of the property]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on International Carrieres]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[44]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[45]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="24" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[46]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="32" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[47]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="40" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[48]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 120]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 121]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 130]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 140]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="32" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 150]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="40" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 160]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="72" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on shares of stock sold or exchanged through initial and scondary public offering]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="38" y="80" width="180" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[- Not over 25%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="38" y="88" width="180" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<pen lineWidth="0.5"/>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[- Over 25% but not exceeding 33 1/3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="48" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[49]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="48" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on Professional basketball games]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="56" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on jai-alai and race tracks]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="64" width="481" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Tax on sale, barter or exchange of stocks listed & traded through Local Stock Exchange]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="56" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[50]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="64" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[51]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="72" width="15" height="34"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[52]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="48" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 170]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="56" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 180]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="64" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 200]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="73" width="80" height="16"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 201]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="88" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 202]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="38" y="97" width="180" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[- Over 33 1/3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="97" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 203]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="284" y="0" width="212" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[10%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="284" y="8" width="212" height="9"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[5%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="218" y="97" width="278" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[1%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="218" y="88" width="278" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[2%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="218" y="80" width="278" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[4%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="81" width="23" height="25"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="815" width="576" height="33"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="15" y="24" width="352" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Vat Withholding on Purchase of Services (with waiver of privilege to claim input tax credits)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="0" width="352" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Person exempt from VAT under Sec. 109(v) (Government withholding agent)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="8" width="352" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Person exempt from VAT under Sec. 109(v)(Private withholding agency)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="16" width="352" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[Vat Withholding on Purchase of Goods (with waiver of privilege to claim input tax credits)]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="8" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[54]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="24" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[56]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="367" y="0" width="129" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="367" y="8" width="129" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[3%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="367" y="24" width="129" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[10%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="367" y="16" width="129" height="9" isPrintWhenDetailOverflows="true"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[10%]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="1.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[53]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="16" width="15" height="9"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[55]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="0" width="80" height="9"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 080]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="8" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WB 082]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="16" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WV 012]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="24" width="80" height="9"/>
+						<box>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font fontName="Arial" size="7"/>
+						</textElement>
+						<text><![CDATA[WV 022]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="802" width="576" height="14" backcolor="#C0C0C0"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="406" height="13" backcolor="#C0C0C0"/>
+						<box leftPadding="3">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement>
+							<font fontName="Arial" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[C. Money Payments Subject to Withholding of Business Tax by Government or Private Payors]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="406" y="0" width="157" height="13"/>
+						<box leftPadding="3" bottomPadding="4">
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textElement verticalAlignment="Bottom">
+							<font fontName="Arial" size="7" isBold="true"/>
+						</textElement>
+						<text><![CDATA[(Individual & Corporate)]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement x="536" y="33" width="40" height="16"/>
+					<box>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<text><![CDATA[WC 010]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

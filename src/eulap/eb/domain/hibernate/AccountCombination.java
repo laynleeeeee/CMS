@@ -1,0 +1,225 @@
+package eulap.eb.domain.hibernate;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import eulap.common.domain.BaseDomain;
+
+/**
+ * A class that represents the ACCOUNT_COMBINATION table.
+
+ *
+ */
+@Entity
+@Table(name = "ACCOUNT_COMBINATION")
+public class AccountCombination extends BaseDomain {
+	private int accountId;
+	private int companyId;
+	private int divisionId;
+	private boolean active;
+	private Company company;
+	private Account account;
+	private Division division;
+	private String combination;
+	private int serviceLeaseKeyId;
+
+	public enum FIELD {id, number, active, accountId, companyId, divisionId, company, account, division, serviceLeaseKeyId}
+
+	@Id
+	@Override
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator (name = "increment", strategy = "increment")
+	@Column (name = "ACCOUNT_COMBINATION_ID", unique = true, nullable = false, insertable = false, updatable = false)
+	public int getId() {
+		return super.getId();
+	}
+
+	@Override
+	@Column(name = "CREATED_BY")
+	public int getCreatedBy() {
+		return super.getCreatedBy();
+	}
+
+	@Override
+	@Column(name = "CREATED_DATE")
+	public Date getCreatedDate() {
+		return super.getCreatedDate();
+	}
+
+	@Override
+	@Column(name = "UPDATED_BY")
+	public int getUpdatedBy() {
+		return super.getUpdatedBy();
+	}
+
+	@Override
+	@Column(name = "UPDATED_DATE")
+	public Date getUpdatedDate() {
+		return super.getUpdatedDate();
+	}
+
+	/**
+	 * Get the account id of the combination.
+	 * @return The account id.
+	 */
+	@Column(name="ACCOUNT_ID")
+	public int getAccountId() {
+		return accountId;
+	}
+
+	/**
+	 * Set the account id.
+	 * @param accountId The account id to be set.
+	 */
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
+
+	/**
+	 * Get the company id of the combination.
+	 * @return The company id.
+	 */
+	@Column(name="COMPANY_ID")
+	public int getCompanyId() {
+		return companyId;
+	}
+
+	/**
+	 * Set the company id.
+	 * @param companyId The company id to be set.
+	 */
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
+	}
+
+	/**
+	 * Get the division id of the combination.
+	 * @return The division id.
+	 */
+	@Column(name="DIVISION_ID")
+	public int getDivisionId() {
+		return divisionId;
+	}
+
+	/**
+	 * Set the division id.
+	 * @param divisionId The division id to be set.
+	 */
+	public void setDivisionId(int divisionId) {
+		this.divisionId = divisionId;
+	}
+
+	/**
+	 * Check if the combination is active or inactive.
+	 * @return Return True, otherwise false.
+	 */
+	@Column(name="ACTIVE")
+	public boolean isActive() {
+		return active;
+	}
+
+	/**
+	 * Set the combination status to active or inactive.
+	 * @param active True or false.
+	 */
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	/**
+	 * Get the company object associated with account combination.
+	 * @return The company object.
+	 */
+	@ManyToOne
+	@JoinColumn(name="COMPANY_ID", insertable=false, updatable=false)
+	public Company getCompany() {
+		return company;
+	}
+
+	/**
+	 * Set the company object.
+	 * @param company the company object.
+	 */
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	/**
+	 * Get the account object associated with account combination.
+	 * @return The account object.
+	 */
+	@ManyToOne
+	@JoinColumn(name="ACCOUNT_ID", insertable=false, updatable=false)
+	public Account getAccount() {
+		return account;
+	}
+
+	/**
+	 * Set the account object associated with account combination.
+	 * @param account The account object.
+	 */
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	/**
+	 * Get the division object associated with account combination.
+	 * @return The division object.
+	 */
+	@ManyToOne
+	@JoinColumn(name="DIVISION_ID", insertable=false, updatable=false)
+	public Division getDivision() {
+		return division;
+	}
+
+	/**
+	 * Set the division object.
+	 * @param division The division object.
+	 */
+	public void setDivision(Division division) {
+		this.division = division;
+	}
+
+	@Column(name = "EB_SL_KEY_ID", columnDefinition="INT(10)")
+	public int getServiceLeaseKeyId() {
+		return serviceLeaseKeyId;
+	}
+
+	public void setServiceLeaseKeyId(int serviceLeaseKeyId) {
+		this.serviceLeaseKeyId = serviceLeaseKeyId;
+	}
+
+	@Override
+	public String toString() {
+		return "AccountCombination [accountId=" + accountId + ", companyId="
+				+ companyId + ", divisionId=" + divisionId + ", active="
+				+ active + ", company=" + company + ", account=" + account
+				+ ", division=" + division + ", getId()=" + getId()
+				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedDate()="
+				+ getCreatedDate() + ", getUpdatedBy()=" + getUpdatedBy()
+				+ ", getUpdatedDate()=" + getUpdatedDate() + "]";
+	}
+
+	/**
+	 * Get the combination string generated by company number
+	 * @return The combination string.
+	 */
+	@Transient
+	public String getCombination() {
+		return combination;
+	}
+
+	public void setCombination(String combination) {
+		this.combination = combination;
+	}
+}

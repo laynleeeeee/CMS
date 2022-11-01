@@ -1,0 +1,9 @@
+
+-- Description: Insert script TRANSACTION_CLASSIFICATION for CMS clean db.
+
+-- TRANSACTION_CLASSIFICATION
+SYSTEM echo 'Inserting TRANSACTION_CLASSIFICATION'; 
+INSERT INTO `TRANSACTION_CLASSIFICATION` VALUES 
+(1,1,'Regular Transaction',1,1,NOW(),1,NOW()),
+(2,1,'Debit Memo',1,1,NOW(),1,NOW()),
+(3,1,'Credit Memo',1,1,NOW(),1,NOW());

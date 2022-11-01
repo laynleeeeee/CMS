@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IncomeStatementByDivision" pageWidth="2160" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="2120" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.6105100000000179"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="27"/>
+	<subDataset name="total">
+		<field name="amount" class="java.lang.Double"/>
+		<field name="divisionId" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="division">
+		<field name="name" class="java.lang.String"/>
+		<field name="id" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="revenueAccountType" class="java.lang.String"/>
+	<parameter name="directCostAccountType" class="java.lang.String"/>
+	<parameter name="operatingExpenseAccountType" class="java.lang.String"/>
+	<parameter name="grossProfitLb" class="java.lang.String"/>
+	<parameter name="netIncomeLb" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="operatingIncomeLb" class="java.lang.String"/>
+	<field name="revenues" class="java.util.List"/>
+	<field name="directCost" class="java.util.List"/>
+	<field name="operatingExpense" class="java.util.List"/>
+	<field name="grossProfit" class="java.util.List"/>
+	<field name="netIncome" class="java.util.List"/>
+	<field name="divisions" class="java.util.List"/>
+	<field name="operatingIncome" class="java.util.List"/>
+	<field name="otherIncome" class="java.util.List"/>
+	<field name="otherExpense" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="75" y="78" width="572" height="21" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="75" y="18" width="572" height="14" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="75" y="99" width="572" height="16"/>
+				<box leftPadding="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="75" y="0" width="572" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Left" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="0" y="0" width="75" height="75" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA["../../images/logo/"+$P{companyLogo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="36">
+			<componentElement>
+				<reportElement positionType="Float" x="245" y="21" width="130" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="division">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{divisions})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="130">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="130" height="15"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.0"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement textAlignment="Center">
+								<font fontName="Arial" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{revenues})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISBSType.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="31">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{directCost})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISBSType.jasper"]]></subreportExpression>
+			</subreport>
+			<componentElement>
+				<reportElement positionType="Float" x="245" y="15" width="130" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{grossProfit})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="130">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="130" height="15"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="0" y="15" width="245" height="15"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{grossProfitLb}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{operatingExpense})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISBSType.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="30">
+			<componentElement>
+				<reportElement positionType="Float" x="245" y="15" width="130" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{operatingIncome})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="130">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="130" height="15"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="0" y="15" width="245" height="15"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{operatingIncomeLb}]]></textFieldExpression>
+			</textField>
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{otherExpense})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISBSType.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="46">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="39" width="245" height="6"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="245" y="39" width="130" height="7"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{netIncome})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="7" width="130">
+						<staticText>
+							<reportElement positionType="Float" x="0" y="0" width="130" height="7"/>
+							<box>
+								<topPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right" markup="none">
+								<font fontName="Arial" isBold="true"/>
+							</textElement>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{otherIncome})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISBSType.jasper"]]></subreportExpression>
+			</subreport>
+			<componentElement>
+				<reportElement positionType="Float" x="245" y="15" width="130" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{netIncome})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="130">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="130" height="15"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<frame>
+				<reportElement positionType="Float" x="0" y="30" width="245" height="9"/>
+			</frame>
+			<textField>
+				<reportElement positionType="Float" x="0" y="15" width="245" height="15"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{netIncomeLb}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

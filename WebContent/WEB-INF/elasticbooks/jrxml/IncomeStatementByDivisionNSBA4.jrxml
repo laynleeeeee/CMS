@@ -1,0 +1,2829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IncomeStatementByDivisionNSBA4" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="730" leftMargin="92" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0000000000000167"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="dateRange" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="dateTo" class="java.util.Date"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<parameter name="prevYear" class="java.lang.Integer"/>
+	<parameter name="currYear" class="java.lang.Integer"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="printedBy" class="java.lang.String"/>
+	<parameter name="printedDate" class="java.lang.String"/>
+	<field name="consolidatedByDivisionDtos" class="java.util.List"/>
+	<field name="productCostByMonths" class="java.util.List"/>
+	<field name="genAndAdminByMonths" class="java.util.List"/>
+	<field name="salesTotalCentral" class="java.lang.Double"/>
+	<field name="sellingByMonths" class="java.util.List"/>
+	<field name="salesTotalNSB3" class="java.lang.Double"/>
+	<field name="salesTotalNSB4" class="java.lang.Double"/>
+	<field name="salesTotalNSB5" class="java.lang.Double"/>
+	<field name="salesTotalNSB8" class="java.lang.Double"/>
+	<field name="salesTotalNSB8A" class="java.lang.Double"/>
+	<field name="salesGrandTotal" class="java.lang.Double"/>
+	<field name="comparisonDtos" class="java.util.List"/>
+	<field name="monthCount" class="java.lang.Integer"/>
+	<field name="divisionCount" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="112">
+			<textField>
+				<reportElement x="0" y="100" width="730" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dateRange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="730" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{division} == null ? "CONSOLIDATED " : "")+"STATEMENT OF FINANCIAL PERFORMANCE" + ($P{division} != null ? "-" + $P{division} : "")]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="730" height="80"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(8)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="730" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(7)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="37" y="0" width="693" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(6)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="75" y="0" width="655" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(5)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="112" y="0" width="618" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(4)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="150" y="0" width="580" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{divisionCount}.equals(3)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="187" y="0" width="543" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{consolidatedByDivisionDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISConsolidatedByDivisionA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="51">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="26" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="1" width="730" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currYear">
+					<subreportParameterExpression><![CDATA[$P{currYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="prevYear">
+					<subreportParameterExpression><![CDATA[$P{prevYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{comparisonDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISComparisonPerformanceA4.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="125">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="1" width="730" height="80" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeA4.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="81" width="730" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["STATEMENT OF FINANCIAL PERFORMANCE" + ($P{division} != null ? " - " + $P{division} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="113" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Period Covered: " + $P{dateRange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="101" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Details of Production Cost"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(14)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="730" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(13)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="22" y="0" width="708" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(12)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="45" y="0" width="685" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(11)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="67" y="0" width="663" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(10)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="90" y="0" width="640" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(9)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="112" y="0" width="618" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(8)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="135" y="0" width="595" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(7)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="157" y="0" width="573" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(6)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="180" y="0" width="550" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(5)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="202" y="0" width="528" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(4)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="225" y="0" width="505" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(3)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="247" y="0" width="483" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Production Cost"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productCostByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="125">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+			<textField>
+				<reportElement x="0" y="113" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Period Covered: " + $P{dateRange}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="1" width="730" height="80" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeA4.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="81" width="730" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["STATEMENT OF FINANCIAL PERFORMANCE" + ($P{division} != null ? " - " + $P{division} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="101" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Details of Selling Expenses"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(14)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="730" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(13)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="22" y="0" width="708" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(12)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="45" y="0" width="685" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(11)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="67" y="0" width="663" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(10)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="90" y="0" width="640" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(9)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="112" y="0" width="618" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(8)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="135" y="0" width="595" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(7)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="157" y="0" width="573" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(6)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="180" y="0" width="550" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(5)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="202" y="0" width="528" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(4)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="225" y="0" width="505" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(3)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="247" y="0" width="483" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["Selling Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="125">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1"/>
+			</break>
+			<textField>
+				<reportElement x="0" y="113" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Period Covered: " + $P{dateRange}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="1" width="730" height="80" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeA4.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="81" width="730" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["STATEMENT OF FINANCIAL PERFORMANCE" + ($P{division} != null ? " - " + $P{division} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="101" width="730" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Details of General and Administrative"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(14)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="730" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(13)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="22" y="0" width="708" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(12)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="45" y="0" width="685" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(11)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="67" y="0" width="663" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(10)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="90" y="0" width="640" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(9)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="112" y="0" width="618" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(8)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="135" y="0" width="595" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(7)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="157" y="0" width="573" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(6)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="180" y="0" width="550" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(5)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="202" y="0" width="528" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(4)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="225" y="0" width="505" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="22">
+			<printWhenExpression><![CDATA[$F{monthCount}.equals(3)]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="247" y="0" width="483" height="22"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateRange">
+					<subreportParameterExpression><![CDATA[$P{dateRange}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateTo">
+					<subreportParameterExpression><![CDATA[$P{dateTo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTitle">
+					<subreportParameterExpression><![CDATA["Details of General and Administrative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$F{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$F{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA["General & Administrative Expenses"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$F{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminByMonths})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISByMonthsA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

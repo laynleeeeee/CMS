@@ -1,0 +1,109 @@
+/**
+*CSS for Elasticbooks Reports
+
+*/
+@CHARSET "UTF-8";
+
+body,html,.container {
+    height: 100%;
+    padding: 0;
+}
+body,html{
+    background-color: rgb(245, 245, 245);
+}
+.container {
+	height: 100%;
+	min-height: 100%;
+
+    width:900px; 
+    margin:0 auto;
+    padding: 0;
+    font-family: sans-serif;
+	border-left: 1px solid  #E0E0E0 ;
+	border-right: 1px solid  #E0E0E0 ;
+	background-color: white;
+}
+
+/**** Search Forms DIV Section  *****/
+.searchForm {
+    width:900px; 
+    float:left; 
+}
+
+.selectClass {
+	border: 1px solid gray;
+	padding: 4px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #0000;
+	width: 400px;
+}
+
+/**** Main DIV Section  *****/
+.mainArea {
+    width:850px; 
+    float: left;
+    height: 100%;
+    font-family: sans-serif;
+	align: center;
+	margin-left: 26px;
+}
+.frmSelectClass {
+	border: 1px solid gray;
+	padding: 4px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #0000;
+	width: 350px;
+}
+.input{
+	border: 1px solid gray;
+	padding: 3px;
+	width: 350px;
+}
+input.dateClass2 {
+	border: 1px solid gray;
+	padding: 3px;
+	width: 100px;
+}
+td.title2{
+	font-size: small;
+	width: 160px;
+	padding-left: 50px;
+}
+th.propertyName {
+	font-weight: normal;
+	font-size: small;
+	width: 200px;
+	padding-left: 30px;
+}
+td.propertyValue {
+	font-size: small;
+	padding-left: 20px;
+}
+td.numberClass {
+	text-align: right;
+}
+/**** Horizontal Line DIV Section  *****/
+hr.thin{
+	width:98%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 90%);
+	height: 1px;
+	align: center;
+/* 	margin-left: 38px; */
+}
+hr.thin2{
+	width:98%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 90%);
+	height: 1px;
+	align: center;
+}
+hr.med{
+	width:95%; 
+ 	border: none;
+	background-color: hsl(350, 0%, 90%);
+	border-bottom: 1px thin;
+	float: left;
+}

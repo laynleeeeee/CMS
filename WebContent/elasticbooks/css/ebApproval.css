@@ -1,0 +1,239 @@
+/**
+*CSS for Elasticbooks Approval
+
+*/
+@CHARSET "UTF-8";
+
+body,html,.container {
+    height: 100%;
+    padding: 0;
+}
+table { 
+	width: 100%;
+	font-family: sans-serif;
+	border-collapse:collapse
+}
+
+/*** Menu section ***/
+.menuTD {
+	width: 15%;
+	vertical-align: top;
+	border-right: 1px solid  #E0E0E0;
+}
+.appMainMenu {
+	margin-top: 20%;
+	font-size: small;
+	font-family: sans-serif;
+}
+.appMainMenu tr {
+	text-align: left;
+}
+.appTitle {
+	font-size: x-small;
+	font-weight: bold;
+	margin-left: 3%;
+	padding-right: 100px;
+	text-align: left;
+}
+
+.appMenu {
+	text-indent: 10px;
+	font-family: monospace;
+	color: graytext;
+	padding-top: 6px;
+	padding-left: 3px;
+	height: 30px;
+	text-indent: 15px;
+}
+
+.appMenu:HOVER {
+	background-color: rgb(245, 245, 245);
+}
+
+.appMenuSelected {
+	height: 30px;
+	text-indent: 15px;
+	color: #black;
+	padding-left: 3px;
+	font-size: small;
+	font-family: sans-serif;
+	background-color: #E8E8E8;
+}
+
+/*** Main section ***/
+.bodyTD {
+	width: 70%;
+	vertical-align: top;
+}
+.mainResultDiv th.thApp {
+	height: 30px;
+	color: #B8B8B8;
+	text-indent: 15px;
+	text-align: left;
+	background-color: rgb(245, 245, 245);
+}
+.tdApp {
+	text-indent: 15px;
+	font-size: x-small;
+	text-align: left;
+}
+.lineResult{
+	height: 30px;
+	font-size: small;
+	text-indent: 15px;
+	border-top: 1px solid  #E0E0E0;
+	cursor: pointer;
+}
+
+.lineResultHighlight{
+	height: 30px;
+	font-size: small;
+	text-indent: 15px;
+	border-top: 1px solid  #E0E0E0;
+	background-color: #FFF8C6;
+	cursor: pointer;
+}
+
+.searchTextBox {
+	height: 20px;
+	font-size: x-small;
+	text-indent: 15px;
+	border-top: 1px solid  #E0E0E0;
+	background-color: rgb(245, 245, 245);
+	font-weight: bold;
+}
+.lineResult:HOVER {
+	background-color: rgb(245, 245, 245);
+}
+
+/**** Recently posted section  *****/
+.recentTD {
+	width: 15%;
+	vertical-align: top;
+	border-left: 1px solid  #E0E0E0;
+}
+.recentPost {
+    height: 30px;
+	text-indent: 10px;
+	text-align: center;
+	font-style: italic;
+	font-family: monospace;
+	font-size: large;
+	font-weight: bold;
+	color: #B8B8B8;
+	padding-top: 6px;
+}
+.tabSelectedMenu {
+	text-indent: 10px;
+	font-family: monospace;
+	font-size: small;
+	font-weight: bold;
+	padding-top: 6px;
+	color: #black;
+	padding-left: 6px;
+}
+.tabMenu {
+	text-indent: 10px;
+	font-family: monospace;
+	font-size: small;
+	font-weight: bold;
+	color: graytext;
+	padding-top: 6px;
+	padding-left: 6px;
+}
+
+.recentPostProp {
+    height: 100%;
+    min-height: 800px;
+/*     width: 210px; */
+}
+.recTitle{
+	color: #B8B8B8;
+	font-size: small;
+	padding-left: 5px;
+	border-bottom: 1px solid  #E0E0E0;
+}
+.recSMS{
+	font-size: x-small;
+	font-family: sans-serif;
+	padding-left: 50px;
+}
+#tableStatusId {
+	margin-left: 15px;
+}
+
+hr.slim {
+	width:100%; 
+ 	border: 0;
+	background-color: hsla(240, 20%, 50%, 0.5);
+	height: 1px;
+}
+
+.workFlowInput {
+	border: none;
+	background-color: #FFFFFF;
+	background: transparent;
+	border-bottom: solid 1px;
+	text-align: center;
+	font-weight: bold;
+	font-size: small;
+	width: 80%;
+}
+
+.wfLogStatTbl {
+	margin-left: 10%;
+	font-size: x-small;
+	width: 90%;
+}
+
+.processFlowName tr {
+	background-color: white;
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: x-small;
+}
+.descriptionTxtArea {
+	resize: none;
+	height: 75px;
+	width: 290px;
+	text-align: left;
+	border: 1px solid gray;
+	font-family: sans-serif;
+	font-size: small;
+}
+.processFlowName td {
+	align: center;
+}
+.txtApprovalSearchFilter {
+	border: 1px solid gray;
+	padding: 3px;
+	width: 410px;
+}
+.searchTipTitle {
+	font-weight: bold;
+	font-size: x-small;
+	font-family: sans-serif;
+}
+.searchTipDetails {
+	font-size: x-small;
+	font-family: sans-serif;
+}
+.tipClsBtn {
+	float: right;
+	cursor: pointer;
+	cursor: hand;
+}
+#tipDiv {
+	top: 80px; 
+	right:200px; 
+	float:right; 
+	z-index: 1006;
+	padding-right: 25px;
+	background-color: white; 
+	border: 1px solid rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px -4px #131313;
+}
+
+.noDisplay{
+	display: none;
+}

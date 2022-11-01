@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NSBPurchaseOrderPdfMatrix" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.7715610000000206"/>
+	<property name="ireport.x" value="17"/>
+	<property name="ireport.y" value="0"/>
+	<style name="contactPersonFont">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{contactPerson}.length() > 20]]></conditionExpression>
+			<style fontName="Arial" fontSize="8"/>
+		</conditionalStyle>
+	</style>
+	<style name="bmsFont">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{bmsNumber}.length() > 20]]></conditionExpression>
+			<style fontName="Arial" fontSize="8"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="poNumber" class="java.lang.String"/>
+	<parameter name="supplier" class="java.lang.String"/>
+	<parameter name="supplierAddr" class="java.lang.String"/>
+	<parameter name="supplierTelNo" class="java.lang.String"/>
+	<parameter name="contactPerson" class="java.lang.String"/>
+	<parameter name="bmsNumber" class="java.lang.String"/>
+	<parameter name="deliveryDate" class="java.util.Date"/>
+	<parameter name="poDate" class="java.util.Date"/>
+	<parameter name="requestor" class="java.lang.String"/>
+	<parameter name="totalNetOfVAT" class="java.lang.Double"/>
+	<parameter name="totalVAT" class="java.lang.Double"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="approvedBy" class="java.lang.String"/>
+	<parameter name="approverPosition" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="termName" class="java.lang.String"/>
+	<parameter name="createdDate" class="java.lang.String"/>
+	<parameter name="approvedDate" class="java.lang.String"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<parameter name="remarks" class="java.lang.String"/>
+	<field name="poItemDtos" class="java.util.List"/>
+	<variable name="contactPersonSize" class="java.lang.Integer">
+		<variableExpression><![CDATA[$P{contactPerson}.length()]]></variableExpression>
+	</variable>
+	<variable name="bmsSize" class="java.lang.Integer">
+		<variableExpression><![CDATA[$P{bmsNumber}.length()]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="243" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="424" y="97" width="136" height="12"/>
+				<box topPadding="0" leftPadding="0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{poNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="95" y="164" width="135" height="12"/>
+				<box leftPadding="0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{supplierTelNo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="95" y="176" width="135" height="12"/>
+				<box leftPadding="0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="bmsFont" x="275" y="177" width="164" height="12"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{bmsNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="95" y="192" width="135" height="12"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{termName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="476" y="189" width="84" height="16"/>
+				<box leftPadding="0" bottomPadding="1"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{requestor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="contactPersonFont" x="301" y="155" width="137" height="19"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contactPerson}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="298" y="193" width="141" height="12"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{deliveryDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="460" y="138" width="106" height="17"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="1"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{poDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="95" y="138" width="335" height="25"/>
+				<box topPadding="1" leftPadding="0" bottomPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{supplierAddr}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="95" y="102" width="335" height="36"/>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{supplier}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<subreport>
+				<reportElement x="21" y="0" width="560" height="32"/>
+				<subreportParameter name="totalNetOfVAT">
+					<subreportParameterExpression><![CDATA[$P{totalNetOfVAT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalVAT">
+					<subreportParameterExpression><![CDATA[$P{totalVAT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="remarks">
+					<subreportParameterExpression><![CDATA[$P{remarks}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{poItemDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "NSBPOItemLine.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="323">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="64" y="38" width="156" height="10"/>
+				<box leftPadding="3" rightPadding="8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{createdBy} + " " + $P{createdDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="230" y="28" width="237" height="10"/>
+				<box leftPadding="3" rightPadding="8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{approvedBy} == null ?  "" : $P{approvedBy} + " " + $P{approvedDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="506" y="27" width="83" height="22"/>
+				<box topPadding="6" leftPadding="3" rightPadding="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{totalNetOfVAT} + $P{totalVAT})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="230" y="39" width="237" height="9"/>
+				<box leftPadding="3" rightPadding="8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="7" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["System generated, signature is not required."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="484" y="27" width="22" height="22"/>
+				<box topPadding="6" leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{currency}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="457" y="12" width="57" height="12"/>
+				<box leftPadding="3" rightPadding="8">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VAT:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="514" y="12" width="75" height="12"/>
+				<box leftPadding="3" rightPadding="8">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalVAT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="457" y="0" width="57" height="12"/>
+				<box leftPadding="3" rightPadding="8">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Subtotal:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="514" y="0" width="75" height="12"/>
+				<box leftPadding="3" rightPadding="8">
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalNetOfVAT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

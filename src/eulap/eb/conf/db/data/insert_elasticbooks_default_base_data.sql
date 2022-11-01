@@ -1,0 +1,54 @@
+
+-- Description: Consolidated insert scripts for default base data for Elasticbooks clean DB.
+
+-- EB_CLIENT_INFO
+SET FOREIGN_KEY_CHECKS = 0;
+SYSTEM echo 'Inserting EB_CLIENT_INFO';
+INSERT INTO `EB_CLIENT_INFO` VALUES (1,'','','','', 1,NOW(), 1, NOW());
+
+-- EB_SL_KEY
+SYSTEM echo 'Inserting EB_SL_KEY';
+INSERT INTO `EB_SL_KEY` VALUES (1,NOW(),NOW(),1, 1,NOW(), 1,NOW(),1);
+
+-- USER_GROUP
+SYSTEM echo 'Inserting USER_GROUP';
+INSERT INTO USER_GROUP VALUES (1, 'ADMIN', 'ADMINISTRATOR', 1, NULL, NOW(), NULL, NOW());
+
+-- INSERT OBJECT_TYPE
+SYSTEM echo 'INSERT OBJECT TYPES';
+source ~/CMS/src/eulap/eb/conf/db/data/insert_CMS_base_object_types.sql
+
+-- INSERT OR_TYPE
+SYSTEM echo 'INSERT ELASTICBOOKS BASE OR TYPES';
+source ~/CMS/src/eulap/eb/conf/db/data/insert_CMS_base_or_types.sql
+
+-- Eb Object, Company, User and Division
+source ~/CMS/src/eulap/eb/conf/db/data/insert_eb_object_default_data_10_17_2017_42_50.sql
+
+-- POSITION
+SYSTEM echo 'Inserting POSITION';
+INSERT INTO `POSITION` VALUES
+(1,'Admin',1,NOW(),1,NOW(),1);
+
+-- update CREATED_BY and UPDATED_BY
+SYSTEM echo 'Update CREATED_BY and UPDATED_BY';
+UPDATE USER SET CREATED_BY = 1, UPDATED_BY = 1, POSITION_ID = 1, USER_GROUP_ID = 1;
+UPDATE EB_CLIENT_INFO  SET CREATED_BY = 1, UPDATED_BY = 1;
+UPDATE EB_SL_KEY  SET CREATED_BY = 1, UPDATED_BY = 1;
+UPDATE COMPANY  SET CREATED_BY = 1, UPDATED_BY = 1;
+UPDATE USER_GROUP SET CREATED_BY = 1, UPDATED_BY = 1;
+
+-- COMPANY_PRODUCT 
+SYSTEM echo 'Inserting COMPANY_PRODUCT';
+INSERT INTO `COMPANY_PRODUCT` VALUES
+(1,1,15,1,NOW(),1,NOW());
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- UGAR ACCESS ALL MODULES
+SYSTEM echo 'Access Rights for Admin';
+INSERT INTO `USER_GROUP_ACCESS_RIGHT` VALUES (1,1,0,1,1,NOW(),1,NOW()),(2,1,233,1,1,NOW(),1,NOW()),(3,1,178,1,1,NOW(),1,NOW()),(4,1,179,1,1,NOW(),1,NOW()),(5,1,186,1,1,NOW(),1,NOW()),(6,1,165,1,1,NOW(),1,NOW()),(7,1,168,1,1,NOW(),1,NOW()),(8,1,164,1,1,NOW(),1,NOW()),(9,1,192,1,1,NOW(),1,NOW()),(10,1,184,1,1,NOW(),1,NOW()),(11,1,185,1,1,NOW(),1,NOW()),(12,1,166,1,1,NOW(),1,NOW()),(13,1,167,1,1,NOW(),1,NOW()),(14,1,191,1,1,NOW(),1,NOW()),(15,1,171,1,1,NOW(),1,NOW()),(16,1,251,1,1,NOW(),1,NOW()),(17,1,245,1,1,NOW(),1,NOW()),(18,1,187,1,1,NOW(),1,NOW()),(19,1,188,1,1,NOW(),1,NOW()),(20,1,231,1,1,NOW(),1,NOW()),(21,1,176,1,1,NOW(),1,NOW()),(22,1,177,1,1,NOW(),1,NOW()),(23,1,200,1,1,NOW(),1,NOW()),(24,1,169,1,1,NOW(),1,NOW()),(25,1,172,1,1,NOW(),1,NOW()),(26,1,174,1,1,NOW(),1,NOW()),(27,1,223,1,1,NOW(),1,NOW()),(28,1,182,1,1,NOW(),1,NOW()),(29,1,183,1,1,NOW(),1,NOW()),(30,1,175,1,1,NOW(),1,NOW()),(31,1,189,1,1,NOW(),1,NOW()),(32,1,64,64,1,NOW(),1,NOW()),(33,1,84,8,1,NOW(),1,NOW()),(34,1,85,16,1,NOW(),1,NOW()),(35,1,77,1,1,NOW(),1,NOW()),(36,1,88,1,1,NOW(),1,NOW()),(37,1,202,1,1,NOW(),1,NOW()),(38,1,68,1,1,NOW(),1,NOW()),(39,1,82,2,1,NOW(),1,NOW()),(40,1,81,1,1,NOW(),1,NOW()),(41,1,242,1,1,NOW(),1,NOW()),(42,1,4,32,1,NOW(),1,NOW()),(43,1,135,1,1,NOW(),1,NOW()),(44,1,246,1,1,NOW(),1,NOW()),(45,1,91,1,1,NOW(),1,NOW()),(46,1,144,1,1,NOW(),1,NOW()),(47,1,69,1,1,NOW(),1,NOW()),(48,1,159,1,1,NOW(),1,NOW()),(49,1,92,1,1,NOW(),1,NOW()),(50,1,103,1,1,NOW(),1,NOW()),(51,1,102,1,1,NOW(),1,NOW()),(52,1,157,1,1,NOW(),1,NOW()),(53,1,104,1,1,NOW(),1,NOW()),(54,1,83,4,1,NOW(),1,NOW()),(55,1,141,1,1,NOW(),1,NOW()),(56,1,162,1,1,NOW(),1,NOW()),(57,1,203,1,1,NOW(),1,NOW()),(58,1,87,1,1,NOW(),1,NOW()),(59,1,67,1,1,NOW(),1,NOW()),(60,1,209,1,1,NOW(),1,NOW()),(61,1,160,1,1,NOW(),1,NOW()),(62,1,156,1,1,NOW(),1,NOW()),(63,1,232,1,1,NOW(),1,NOW()),(64,1,158,1,1,NOW(),1,NOW()),(65,1,145,1,1,NOW(),1,NOW()),(66,1,143,1,1,NOW(),1,NOW()),(67,1,137,1,1,NOW(),1,NOW()),(68,1,93,1,1,NOW(),1,NOW()),(69,1,155,1,1,NOW(),1,NOW()),(70,1,139,31,1,NOW(),1,NOW()),(71,1,138,31,1,NOW(),1,NOW()),(72,1,140,31,1,NOW(),1,NOW()),(73,1,142,31,1,NOW(),1,NOW()),(74,1,8,31,1,NOW(),1,NOW()),(75,1,95,31,1,NOW(),1,NOW()),(76,1,94,31,1,NOW(),1,NOW()),(77,1,239,31,1,NOW(),1,NOW()),(78,1,2002,31,1,NOW(),1,NOW()),(79,1,238,31,1,NOW(),1,NOW()),(80,1,2003,31,1,NOW(),1,NOW()),(81,1,100,31,1,NOW(),1,NOW()),(82,1,237,31,1,NOW(),1,NOW()),(83,1,101,31,1,NOW(),1,NOW()),(84,1,236,31,1,NOW(),1,NOW()),(85,1,2001,31,1,NOW(),1,NOW()),(86,1,235,31,1,NOW(),1,NOW()),(87,1,98,31,1,NOW(),1,NOW()),(88,1,2006,31,1,NOW(),1,NOW()),(89,1,2007,31,1,NOW(),1,NOW()),(90,1,234,31,1,NOW(),1,NOW()),(91,1,99,31,1,NOW(),1,NOW()),(92,1,2004,31,1,NOW(),1,NOW()),(93,1,96,31,1,NOW(),1,NOW()),(94,1,2011,31,1,NOW(),1,NOW()),(95,1,2008,31,1,NOW(),1,NOW()),(96,1,161,31,1,NOW(),1,NOW()),(97,1,2009,15,1,NOW(),1,NOW()),(98,1,2012,31,1,NOW(),1,NOW()),(99,1,2013,31,1,NOW(),1,NOW()),(100,1,105,31,1,NOW(),1,NOW()),(101,1,51,31,1,NOW(),1,NOW()),(102,1,252,31,1,NOW(),1,NOW()),(103,1,253,31,1,NOW(),1,NOW()),(104,1,52,63,1,NOW(),1,NOW()),(105,1,122,31,1,NOW(),1,NOW()),(106,1,240,31,1,NOW(),1,NOW()),(107,1,121,31,1,NOW(),1,NOW()),(108,1,241,31,1,NOW(),1,NOW()),(109,1,120,63,1,NOW(),1,NOW());
+
+-- INSERT FORM STATUS
+SYSTEM echo "insert_default_form_statuses.sql";
+source ~/CMS/src/eulap/eb/conf/db/data/insert_default_form_statuses.sql

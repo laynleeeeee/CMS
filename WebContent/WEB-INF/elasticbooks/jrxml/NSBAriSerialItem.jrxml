@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ArSerialItem" pageWidth="576" pageHeight="752" whenNoDataType="AllSectionsNoDetail" columnWidth="576" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.3310000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="infoType" class="java.lang.Integer"/>
+	<field name="item.stockCode" class="java.lang.String"/>
+	<field name="item.description" class="java.lang.String"/>
+	<field name="warehouse.name" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.Double"/>
+	<field name="item.unitMeasurement.name" class="java.lang.String"/>
+	<field name="serialNumber" class="java.lang.String"/>
+	<field name="srp" class="java.lang.Double"/>
+	<field name="itemDiscountType.name" class="java.lang.String"/>
+	<field name="discountValue" class="java.lang.Double"/>
+	<field name="discount" class="java.lang.Double"/>
+	<field name="taxType.name" class="java.lang.String"/>
+	<field name="vatAmount" class="java.lang.Double"/>
+	<field name="amount" class="java.lang.Double"/>
+	<variable name="rowCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{item.stockCode}]]></variableExpression>
+	</variable>
+	<variable name="totalSiVat" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vatAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="127" y="0" width="196" height="12" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3" rightPadding="3"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item.stockCode} + ", " + $F{item.description}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="30" y="0" width="55" height="12" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="6" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{infoType} == 1 || $P{infoType} == 4 ? "" : $F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="85" y="0" width="42" height="12" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="3" rightPadding="3"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{infoType} == 1 || $P{infoType} == 4 ? "" : $F{item.unitMeasurement.name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="393" y="0" width="90" height="12" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount} + ($F{vatAmount} != null ? $F{vatAmount} : 0.00)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="323" y="0" width="70" height="12" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{infoType} == 1 || $P{infoType} == 3 || $P{infoType} == 4 ? "" : $F{srp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

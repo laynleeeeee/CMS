@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="APInvoiceItem" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="formName" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="companyContactNo" class="java.lang.String"/>
+	<parameter name="formDate" class="java.util.Date"/>
+	<parameter name="sequenceNumber" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="supplier" class="java.lang.String"/>
+	<parameter name="supplierAddress" class="java.lang.String"/>
+	<parameter name="supplierTin" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<parameter name="invoiceNumber" class="java.lang.String"/>
+	<parameter name="glDate" class="java.util.Date"/>
+	<parameter name="invoiceDate" class="java.util.Date"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="createdDate" class="java.util.Date"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="verifiedBy" class="java.lang.String"/>
+	<parameter name="verifiedDate" class="java.util.Date"/>
+	<parameter name="verifierPosition" class="java.lang.String"/>
+	<parameter name="approverName" class="java.lang.String"/>
+	<field name="apInvoiceDtos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="79" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeader.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="6" width="322" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement x="0" y="0" width="70" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Supplier]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="70" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="77" y="0" width="215" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{supplier}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="30" width="322" height="12" isPrintWhenDetailOverflows="true"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="77" y="0" width="215" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{supplierTin}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="70" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TIN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="70" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="18" width="322" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="70" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Address]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="70" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="77" y="0" width="215" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{supplierAddress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="42" width="322" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="70" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="70" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="77" y="0" width="215" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="334" y="6" width="238" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement x="40" y="0" width="60" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SOA No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="107" y="0" width="131" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{invoiceNumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="334" y="18" width="238" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="40" y="0" width="60" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GL Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="100" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="107" y="0" width="131" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{glDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="334" y="30" width="238" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="40" y="0" width="60" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SOA Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="100" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="107" y="0" width="131" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{invoiceDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="334" y="42" width="238" height="12" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="40" y="0" width="60" height="12"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Due Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="100" y="0" width="7" height="12"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="107" y="0" width="131" height="12" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dueDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="24"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{apInvoiceDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ApInvoiceItems.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="90" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="10" width="191" height="80" isPrintWhenDetailOverflows="true"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="10" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Created By]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="26" width="181" height="24" isPrintWhenDetailOverflows="true"/>
+					<box bottomPadding="2">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="50" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{creatorPosition}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="62" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{createdDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="190" y="10" width="192" height="80" isPrintWhenDetailOverflows="true"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="26" width="181" height="24" isPrintWhenDetailOverflows="true"/>
+					<box bottomPadding="2">
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{verifiedBy}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="50" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{verifierPosition}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="62" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{verifiedDate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="10" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Verified By]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="381" y="10" width="191" height="80"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="10" width="181" height="12" isPrintWhenDetailOverflows="true"/>
+					<textElement>
+						<font fontName="Arial" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Approved By]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="5" y="26" width="181" height="24" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{approverName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

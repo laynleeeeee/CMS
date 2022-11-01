@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#top {
+    height:40px;
+    min-width: 980px;
+    position: relative;
+}
+#menu-wrapper {
+    height: 40px;
+    width:800px; 
+    margin:0 auto;
+}
+#top-menu {
+    float: left;
+    color: white;
+}
+#top-menu a {
+    float: left;
+    display: block;
+    text-decoration: none;
+    border-bottom: medium none;
+    margin-left: 0px;
+    color: white;
+}
+
+.menuLeft span {
+	display: block;
+    float: left;
+   	padding: 10px;
+}
+
+#settings {
+    float: right;
+	padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#user{
+	float: right;
+	padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#rightSide{
+	float: right;
+}
+
+input[disabled], textarea[disabled],
+select[disabled='disabled']{
+    color: black !important;
+	-webkit-text-fill-color: rgba(0, 0, 0, 1);
+	-webkit-opacity: 1;
+	background: white;
+}
+
+.ui-autocomplete-loading {
+	background: white url('././images/spinner.gif') right center no-repeat;
+}
+
+#clcsFooter {
+	text-align: center;
+	font-size: small;
+}
+
+.gradientBackground {
+	background: -webkit-linear-gradient(90deg, white , red); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(90deg, white , red); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(90deg, white , red); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(90deg, white , red); /* Standard syntax (must be last) */
+}

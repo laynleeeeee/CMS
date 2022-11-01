@@ -1,0 +1,20 @@
+
+#Description: Authority to Deduct.
+
+FormDeduction1.typeId=1
+FormDeduction1.form=formDeduction/form/view
+FormDeduction1.edit=authority_to_deduct_edit
+FormDeduction1.print=formDeduction/pdf
+FormDeduction1.service=eulap.eb.service.FormDeductionService
+FormDeduction1.oo.parent_to_child=1
+FormDeduction1.flow=1;2
+FormDeduction1.1.statusId=1
+FormDeduction1.1.required=
+FormDeduction1.1.next=2
+FormDeduction1.1.product_code=20008
+FormDeduction1.1.module_code=8
+FormDeduction1.2.statusId=3
+FormDeduction1.2.required=3
+FormDeduction1.2.next=0
+FormDeduction1.2.product_code=20008
+FormDeduction1.2.module_code=64

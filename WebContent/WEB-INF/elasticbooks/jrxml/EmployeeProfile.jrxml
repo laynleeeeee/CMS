@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeProfile" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.1000000000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="120"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="asOfDate" class="java.util.Date"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="base64Img" class="java.io.InputStream"/>
+	<parameter name="company" class="java.lang.String"/>
+	<parameter name="employeeName" class="java.lang.String"/>
+	<field name="employee.division.name" class="java.lang.String"/>
+	<field name="employeeNumber" class="java.lang.Integer"/>
+	<field name="employee.firstName" class="java.lang.String"/>
+	<field name="employee.lastName" class="java.lang.String"/>
+	<field name="employee.middleName" class="java.lang.String"/>
+	<field name="employee.position.name" class="java.lang.String"/>
+	<field name="employeeSiblings" class="java.util.List"/>
+	<field name="employeeChildren" class="java.util.List"/>
+	<field name="employeeEducationalAttainment.elementarySchool" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.elementaryYear" class="java.lang.Integer"/>
+	<field name="employeeEducationalAttainment.elementaryCourse" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.hsSchool" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.hsYear" class="java.lang.Integer"/>
+	<field name="employeeEducationalAttainment.hsCourse" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.collegeSchool" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.collegeYear" class="java.lang.Integer"/>
+	<field name="employeeEducationalAttainment.collegeCourse" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.postGradSchool" class="java.lang.String"/>
+	<field name="employeeEducationalAttainment.postGradYear" class="java.lang.Integer"/>
+	<field name="employeeEducationalAttainment.postGradCourse" class="java.lang.String"/>
+	<field name="employeeEmployments" class="java.util.List"/>
+	<field name="employeeRelatives" class="java.util.List"/>
+	<field name="employeeCivilQuery.administrativeInvestigation" class="java.lang.Boolean"/>
+	<field name="employeeCivilQuery.adminInvesDetail" class="java.lang.String"/>
+	<field name="employeeCivilQuery.crimeConvicted" class="java.lang.Boolean"/>
+	<field name="employeeCivilQuery.crimeConvictedDetail" class="java.lang.String"/>
+	<field name="employeeCivilQuery.usedProhibitedDrug" class="java.lang.Boolean"/>
+	<field name="employeeEmploymentQuery.prevEmployed" class="java.lang.Boolean"/>
+	<field name="employeeEmploymentQuery.separationReason" class="java.lang.String"/>
+	<field name="employeeEmploymentQuery.diagnosedWithDisease" class="java.lang.Boolean"/>
+	<field name="employeeEmploymentQuery.diseaseDetail" class="java.lang.String"/>
+	<field name="employeeEmploymentQuery.identifyingMark" class="java.lang.String"/>
+	<field name="employeeEmploymentQuery.emergencyContact" class="java.lang.String"/>
+	<field name="employeeFamily.spouseName" class="java.lang.String"/>
+	<field name="employeeFamily.spouseOccupation" class="java.lang.String"/>
+	<field name="employee.company.name" class="java.lang.String"/>
+	<field name="hiredDate" class="java.util.Date"/>
+	<field name="employmentPeriodFrom" class="java.util.Date"/>
+	<field name="employmentPeriodTo" class="java.util.Date"/>
+	<field name="employee.address" class="java.lang.String"/>
+	<field name="permanentAddress" class="java.lang.String"/>
+	<field name="telephoneNumber" class="java.lang.String"/>
+	<field name="employee.emailAddress" class="java.lang.String"/>
+	<field name="employee.contactNo" class="java.lang.String"/>
+	<field name="gender.name" class="java.lang.String"/>
+	<field name="civilStatus.name" class="java.lang.String"/>
+	<field name="religion" class="java.lang.String"/>
+	<field name="bloodType" class="java.lang.String"/>
+	<field name="employee.birthDate" class="java.util.Date"/>
+	<field name="birthPlace" class="java.lang.String"/>
+	<field name="citizenship" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="tin" class="java.lang.String"/>
+	<field name="sssNo" class="java.lang.String"/>
+	<field name="philhealthNo" class="java.lang.String"/>
+	<field name="height" class="java.lang.String"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="eyeColor" class="java.lang.String"/>
+	<field name="hairColor" class="java.lang.String"/>
+	<field name="languageDialect" class="java.lang.String"/>
+	<field name="employeeFamily.fatherName" class="java.lang.String"/>
+	<field name="employeeFamily.motherName" class="java.lang.String"/>
+	<field name="employeeFamily.fatherOccupation" class="java.lang.String"/>
+	<field name="employeeFamily.motherOccupation" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="240" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="441" y="0" width="111" height="97"/>
+				<imageExpression><![CDATA[$P{base64Img}]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="114" y="2" width="311" height="22" isPrintWhenDetailOverflows="true"/>
+				<textElement markup="none">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{company}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="114" y="24" width="260" height="20"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[EMPLOYEE INFORMATION SHEET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="36" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="36" y="58" width="100" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.company.name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="136" y="58" width="35" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Position:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="171" y="58" width="98" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.position.name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="269" y="58" width="55" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Department:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="324" y="58" width="101" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.division.name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="68" width="24" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID #]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="19" y="68" width="141" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="78" width="48" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date Hired:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="44" y="78" width="117" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hiredDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="88" width="85" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Employment Period:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="88" width="140" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="88" width="25" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[From:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="250" y="88" width="81" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employmentPeriodFrom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="88" width="13" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[to:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="344" y="88" width="81" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employmentPeriodTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="160" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(Given Name)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="109" width="160" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.firstName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="119" width="174" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(Middle Name)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="119" width="212" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(Surname)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Present Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Permanent Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Telephone #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="170" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sex]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="180" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Birth Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="190" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Height]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="220" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of Father]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="230" width="90" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of Mother]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="140" width="462" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="150" width="462" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{permanentAddress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="160" width="127" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telephoneNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="160" width="60" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Email Address]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="277" y="160" width="129" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.emailAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="406" y="160" width="38" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Mobile #]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="443" y="160" width="109" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.contactNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="170" width="73" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender.name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="170" width="48" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Civil Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="211" y="170" width="101" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{civilStatus.name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="312" y="170" width="33" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Religion]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="345" y="170" width="92" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{religion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="438" y="170" width="45" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Blood Type]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="482" y="170" width="70" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bloodType}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="90" y="180" width="127" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.birthDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="180" width="48" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Birth Place]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="265" y="180" width="151" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{birthPlace}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="416" y="180" width="44" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Citizenship]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="459" y="180" width="93" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citizenship}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="190" width="70" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="190" width="20" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TIN]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="190" width="94" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="190" width="24" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SSS#]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="190" width="107" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sssNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="407" y="190" width="47" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Philhealth#]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="190" width="99" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{philhealthNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="200" width="73" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{height}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="200" width="32" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Weight]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="200" width="80" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="200" width="53" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Color of Eyes]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="327" y="200" width="83" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eyeColor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="200" width="51" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Color of Hair]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="460" y="200" width="92" height="10"/>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hairColor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="93" y="210" width="244" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="210" width="53" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Skills/Talents]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="397" y="210" width="155" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="220" width="218" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeFamily.fatherName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="230" width="218" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeFamily.motherName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="220" width="46" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Occupation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="230" width="46" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Occupation]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="220" width="199" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeFamily.fatherOccupation}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="230" width="199" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeFamily.motherOccupation}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="163" y="109" width="174" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.middleName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="340" y="109" width="212" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee.lastName}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="1" y="0" width="111" height="45" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA["../../images/logo/"+$P{companyLogo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement mode="Transparent" x="1" y="104" width="551" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="210" width="103" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Language/Dialect Spoken]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="14">
+			<printWhenExpression><![CDATA[$F{employeeSiblings} != null && !$F{employeeSiblings}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{employeeSiblings} != null && !$F{employeeSiblings}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{employeeSiblings})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Siblings.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<printWhenExpression><![CDATA[$F{employeeChildren} != null && !$F{employeeChildren}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{employeeChildren} != null && !$F{employeeChildren}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="spouseOccupation">
+					<subreportParameterExpression><![CDATA[$F{employeeFamily.spouseOccupation}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="spouseName">
+					<subreportParameterExpression><![CDATA[$F{employeeFamily.spouseName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{employeeChildren})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Children.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14"/>
+				<subreportParameter name="elementaryYear">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.elementaryYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="collegeCourse">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.collegeCourse}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="postGradCourse">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.postGradCourse}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="elementaryCourse">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.elementaryCourse}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="postGradSchool">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.postGradSchool}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hsCourse">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.hsCourse}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="elementarySchool">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.elementarySchool}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="collegeYear">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.collegeYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="postGradYear">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.postGradYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hsSchool">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.hsSchool}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hsYear">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.hsYear}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="collegeSchool">
+					<subreportParameterExpression><![CDATA[$F{employeeEducationalAttainment.collegeSchool}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EducationalAttainment.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<printWhenExpression><![CDATA[$F{employeeEmployments} != null && !$F{employeeEmployments}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{employeeEmployments} != null && !$F{employeeEmployments}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{employeeEmployments})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PreviousEmployements.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14"/>
+				<subreportParameter name="crimeConvicted">
+					<subreportParameterExpression><![CDATA[$F{employeeCivilQuery.crimeConvicted}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="adminInvesDetail">
+					<subreportParameterExpression><![CDATA[$F{employeeCivilQuery.adminInvesDetail}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="administrativeInvestigation">
+					<subreportParameterExpression><![CDATA[$F{employeeCivilQuery.administrativeInvestigation}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="crimeConvictedDetail">
+					<subreportParameterExpression><![CDATA[$F{employeeCivilQuery.crimeConvictedDetail}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="usedProhibitedDrug">
+					<subreportParameterExpression><![CDATA[$F{employeeCivilQuery.usedProhibitedDrug}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeCivilQuery.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{employeeRelatives})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeRelatives.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="14">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="14"/>
+				<subreportParameter name="diseaseDetail">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.diseaseDetail}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="identifyingMark">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.identifyingMark}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="separationReason">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.separationReason}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="diagnosedWithDisease">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.diagnosedWithDisease}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="emergencyContact">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.emergencyContact}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="prevEmployed">
+					<subreportParameterExpression><![CDATA[$F{employeeEmploymentQuery.prevEmployed}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeEmploymentQuery.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="197">
+			<staticText>
+				<reportElement x="0" y="0" width="552" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Affidavit of Good Faith]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="552" height="29" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[This is to certify that the above information are supplied which, to the best of my knowledge, is true and correct, whereupon any misdeclaration or other false information I may have, willingly or unwillingly, declared or undeclared will be hold against me in any present or future eventualities.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="71" width="246" height="10"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name and Signature of Employee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="71" width="132" height="10"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="100" y="100" width="89" height="58"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="100" y="168" width="89" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Left Thumb Mark]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="168" width="89" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Right Thumb Mark]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="187" width="572" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(You are required to report within 24 hours and fill up new information sheet any/changes of your information sheet)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="100" width="89" height="58"/>
+			</rectangle>
+			<textField>
+				<reportElement x="74" y="59" width="246" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{employeeName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

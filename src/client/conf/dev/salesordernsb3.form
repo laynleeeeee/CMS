@@ -1,0 +1,21 @@
+
+#Description: Sales order - NSB 3 form workflow and journal entries configuration
+
+SalesOrder2.typeId=1
+SalesOrder2.form=salesOrder/viewForm
+SalesOrder2.edit=sales_order_nsb3_edit
+SalesOrder2.print=salesOrder/printout
+SalesOrder2.service=eulap.eb.service.SalesOrderService
+SalesOrder2.oo.parent_to_child=1
+SalesOrder2.oo.child_to_child=12002
+SalesOrder2.flow=1;2
+SalesOrder2.1.statusId=1
+SalesOrder2.1.required=
+SalesOrder2.1.next=2
+SalesOrder2.1.product_code=24041
+SalesOrder2.1.module_code=8
+SalesOrder2.2.statusId=30
+SalesOrder2.2.required=1
+SalesOrder2.2.next=0
+SalesOrder2.2.product_code=24041
+SalesOrder2.2.module_code=16

@@ -1,0 +1,20 @@
+#-- Purchase Order configuration.
+
+RPurchaseOrder.typeId=1
+RPurchaseOrder.form=retailPurchaseOrder/viewForm
+RPurchaseOrder.edit=r_purchaseOrder_edit
+RPurchaseOrder.print=retailPurchaseOrderPDF/pdf
+RPurchaseOrder.service=eulap.eb.service.RPurchaseOrderService
+RPurchaseOrder.oo.parent_to_child=1
+RPurchaseOrder.oo.child_to_child=3010
+RPurchaseOrder.flow=1;2
+RPurchaseOrder.1.statusId=9
+RPurchaseOrder.1.required=
+RPurchaseOrder.1.next=2
+RPurchaseOrder.1.product_code=138
+RPurchaseOrder.1.module_code=3
+RPurchaseOrder.2.statusId=3
+RPurchaseOrder.2.required=1
+RPurchaseOrder.2.next=0
+RPurchaseOrder.2.product_code=138
+RPurchaseOrder.2.module_code=16

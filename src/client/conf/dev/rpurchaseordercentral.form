@@ -1,0 +1,21 @@
+
+# Description	: Purchase order - Central form workflow and journal entries configuration
+
+RPurchaseOrder1.typeId=1
+RPurchaseOrder1.form=retailPurchaseOrder/viewForm
+RPurchaseOrder1.edit=po_central_edit
+RPurchaseOrder1.print=retailPurchaseOrderPDF/nsbFormat
+RPurchaseOrder1.service=eulap.eb.service.RPurchaseOrderService
+RPurchaseOrder1.oo.parent_to_child=1
+RPurchaseOrder1.oo.child_to_child=3010
+RPurchaseOrder1.flow=1;2
+RPurchaseOrder1.1.statusId=1
+RPurchaseOrder1.1.required=
+RPurchaseOrder1.1.next=2
+RPurchaseOrder1.1.product_code=24001
+RPurchaseOrder1.1.module_code=3
+RPurchaseOrder1.2.statusId=3
+RPurchaseOrder1.2.required=1
+RPurchaseOrder1.2.next=0
+RPurchaseOrder1.2.product_code=24001
+RPurchaseOrder1.2.module_code=16

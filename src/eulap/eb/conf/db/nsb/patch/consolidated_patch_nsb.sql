@@ -1,0 +1,6 @@
+
+-- Description: Patches for existing NSB database.
+
+-- 08/13/2021 15:30
+-- AR_MISCELLANEOUS_TYPE
+INSERT INTO AR_MISCELLANEOUS_TYPE VALUES (3,'BANK TRANSFER',1,NOW(),1,NOW());

@@ -1,0 +1,20 @@
+
+#Description: Timesheet workflow configuration
+
+TimeSheet.typeId=1
+TimeSheet.form=timesheet/view
+TimeSheet.edit=time_sheet_edit
+TimeSheet.print=timesheet/print
+TimeSheet.service=eulap.eb.service.TimeSheetService
+TimeSheet.oo.parent_to_child=1
+TimeSheet.flow=1;2
+TimeSheet.1.statusId=1
+TimeSheet.1.required=
+TimeSheet.1.next=2
+TimeSheet.1.product_code=20015
+TimeSheet.1.module_code=8
+TimeSheet.2.statusId=3
+TimeSheet.2.required=3
+TimeSheet.2.next=0
+TimeSheet.2.product_code=20015
+TimeSheet.2.module_code=64

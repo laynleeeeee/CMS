@@ -1,0 +1,26 @@
+
+#Description: Equipment Utilization form workflow and report configuration file
+
+DeliveryReceipt3.typeId=1
+DeliveryReceipt3.form=deliveryReceipt/3/view
+DeliveryReceipt3.edit=equipment_utilization_edit
+DeliveryReceipt3.print=deliveryReceipt/3/pdf
+DeliveryReceipt3.service=eulap.eb.service.DeliveryReceiptService
+DeliveryReceipt3.oo.parent_to_child=1
+DeliveryReceipt3.oo.child_to_child=12011
+DeliveryReceipt3.flow=1;2;3
+DeliveryReceipt3.1.statusId=1
+DeliveryReceipt3.1.required=
+DeliveryReceipt3.1.next=2
+DeliveryReceipt3.1.product_code=12008
+DeliveryReceipt3.1.module_code=8
+DeliveryReceipt3.2.statusId=3
+DeliveryReceipt3.2.required=1
+DeliveryReceipt3.2.next=3
+DeliveryReceipt3.2.product_code=12008
+DeliveryReceipt3.2.module_code=16
+DeliveryReceipt3.3.statusId=28
+DeliveryReceipt3.3.required=2
+DeliveryReceipt3.3.next=0
+DeliveryReceipt3.3.product_code=12008
+DeliveryReceipt3.3.module_code=32

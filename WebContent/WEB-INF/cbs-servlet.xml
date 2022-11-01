@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+	Description: Base xml configuration. Maps the different xml file.
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<import resource="web-hibernate.xml"/>
+
+	<context:component-scan base-package="bp, eulap.eb, eulap.common, eulap.ybl"/>
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver"
+		p:basename="views" />
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+		p:definitions="/WEB-INF/tiles-defs.xml" />
+
+	<!-- For the multipart support to handle file uploads  -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<!-- Error Message -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="eulap.common.exception.EBSecurityException">
+					showExceptionMessage
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="inventoryItemSpecialHandler"
+		class="eulap.eb.service.BaseInventoryItemSpecialHandler">
+	</bean>
+
+	<bean id="CMSFormPath" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="/client/conf/dev/"/>
+	</bean>
+
+	<bean id="itemTransactionTbaleCount" class="java.lang.Integer">
+		<constructor-arg type="java.lang.String" value="13"/>
+	</bean>
+
+	<bean id="itemReceivedStocksTblCount" class="java.lang.Integer">
+			<constructor-arg type="java.lang.String" value="8"/>
+	</bean>
+</beans>

@@ -1,0 +1,5 @@
+
+-- Description	: Add accounts payable account combination id to supplier advance payment account table.
+
+ALTER TABLE SUPPLIER_ADV_PAYMENT_ACCOUNT ADD PAYABLE_AC_ID int(10) unsigned DEFAULT null,
+ADD CONSTRAINT FK_SAPA_PAYABLE_AC_ID FOREIGN KEY (PAYABLE_AC_ID) REFERENCES ACCOUNT_COMBINATION (ACCOUNT_COMBINATION_ID);

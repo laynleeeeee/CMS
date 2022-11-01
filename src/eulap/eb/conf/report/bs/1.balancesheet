@@ -1,0 +1,118 @@
+# Balance sheet configuration for Eulap Software Solutions.
+# asset_title=The title of the asset.
+# asset_total_label=The label of the total asset when generating report.
+# liabilities_and_equity_title=The title of the liabilities and equity.
+# liabilities_and_equity_total_label=The label of the total liabilities and equity amount.
+# account_classses=The different configured class 
+ 
+asset_title=ASSETS
+asset_total_label=TOTAL ASSETS
+liabilities_and_equity_title=LIABILITIES & EQUITY
+liabilities_and_equity_total_label=TOTAL LIABILITIES & EQUITY
+account_classes=current_assets;non_current_assets;current_liability;non_current_liabilities;equity
+
+###################################################################################################
+# CONFIGURATION OF ACCOUNT CLASSES																  #
+###################################################################################################
+# account_class_name.label = The label that will be used in the report.
+# account_class_name.is_asset = true to if this account class is an asset, otherwise false.
+# account_class_name.is_current_asset = true to if this account class is a current asset, otherwise false.
+# account_class_name.is_liability = true to if this account class is a liability, otherwise false.
+# account_class_name.total_label = The label that is adjacent to the total amount.
+# account_class_name.sequence_number = The sequence number of the account class, descending order.
+
+current_assets.label=Current Assets
+current_assets.is_asset=true
+current_assets.is_current_asset=true
+current_assets.is_liability=false
+current_assets.total_label=Total Current Assets
+current_assets.sequence_number=100
+current_assets.account_types=at_current_assets;
+
+non_current_assets.label=Non-current Assets
+non_current_assets.is_asset=true
+non_current_assets.is_current_asset=false
+non_current_assets.is_liability=false
+non_current_assets.total_label=Total Non-current Assets
+non_current_assets.sequence_number=90
+non_current_assets.account_types=at_non_current_assets;at_property_plant_equipment;at_other_asset;
+
+current_liability.label=Current Liability
+current_liability.is_asset=false
+current_liability.is_current_asset=false
+current_liability.is_liability=true
+current_liability.total_label=Total Current Liabilities
+current_liability.sequence_number=100
+current_liability.account_types=at_current_liabilities;
+
+non_current_liabilities.label=Non-Current Liabilities
+non_current_liabilities.is_asset=false
+non_current_liabilities.is_current_asset=false
+non_current_liabilities.is_liability=true
+non_current_liabilities.total_label=Total Non-Current Liabilities
+non_current_liabilities.sequence_number=90
+non_current_liabilities.account_types=at_non_current_liabilities;at_long_term_liabilities;at_other_liabilities;
+
+equity.label=Equity
+equity.is_asset=false
+equity.is_current_asset=false
+equity.is_liability=false
+equity.total_label=Total Equity
+equity.sequence_number=80
+equity.account_types=at_owner_capital;at_nsb_drawings;at_nsb_capital;
+
+###################################################################################################
+# CONFIGURATION FOR ACCOUNT TYPES																  #
+###################################################################################################
+# account_type_name.db_account_type_id = the account type id (ACCOUNT_TYPE_ID) in the database.
+# account_type_name.is_positive = True to add the value of the account type in the total amount, otherwise deduct from the total amount. 
+# account_type_name.sequence_number = The sequence number of the account type, descending order.
+
+# Current Assets
+at_current_assets.db_account_type_id=1
+at_current_assets.is_positive=true
+at_current_assets.sequence_number=100
+
+# Non Current Assets
+at_non_current_assets.db_account_type_id=2
+at_non_current_assets.is_positive=true
+at_non_current_assets.sequence_number=100
+
+# Current Liability
+at_current_liabilities.db_account_type_id=3
+at_current_liabilities.is_positive=true
+at_current_liabilities.sequence_number=100
+
+# Non Current Liability
+at_non_current_liabilities.db_account_type_id=4
+at_non_current_liabilities.is_positive=true
+at_non_current_liabilities.sequence_number=100
+
+# Equity
+at_owner_capital.db_account_type_id=8
+at_owner_capital.is_positive=true
+at_owner_capital.sequence_number=100
+
+at_property_plant_equipment.db_account_type_id=10
+at_property_plant_equipment.is_positive=true
+at_property_plant_equipment.sequence_number=100
+
+at_other_asset.db_account_type_id=11
+at_other_asset.is_positive=true
+at_other_asset.sequence_number=100
+
+at_long_term_liabilities.db_account_type_id=12
+at_long_term_liabilities.is_positive=true
+at_long_term_liabilities.sequence_number=100
+
+at_other_liabilities.db_account_type_id=13
+at_other_liabilities.is_positive=true
+at_other_liabilities.sequence_number=100
+
+at_nsb_drawings.db_account_type_id=14
+at_nsb_drawings.is_positive=true
+at_nsb_drawings.sequence_number=100
+
+at_nsb_capital.db_account_type_id=15
+at_nsb_capital.is_positive=true
+at_nsb_capital.sequence_number=100

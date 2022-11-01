@@ -1,0 +1,10 @@
+
+-- Description: sql script in creating FORM_STATUS table.
+
+DROP TABLE IF EXISTS FORM_STATUS;
+
+CREATE TABLE FORM_STATUS (
+       FORM_STATUS_ID int(10) unsigned NOT NULL AUTO_INCREMENT,
+       DESCRIPTION varchar(30) NOT NULL,
+       PRIMARY KEY (FORM_STATUS_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,20 @@
+
+#Description: Personnel Action Notice workflow.
+
+PersonnelActionNotice.typeId=1
+PersonnelActionNotice.form=personnelActionNotice/view
+PersonnelActionNotice.edit=personnel_action_notice_edit
+PersonnelActionNotice.print=personnelActionNotice/pdf
+PersonnelActionNotice.service=eulap.eb.service.PersonnelActionNoticeService
+PersonnelActionNotice.oo.parent_to_child=1
+PersonnelActionNotice.flow=1;2
+PersonnelActionNotice.1.statusId=1
+PersonnelActionNotice.1.required=
+PersonnelActionNotice.1.next=2
+PersonnelActionNotice.1.product_code=20012
+PersonnelActionNotice.1.module_code=8
+PersonnelActionNotice.2.statusId=3
+PersonnelActionNotice.2.required=3
+PersonnelActionNotice.2.next=0
+PersonnelActionNotice.2.product_code=20012
+PersonnelActionNotice.2.module_code=64

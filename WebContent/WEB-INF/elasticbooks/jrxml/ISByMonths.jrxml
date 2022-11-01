@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISByMonth" pageWidth="2120" pageHeight="572" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="2120" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.464100000000032"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="total">
+		<parameter name="salesGrandTotal" class="java.lang.Double"/>
+		<parameter name="percentToSalesId" class="java.lang.Integer"/>
+		<field name="amount" class="java.lang.Double"/>
+		<field name="divisionId" class="java.lang.Integer"/>
+		<field name="month" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="month">
+		<field name="name" class="java.lang.String"/>
+		<field name="month" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="dateRange" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="dateTo" class="java.util.Date"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="salesTotalCentral" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+	<parameter name="salesGrandTotal" class="java.lang.Double"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="subTitle" class="java.lang.String"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<field name="reportType" class="java.lang.Integer"/>
+	<field name="months" class="java.util.List"/>
+	<field name="byMonthDtos" class="java.util.List"/>
+	<field name="isbsTotalDtos" class="java.util.List"/>
+	<field name="payrollRelatedCost" class="java.util.List"/>
+	<field name="payrollRelatedCostOT" class="java.util.List"/>
+	<field name="payroll" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="129">
+			<subreport>
+				<reportElement x="0" y="0" width="752" height="80"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeShort.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="80" width="752" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["STATEMENT OF FINANCIAL PERFORMANCE" + ($P{division} != null ? "-" + $P{division} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="752" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{subTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="112" width="752" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Period Covered: " + $P{dateRange}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23">
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="0" width="80" height="23"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="month">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{months})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="23" width="80">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="23"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="3" rightPadding="3">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="Arial" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="2120" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$P{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$P{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{byMonthDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISTypeByMonth2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="158">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="2120" height="158" isRemoveLineWhenBlank="true"/>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="150" height="20"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total "+$P{accountType}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="57" width="150" height="15"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["% to total sales"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="91" width="80" height="15"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payroll})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="15" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="37" width="80" height="20"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payrollRelatedCost})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="20" width="150" height="2"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="22" width="150" height="15"/>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="37" width="150" height="20"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total Payroll related cost"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="0" width="80" height="37"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{isbsTotalDtos})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="37" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box>
+									<bottomPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount} != null ? $F{amount} : 0.00]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box>
+									<bottomPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}/$P{salesGrandTotal}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="20" width="80" height="2"/>
+								<box>
+									<bottomPen lineWidth="0.5"/>
+								</box>
+								<text><![CDATA[]]></text>
+							</staticText>
+							<staticText>
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="22" width="80" height="15"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="57" width="80" height="34"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payrollRelatedCost})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="34" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<bottomPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}/$P{salesGrandTotal}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="34">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="34"/>
+								<box>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="72" width="150" height="19"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Breakdown"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="106" width="150" height="15"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["% to total sales"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="91" width="150" height="15"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Payroll"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="106" width="80" height="15"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payroll})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="15" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}/$P{salesGrandTotal}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="121" width="150" height="20"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["OT"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="121" width="80" height="20"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payrollRelatedCostOT})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="20">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="141" width="150" height="15"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["% to total sales"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="150" y="141" width="80" height="15"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="total">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payrollRelatedCostOT})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="15" width="80">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}/$P{salesGrandTotal}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+								<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="80" height="15">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

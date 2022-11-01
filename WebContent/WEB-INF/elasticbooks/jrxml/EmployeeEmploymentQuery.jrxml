@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeProfile" pageWidth="572" pageHeight="896" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.2100000000000166"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="prevEmployed" class="java.lang.Boolean"/>
+	<parameter name="separationReason" class="java.lang.String"/>
+	<parameter name="diagnosedWithDisease" class="java.lang.Boolean"/>
+	<parameter name="diseaseDetail" class="java.lang.String"/>
+	<parameter name="identifyingMark" class="java.lang.String"/>
+	<parameter name="emergencyContact" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="20" width="50" height="10"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{diagnosedWithDisease} == true ? "Yes" : "No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="239" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[5. Have you been employed by any Company?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="288" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[6. Have you been diagnosed with any major illness and/or disease?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="10" width="226" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[If yes, state nature of work and reason for separation.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="10" width="313" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{separationReason}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="40" width="463" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{identifyingMark}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="30" width="112" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[Please state details, if any]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="89" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[7. Identifying marks:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="30" width="427" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{diseaseDetail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="0" width="50" height="10"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{prevEmployed} == true ? "Yes" : "No"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="142" y="50" width="410" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emergencyContact}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="142" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[8. In case of emergency, contact:]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

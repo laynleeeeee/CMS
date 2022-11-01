@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISDetialsByMonth" pageWidth="730" pageHeight="572" orientation="Landscape" columnWidth="730" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.3310000000000057"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<parameter name="salesTotalCentral" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+	<parameter name="salesGrandTotal" class="java.lang.Double"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<field name="amount" class="java.lang.Double"/>
+	<field name="divisionName" class="java.lang.String"/>
+	<field name="divisionId" class="java.lang.Integer"/>
+	<field name="accountName" class="java.lang.String"/>
+	<field name="accountId" class="java.lang.Integer"/>
+	<field name="level" class="java.lang.Integer"/>
+	<field name="parentAccountId" class="java.lang.String"/>
+	<field name="month" class="java.lang.Integer"/>
+	<field name="monthName" class="java.lang.String"/>
+	<field name="acctNo" class="java.lang.String"/>
+	<field name="parent" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="18">
+			<crosstab>
+				<reportElement x="0" y="0" width="730" height="18"/>
+				<crosstabParameter name="accountType">
+					<parameterValueExpression><![CDATA[$P{accountType}]]></parameterValueExpression>
+				</crosstabParameter>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="12"/>
+							<box leftPadding="2" bottomPadding="2" rightPadding="2"/>
+							<textElement textAlignment="Left" verticalAlignment="Bottom">
+								<font fontName="Arial" size="5" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$P{accountType}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="acctNo" width="0">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{acctNo}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<textFieldExpression><![CDATA[""+$V{acctNo}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="245" height="12"/>
+								<box leftPadding="20" rightPadding="2">
+									<topPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Left" markup="none">
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["TOTAL " + $P{accountType}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="accountName" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{accountName}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="7">
+									<printWhenExpression><![CDATA[$V{parent} == null || $V{parent}.equals(false)]]></printWhenExpression>
+								</reportElement>
+								<box leftPadding="2" bottomPadding="1" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+									<font fontName="Arial" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{accountName}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="7">
+									<printWhenExpression><![CDATA[$V{parent} != null && $V{parent}.equals(true)]]></printWhenExpression>
+								</reportElement>
+								<box leftPadding="2" bottomPadding="1" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+									<font fontName="Arial" size="5" isBold="true" isItalic="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{accountName}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="month" height="0">
+					<bucket class="java.lang.Integer">
+						<bucketExpression><![CDATA[$F{month}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<textFieldExpression><![CDATA[$V{month}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="monthName" height="12">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{monthName}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque">
+							<box>
+								<topPen lineWidth="0.0"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="0" height="0"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement>
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{monthName}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="amountMeasure" class="java.lang.Double">
+					<measureExpression><![CDATA[$F{amount}]]></measureExpression>
+				</measure>
+				<measure name="percentToSalesId" class="java.lang.Integer">
+					<measureExpression><![CDATA[$P{percentToSalesId}]]></measureExpression>
+				</measure>
+				<measure name="salesGrandTotal" class="java.lang.Double">
+					<measureExpression><![CDATA[$P{salesGrandTotal}]]></measureExpression>
+				</measure>
+				<measure name="parent" class="java.lang.Boolean" calculation="Count">
+					<measureExpression><![CDATA[$F{parent}]]></measureExpression>
+				</measure>
+				<crosstabCell width="45" height="7">
+					<cellContents>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="7">
+								<printWhenExpression><![CDATA[!$V{month}.equals($V{percentToSalesId}) && ($V{parent} == null || $V{parent}.equals(false))]]></printWhenExpression>
+							</reportElement>
+							<box bottomPadding="1"/>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font fontName="Arial" size="5"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="7">
+								<printWhenExpression><![CDATA[$V{month}.equals($V{percentToSalesId}) && ($V{parent} == null || $V{parent}.equals(false))]]></printWhenExpression>
+							</reportElement>
+							<box bottomPadding="1"/>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font fontName="Arial" size="5"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}/$V{salesGrandTotal}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="7">
+								<printWhenExpression><![CDATA[$V{month}.equals($V{percentToSalesId}) && ($V{parent} != null && $V{parent}.equals(true))]]></printWhenExpression>
+							</reportElement>
+							<box bottomPadding="1"/>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font fontName="Arial" size="5" isBold="true" isItalic="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}/$V{salesGrandTotal}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="7">
+								<printWhenExpression><![CDATA[!$V{month}.equals($V{percentToSalesId}) && ($V{parent} != null && $V{parent}.equals(true))]]></printWhenExpression>
+							</reportElement>
+							<box bottomPadding="1"/>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font fontName="Arial" size="5" isBold="true" isItalic="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="month">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="monthName">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="130" height="12" rowTotalGroup="acctNo">
+					<cellContents mode="Opaque">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="130" height="12" isPrintWhenDetailOverflows="true"/>
+							<box leftPadding="2" rightPadding="4">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="acctNo" columnTotalGroup="month">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="acctNo" columnTotalGroup="monthName">
+					<cellContents mode="Opaque">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textFieldExpression><![CDATA[$V{amountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName" columnTotalGroup="month">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="accountName" columnTotalGroup="monthName">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

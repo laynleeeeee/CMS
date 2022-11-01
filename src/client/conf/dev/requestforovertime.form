@@ -1,0 +1,20 @@
+
+#Description: Request for overtime workflow cofiguration
+
+EmployeeRequest2.typeId=1
+EmployeeRequest2.form=employeeRequest/2/view
+EmployeeRequest2.edit=request_for_overtime_edit
+EmployeeRequest2.print=employeeRequest/2/requestForOT/pdf
+EmployeeRequest2.service=eulap.eb.service.EmployeeRequestService
+EmployeeRequest2.oo.parent_to_child=1
+EmployeeRequest2.flow=1;2
+EmployeeRequest2.1.statusId=1
+EmployeeRequest2.1.required=
+EmployeeRequest2.1.next=2
+EmployeeRequest2.1.product_code=20010
+EmployeeRequest2.1.module_code=8
+EmployeeRequest2.2.statusId=3
+EmployeeRequest2.2.required=3
+EmployeeRequest2.2.next=0
+EmployeeRequest2.2.product_code=20010
+EmployeeRequest2.2.module_code=64

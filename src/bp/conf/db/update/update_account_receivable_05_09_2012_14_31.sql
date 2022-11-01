@@ -1,0 +1,2 @@
+-- update script for account receivable
+ALTER TABLE `CBS`.`ACCOUNT_RECEIVABLE` ADD COLUMN `INTEREST_DATE` DATE  NOT NULL AFTER `DUE_DATE`;

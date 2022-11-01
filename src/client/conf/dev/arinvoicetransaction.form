@@ -1,0 +1,19 @@
+
+#Description	: AR invoice - transaction form workflow and report configuration file
+
+ArTransaction16.typeId=1
+ArTransaction16.form=
+ArTransaction16.edit=
+ArTransaction16.print=
+ArTransaction16.service=eulap.eb.service.ArInvoiceService
+ArTransaction16.flow=1;2
+ArTransaction16.1.statusId=1
+ArTransaction16.1.required=
+ArTransaction16.1.next=2
+ArTransaction16.1.product_code=12006
+ArTransaction16.1.module_code=8
+ArTransaction16.2.statusId=3
+ArTransaction16.2.required=1
+ArTransaction16.2.next=0
+ArTransaction16.2.product_code=12006
+ArTransaction16.2.module_code=16

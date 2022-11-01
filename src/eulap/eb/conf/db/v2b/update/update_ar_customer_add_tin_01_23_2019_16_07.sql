@@ -1,0 +1,4 @@
+
+-- Description: Alter table AR_CUSTOMER add column TIN.
+
+ALTER TABLE AR_CUSTOMER ADD COLUMN `TIN` varchar(20) DEFAULT NULL AFTER EMAIL_ADDRESS

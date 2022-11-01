@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Description: hibernate configuration which includes the mapping of domain. The domains are java representation of 
+ -->
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan" value="eulap.eb.domain.hibernate, eulap.eb.domain.view.hibernate" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.generate_statistics">false</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- ========================= Data Access Objects DEFINITIONS ========================= -->
+	<bean id="companyDao" class="eulap.eb.dao.impl.CompanyDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formStatusDaoImpl" class="eulap.eb.dao.impl.FormStatusDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userGroupDao" class="eulap.eb.dao.impl.UserGroupDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userDao" class="eulap.eb.dao.impl.UserDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userCompanyDao" class="eulap.eb.dao.impl.UserCompanyDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userGroupAccessRightDaoImpl" class="eulap.eb.dao.impl.UserGroupAccessRightDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="companyProductDao" class="eulap.eb.dao.impl.CompanyProductDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="positionDao" class="eulap.eb.dao.impl.PositionDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userLoginStatusDao" class="eulap.eb.dao.impl.UserLoginStatusDaoImpl" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="uGAccessRightDao" class="eulap.eb.dao.impl.UgMAccessRightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="ugMFAccessRightDao" class="eulap.eb.dao.impl.UgMFAccessRightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formWorkflowDao" class="eulap.eb.dao.impl.FormWorkflowDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formWorkflowLogDao" class="eulap.eb.dao.impl.FormWorkflowLogDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="eBObjectDao" class="eulap.eb.dao.impl.EBObjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="objectTypeDaoImpl" class="eulap.eb.dao.impl.ObjectTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="objectToObjectDao" class="eulap.eb.dao.impl.ObjectToObjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userCompanyHeadDao" class="eulap.eb.dao.impl.UserCompanyHeadDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="genderDao" class="eulap.eb.dao.impl.GenderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="civilStatusDao" class="eulap.eb.dao.impl.CivilStatusDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- START OF ACCOUNTING -->
+	<bean id ="accountTypeDao" class ="eulap.eb.dao.impl.AccountTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="acArLineDao" class ="eulap.eb.dao.impl.AcArLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="accountClassDao" class ="eulap.eb.dao.impl.AccountClassDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="accountDao" class ="eulap.eb.dao.impl.AccountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="accountCombinationDao" class ="eulap.eb.dao.impl.AccountCombinationDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arCustomerDao" class ="eulap.eb.dao.impl.ArCustomerDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arCustomerAcctDao" class ="eulap.eb.dao.impl.ArCustomerAcctDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arLineSetupDao" class ="eulap.eb.dao.impl.ArLineSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="ArLineDaoImpl" class ="eulap.eb.dao.impl.ArLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="ArTransactionDaoImpl" class ="eulap.eb.dao.impl.ArTransactionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="ArTransactionTypeDaoImpl" class ="eulap.eb.dao.impl.ArTransactionTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="busRegTypeDao" class ="eulap.eb.dao.impl.BusRegTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="invoiceTypeDao" class ="eulap.eb.dao.impl.InvoiceTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="isAtSetupDaoImpl" class ="eulap.eb.dao.impl.IsAtSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="isClassSetupDaoImpl" class ="eulap.eb.dao.impl.IsClassSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="aPLineDao" class ="eulap.eb.dao.impl.APLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="aPInvoiceDao" class ="eulap.eb.dao.impl.APInvoiceDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="apInvoiceLineDao" class ="eulap.eb.dao.impl.ApInvoiceLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="apLineSetupDao" class ="eulap.eb.dao.impl.ApLineSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="apPaymentDao" class ="eulap.eb.dao.impl.ApPaymentDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="apPaymentInvoiceDao" class ="eulap.eb.dao.impl.ApPaymentInvoiceDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="paymentTypeDao" class ="eulap.eb.dao.impl.PaymentTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arReceiptDao" class ="eulap.eb.dao.impl.ArReceiptDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arReceiptTransactionDao" class ="eulap.eb.dao.impl.ArReceiptTransactionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arReceiptTypeDao" class ="eulap.eb.dao.impl.ArReceiptTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arMiscellaneousDao" class ="eulap.eb.dao.impl.ArMiscellaneousDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arMiscellaneousLineDao" class ="eulap.eb.dao.impl.ArMiscellaneousLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="arMiscellaneousTypeDao" class ="eulap.eb.dao.impl.ArMiscellaneousTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="bankAccountDao" class ="eulap.eb.dao.impl.BankAccountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="checkbookDao" class ="eulap.eb.dao.impl.CheckbookDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="divisionDao" class ="eulap.eb.dao.impl.DivisionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="glStatusDao" class ="eulap.eb.dao.impl.GlStatusDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="glEntrySourceDao" class ="eulap.eb.dao.impl.GlEntrySourceDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="generalLedgerDao" class ="eulap.eb.dao.impl.GeneralLedgerDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="glEntryDao" class ="eulap.eb.dao.impl.GlEntryDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="inventoryAccountDao" class ="eulap.eb.dao.impl.InventoryAccountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="normalBalanceDao" class ="eulap.eb.dao.impl.NormalBalanceDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="receiptMethodDao" class ="eulap.eb.dao.impl.ReceiptMethodDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="supplierDaoImpl" class ="eulap.eb.dao.impl.SupplierDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="supplierAccountDaoImpl" class ="eulap.eb.dao.impl.SupplierAccountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="timePeriodDao" class ="eulap.eb.dao.impl.TimePeriodDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="timePeriodStatusDao" class ="eulap.eb.dao.impl.TimePeriodStatusDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="termDaoImpl" class ="eulap.eb.dao.impl.TermDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="unitMeasurmentDao" class ="eulap.eb.dao.impl.UnitMeasurementDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="taxTypeDao" class ="eulap.eb.dao.impl.TaxTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="customerTypeDao" class = "eulap.eb.dao.impl.CustomerTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="divisionProjectDao" class = "eulap.eb.dao.impl.DivisionProjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="directPaymentDao" class = "eulap.eb.dao.impl.DirectPaymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="directPaymentLineDao" class = "eulap.eb.dao.impl.DirectPaymentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="directPaymentTypeDao" class = "eulap.eb.dao.impl.DirectPaymentTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="purchaseOrderLineDao" class = "eulap.eb.dao.impl.PurchaseOrderLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- END OF ACCOUNTING -->
+
+	<!-- START OF INVENTORY -->
+	<bean id ="accountSaleItemDao" class ="eulap.eb.dao.impl.AccountSaleItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="capArLineDao" class ="eulap.eb.dao.impl.CapArLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="capDeliveryDao" class ="eulap.eb.dao.impl.CAPDeliveryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="capDeliveryItemDao" class ="eulap.eb.dao.impl.CAPDeliveryItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="capDeliveryArLineDao" class ="eulap.eb.dao.impl.CAPDeliveryArLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="capDeliveryTransactionDao" class ="eulap.eb.dao.impl.CapDeliveryTransactionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleArLineDao" class ="eulap.eb.dao.impl.CashSaleArLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleDao" class ="eulap.eb.dao.impl.CashSaleDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleItemDao" class ="eulap.eb.dao.impl.CashSaleItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="csiRawMaterialDao" class ="eulap.eb.dao.impl.CsiRawMaterialDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="csiFinishedProductDao" class ="eulap.eb.dao.impl.CsiFinishedProductDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleReturnDao" class="eulap.eb.dao.impl.CashSaleReturnDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleReturnItemDao" class ="eulap.eb.dao.impl.CashSaleReturnItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="customerAdvancePaymentDao" class="eulap.eb.dao.impl.CustomerAdvancePaymentDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="customerAdvancePaymentItemDao" class="eulap.eb.dao.impl.CustomerAdvancePaymentItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemAddOnDao" class ="eulap.eb.dao.impl.ItemAddOnDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemAddOnTypeDao" class ="eulap.eb.dao.impl.ItemAddOnTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemSrpDao" class ="eulap.eb.dao.impl.ItemSrpDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemBuyingPriceDao" class ="eulap.eb.dao.impl.ItemBuyingPriceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemBuyingAddOnDao" class ="eulap.eb.dao.impl.ItemBuyingAddOnDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemBuyingDiscountDao" class ="eulap.eb.dao.impl.ItemBuyingDiscountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemCategoryDao" class ="eulap.eb.dao.impl.ItemCategoryDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemCategoryAcctSetupDao" class ="eulap.eb.dao.impl.ItemCategoryAcctSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemDao" class ="eulap.eb.dao.impl.ItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemDiscountDao" class ="eulap.eb.dao.impl.ItemDiscountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemDiscountTypeDao" class ="eulap.eb.dao.impl.ItemDiscountTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="repackingDao" class ="eulap.eb.dao.impl.RepackingDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="repackingTypeDao" class ="eulap.eb.dao.impl.RepackingTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="repackingItemDao" class ="eulap.eb.dao.impl.RepackingItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rPurchaseOrderDao" class ="eulap.eb.dao.impl.RPurchaseOrderDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rPurchaseOrderItemDao" class ="eulap.eb.dao.impl.RPurchaseOrderItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rReceivingReportDao" class ="eulap.eb.dao.impl.RReceivingReportDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rReceivingReportItemDao" class ="eulap.eb.dao.impl.RReceivingReportItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rReceivingReportRmItemDao" class ="eulap.eb.dao.impl.RReceivingReportRmItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rReturnToSupplierDao" class ="eulap.eb.dao.impl.RReturnToSupplierDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rReturnToSupplierItemDao" class ="eulap.eb.dao.impl.RReturnToSupplierItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rTransferReceiptDao" class ="eulap.eb.dao.impl.RTransferReceiptDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rTransferReceiptItemDao" class ="eulap.eb.dao.impl.RTransferReceiptItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="stockAdjustmentTypeDao" class ="eulap.eb.dao.impl.StockAdjustmentTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="stockAdjustmentDao" class ="eulap.eb.dao.impl.StockAdjustmentDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="stockAdjustmentItemDao" class ="eulap.eb.dao.impl.StockAdjustmentItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="warehouseDao" class ="eulap.eb.dao.impl.WarehouseDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="referenceDocumentDao" class ="eulap.eb.dao.impl.ReferenceDocumentDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemBagQuantityDao" class ="eulap.eb.dao.impl.ItemBagQuantityDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rriBagQuantityDao" class ="eulap.eb.dao.impl.RriBagQuantityDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="rriBagDiscountDao" class ="eulap.eb.dao.impl.RriBagDiscountDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="apInvoiceItemDao" class = "eulap.eb.dao.impl.ApInvoiceItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="withholdingTaxAcctSettingDao" class ="eulap.eb.dao.impl.WithholdingTaxAcctSettingDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="repackingFinishedGoodDao" class ="eulap.eb.dao.impl.RepackingFinishedGoodDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="repackingRawMaterialDao" class ="eulap.eb.dao.impl.RepackingRawMaterialDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="serialItemSetupDao" class = "eulap.eb.dao.impl.SerialItemSetupDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="serialItemDao" class = "eulap.eb.dao.impl.SerialItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="posMiddlewareSettingDao" class ="eulap.eb.dao.impl.PosMiddlewareSettingDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemVolumeConversionDao" class ="eulap.eb.dao.impl.ItemVolumeConversionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<!-- Views -->
+	<bean id ="aRLineAnalysisDao" class ="eulap.eb.dao.view.hibernate.ARLineAnalysisDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="aRReceiptRegisterDao" class ="eulap.eb.dao.view.hibernate.ARReceiptRegisterDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="accountSalesPoItemDao" class = "eulap.eb.dao.impl.AccountSalesPoItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="accountSalesDao" class = "eulap.eb.dao.impl.AccountSalesDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id="vatAcctSetupDao" class = "eulap.eb.dao.impl.VatAcctSetupDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<!-- END OF ACCOUNTING and INVENTORY -->
+	<!-- START OF PROCESSING -->
+	<bean id ="processingReportDao" class ="eulap.eb.dao.impl.ProcessingReportDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="processingReportTypeDao" class ="eulap.eb.dao.impl.ProcessingReportTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="prRawMaterialsItemDao" class ="eulap.eb.dao.impl.PrRawMaterialsItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="prOtherMaterialsItemDao" class ="eulap.eb.dao.impl.PrOtherMaterialsItemDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="prOtherChargeDao" class ="eulap.eb.dao.impl.PrOtherChargeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="prMainProductDao" class ="eulap.eb.dao.impl.PrMainProductDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="prByProductDao" class ="eulap.eb.dao.impl.PrByProductDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="uomConversionDao" class ="eulap.eb.dao.impl.UomConversionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="checkbookTemplateDao" class ="eulap.eb.dao.impl.CheckbookTemplateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="productLineDao" class ="eulap.eb.dao.impl.ProductLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="productLineItemDao" class ="eulap.eb.dao.impl.ProductLineItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="cashSaleReturnArLineDao" class ="eulap.eb.dao.impl.CashSaleReturnArLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- END OF PROCESSING -->
+	<!-- START OF PAYROLL -->
+	<bean id ="keyCodeDao" class ="eulap.eb.dao.impl.KeyCodeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="deductionTypeDao" class ="eulap.eb.dao.impl.DeductionTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="actionNoticeDao" class ="eulap.eb.dao.impl.ActionNoticeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="typeOfLeaveDao" class ="eulap.eb.dao.impl.TypeOfLeaveDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="documentTypeDao" class ="eulap.eb.dao.impl.DocumentTypeDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeStatusDao" class ="eulap.eb.dao.impl.EmployeeStatusDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeDao" class ="eulap.eb.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeSalaryDetailDao" class ="eulap.eb.dao.impl.EmployeeSalaryDetailDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeTypeDao" class ="eulap.eb.dao.impl.EmployeeTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeShiftDao" class ="eulap.eb.dao.impl.EmployeeShiftDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="payrollDao" class ="eulap.eb.dao.impl.PayrollDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="payrollEmployeeSalaryDao" class ="eulap.eb.dao.impl.PayrollEmployeeSalaryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="payrollEmployeeTimeSheetDao" class ="eulap.eb.dao.impl.PayrollEmployeeTimeSheetDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="biometricModelDao" class ="eulap.eb.dao.impl.BiometricModelDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="employeeShiftWorkingDayDao" class ="eulap.eb.dao.impl.EmployeeShiftWorkingDayDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="payrollTimePeriodDao" class = "eulap.eb.dao.impl.PayrollTimePeriodDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="payrollTimePeriodScheduleDao" class = "eulap.eb.dao.impl.PayrollTimePeriodScheduleDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="holidaySettingDao" class = "eulap.eb.dao.impl.HolidaySettingDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeShiftAdditionalPayDao" class = "eulap.eb.dao.impl.EmployeeShiftAdditionalPayDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="dailyShiftScheduleDao" class = "eulap.eb.dao.impl.DailyShiftScheduleDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="dailyShiftScheduleLineDao" class = "eulap.eb.dao.impl.DailyShiftScheduleLineDaoImpl">
+	  <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="holidayTypeDao" class = "eulap.eb.dao.impl.HolidayTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeLeaveCreditDao" class = "eulap.eb.dao.impl.EmployeeLeaveCreditDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeLeaveCreditLineDao" class = "eulap.eb.dao.impl.EmployeeLeaveCreditLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeRequestDao" class = "eulap.eb.dao.impl.EmployeeRequestDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeDocumentDao" class = "eulap.eb.dao.impl.EmployeeDocumentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeProfileDao" class = "eulap.eb.dao.impl.EmployeeProfileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeAdditionalInfoDao" class = "eulap.eb.dao.impl.EmployeeAdditionalInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeFamilyDao" class = "eulap.eb.dao.impl.EmployeeFamilyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeSiblingDao" class = "eulap.eb.dao.impl.EmployeeSiblingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeChildrenDao" class = "eulap.eb.dao.impl.EmployeeChildrenDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeEmploymentDao" class = "eulap.eb.dao.impl.EmployeeEmploymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeRelativeDao" class = "eulap.eb.dao.impl.EmployeeRelativeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formDeductionTypeDao" class = "eulap.eb.dao.impl.FormDeductionTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formDeductionDao" class = "eulap.eb.dao.impl.FormDeductionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="formDeductionLineDao" class = "eulap.eb.dao.impl.FormDeductionLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="leaveDetailDao" class = "eulap.eb.dao.impl.LeaveDetailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="overtimeDetailDao" class = "eulap.eb.dao.impl.OvertimeDetailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeDtrDao" class = "eulap.eb.dao.impl.EmployeeDtrDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeEducationalAttainmentDao" class = "eulap.eb.dao.impl.EmployeeEducationalAttainmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeCivilQueryDao" class = "eulap.eb.dao.impl.EmployeeCivilQueryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeEmployementQueryDao" class = "eulap.eb.dao.impl.EmployeeEmploymentQueryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="personnelActionNoticeDao" class = "eulap.eb.dao.impl.PersonnelActionNoticeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="timesheetDao" class = "eulap.eb.dao.impl.TimeSheetDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeDeductionDao" class = "eulap.eb.dao.impl.EmployeeDeductionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="monthlyShiftScheduleLineDao" class = "eulap.eb.dao.impl.MonthlyShiftScheduleLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="monthlyShiftScheduleDaoDao" class = "eulap.eb.dao.impl.MonthlyShiftScheduleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="employeeShiftDayOffDao" class = "eulap.eb.dao.impl.EmployeeShiftDayOffDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salaryTypeDao" class = "eulap.eb.dao.impl.SalaryTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="educationalAttainmentTypeDao" class = "eulap.eb.dao.impl.EducationalAttainmentTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="eeLicenseCertificateDao" class = "eulap.eb.dao.impl.EeLicenseCertificateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="eeEmergencyContactDao" class = "eulap.eb.dao.impl.EeEmergencyContactDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="eeSeminarAttendedDao" class = "eulap.eb.dao.impl.EeSeminarAttendedDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="eeNationalCompetencyDao" class = "eulap.eb.dao.impl.EeNationalCompetencyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- END OF PAYROLL MODULE -->
+	<!-- START OF FLEET PROFILING -->
+	<bean id="fleetTypeDao" class = "eulap.eb.dao.impl.FleetTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetProfileDao" class = "eulap.eb.dao.impl.FleetProfileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetDefaultAccountDao" class = "eulap.eb.dao.impl.FleetDefaultAccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetDriverDao" class = "eulap.eb.dao.impl.FleetDriverDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetInsurancePermitRenewalDao" class = "eulap.eb.dao.impl.FleetInsurancePermitRenewalDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetIncidentDao" class = "eulap.eb.dao.impl.FleetIncidentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetPmsDao" class = "eulap.eb.dao.impl.FleetPmsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetManningRequirementDao" class = "eulap.eb.dao.impl.FleetManningRequirementDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetCaptainMdmDao" class = "eulap.eb.dao.impl.FleetCaptainMdmDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetToolConditionDao" class = "eulap.eb.dao.impl.FleetToolConditionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetDryDockDao" class = "eulap.eb.dao.impl.FleetDryDockDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetVoyageDao" class = "eulap.eb.dao.impl.FleetVoyageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fleetCategoryDao" class = "eulap.eb.dao.impl.FleetCategoryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="withdrawalSlipDao" class = "eulap.eb.dao.impl.WithdrawalSlipDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="withdrawalSlipItemDao" class = "eulap.eb.dao.impl.WithdrawalSlipItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- END OF FLEET PROFILING -->
+	<!-- START OF REVENUE/DISBURSEMENT MODULE -->
+	<bean id="salesQuotationDao" class = "eulap.eb.dao.impl.SalesQuotationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesQuotationItemDao" class = "eulap.eb.dao.impl.SalesQuotationItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesQuotationLineDao" class = "eulap.eb.dao.impl.SalesQuotationLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesOrderDao" class = "eulap.eb.dao.impl.SalesOrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesOrderItemDao" class = "eulap.eb.dao.impl.SalesOrderItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesOrderLineDao" class = "eulap.eb.dao.impl.SalesOrderLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="authorityToWithdrawDao" class = "eulap.eb.dao.impl.AuthorityToWithdrawDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="authorityToWithdrawItemDao" class = "eulap.eb.dao.impl.AuthorityToWithdrawItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="deliveryReceiptDao" class = "eulap.eb.dao.impl.DeliveryReceiptDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="deliveryReceiptItemDao" class = "eulap.eb.dao.impl.DeliveryReceiptItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="deliveryReceiptLineDao" class = "eulap.eb.dao.impl.DeliveryReceiptLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceDao" class = "eulap.eb.dao.impl.ArInvoiceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceItemDao" class = "eulap.eb.dao.impl.ArInvoiceItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceLineDao" class = "eulap.eb.dao.impl.ArInvoiceLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceTransactionDao" class = "eulap.eb.dao.impl.ArInvoiceTransactionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arAdvancePaymentDao" class = "eulap.eb.dao.impl.ArAdvancePaymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="driverDao" class = "eulap.eb.dao.impl.DriverDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="deliveryReceiptTypeDao" class = "eulap.eb.dao.impl.DeliveryReceiptTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesQuotationEquipmentLineao" class = "eulap.eb.dao.impl.SalesQuotationEquipmentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesQuotationTruckingLineDao" class = "eulap.eb.dao.impl.SalesQuotationTruckingLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesOrderTruckingLineao" class = "eulap.eb.dao.impl.SalesOrderTruckingLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesOrderEquipmentLineDao" class = "eulap.eb.dao.impl.SalesOrderEquipmentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="ratioDao" class = "eulap.eb.dao.impl.RatioDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="requisitionClassificationDao" class = "eulap.eb.dao.impl.RequisitionClassificationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="requisitionTypeDao" class = "eulap.eb.dao.impl.RequisitionTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="requisitionFormDao" class = "eulap.eb.dao.impl.RequisitionFormDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="requisitionFormItemDao" class = "eulap.eb.dao.impl.RequisitionFormItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="purchaseRequisitionItemDao" class = "eulap.eb.dao.impl.PurchaseRequisitionItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="workOrderDao" class = "eulap.eb.dao.impl.WorkOrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="workOrderInstructionDao" class = "eulap.eb.dao.impl.WorkOrderInstructionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="workOrderItemDao" class = "eulap.eb.dao.impl.WorkOrderItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="workOrderLineDao" class = "eulap.eb.dao.impl.WorkOrderLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="waybillLineDao" class = "eulap.eb.dao.impl.WaybillLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="equipmentUtilizationLineDao" class = "eulap.eb.dao.impl.EquipmentUtilizationLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceTruckingLinedao" class = "eulap.eb.dao.impl.ArInvoiceTruckingLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="authorityToWithdrawLineDao" class = "eulap.eb.dao.impl.AuthorityToWithdrawLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="apInvoiceAccountDao" class = "eulap.eb.dao.impl.ApInvoiceAccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceEquipmentLineDao" class = "eulap.eb.dao.impl.ArInvoiceEquipmentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="workOrderPurchasedItemDao" class = "eulap.eb.dao.impl.WorkOrderPurchasedItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arInvoiceTypeDao" class = "eulap.eb.dao.impl.ArInvoiceTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="jyeiWithdrawalSlipDao" class = "eulap.eb.dao.impl.JyeiWithdrawalSlipDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="itemVatTypeDao" class = "eulap.eb.dao.impl.ItemVatTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="apInvoiceGoodsDao" class = "eulap.eb.dao.impl.ApInvoiceGoodsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- END OF REVENUE/DISBURSEMENT MODULE -->
+	<!-- START OF NSB MODULES -->
+	<bean id="currencyDao" class = "eulap.eb.dao.impl.CurrencyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="currencyRateDao" class = "eulap.eb.dao.impl.CurrencyRateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="custodianAccountDao" class = "eulap.eb.dao.impl.CustodianAccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="businessClassificationDao" class = "eulap.eb.dao.impl.BusinessClassificationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userCustodianDao" class = "eulap.eb.dao.impl.UserCustodianDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userCustodianLinesDao" class = "eulap.eb.dao.impl.UserCustodianLinesDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="supplierAdvPaymentDao" class = "eulap.eb.dao.impl.SupplierAdvPaymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="supplierAdvPaymentLineDao" class = "eulap.eb.dao.impl.SupplierAdvPaymentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="invoiceClassificationDao" class = "eulap.eb.dao.impl.InvoiceClassificationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="soTypeDao" class = "eulap.eb.dao.impl.SOTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="apPaymentLineDao" class = "eulap.eb.dao.impl.ApPaymentLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="supplierAdvPaymentAccountDao" class = "eulap.eb.dao.impl.SupplierAdvPaymentAccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="bankDao" class = "eulap.eb.dao.impl.BankDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="salesPersonnelDao" class = "eulap.eb.dao.impl.SalesPersonnelDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="serviceSettingDao" class = "eulap.eb.dao.impl.ServiceSettingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="capLineDao" class = "eulap.eb.dao.impl.CapLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="arReceiptLineDao" class = "eulap.eb.dao.impl.ArReceiptLineDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="transactionClassificationDao" class = "eulap.eb.dao.impl.TransactionClassificationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id ="arServiceLineDao" class ="eulap.eb.dao.impl.ArServiceLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="pcvDao" class ="eulap.eb.dao.impl.PettyCashVoucherDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="loanProceedsDao" class ="eulap.eb.dao.impl.LoanProceedsDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="projectRetentionDao" class ="eulap.eb.dao.impl.ProjectRetentionDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="projectRetentionLineDao" class ="eulap.eb.dao.impl.ProjectRetentionLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="lPLineDao" class ="eulap.eb.dao.impl.LPLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="invoiceImportationDetailsDao" class ="eulap.eb.dao.impl.InvoiceImportationDetailsDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="pcvlDao" class ="eulap.eb.dao.impl.PettyCashVoucherLiquidationDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="pcvllDao" class ="eulap.eb.dao.impl.PCVLiquidationLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="pcrlDao" class ="eulap.eb.dao.impl.PettyCashReplenishmentLineDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="casDao" class ="eulap.eb.dao.impl.CustodianAccountSupplierDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="birAtcDao" class ="eulap.eb.dao.impl.BirAtcDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="itemWeightedAveDao" class ="eulap.eb.dao.impl.ItemWeightedAveDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<bean id ="loanChargeTypeDao" class ="eulap.eb.dao.impl.LoanChargeTypeDaoImpl">
+		<property name="sessionFactory"	 ref="sessionFactory"/>
+	</bean>
+	<!-- END OF NSB MODULES -->
+</beans>

@@ -1,0 +1,12 @@
+
+-- Description	: Create script for BIR_ATC table.
+
+DROP TABLE IF EXISTS BIR_ATC;
+
+CREATE TABLE BIR_ATC (
+	BIR_ATC_ID int(10) unsigned NOT NULL AUTO_INCREMENT,
+	NAME varchar(20) NOT NULL,
+	DESCRIPTION text,
+	ACTIVE tinyint(1) DEFAULT 0,
+	PRIMARY KEY (BIR_ATC_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReceiptOtherCharges" pageWidth="233" pageHeight="841" columnWidth="226" leftMargin="0" rightMargin="7" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="3.1384283767210137"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="arLineSetupName" class="java.lang.String"/>
+	<field name="unitMeasurementName" class="java.lang.String"/>
+	<field name="upAmount" class="java.lang.Double"/>
+	<field name="amount" class="java.lang.Double"/>
+	<field name="quantity" class="java.lang.Double"/>
+	<field name="vatAmount" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="120" y="0" width="38" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+					<paragraph leftIndent="20" rightIndent="3" spacingBefore="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="120" height="14"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+					<paragraph leftIndent="20" spacingBefore="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{arLineSetupName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="158" y="0" width="68" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+					<paragraph rightIndent="25" spacingBefore="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount} + ($F{vatAmount} != null ? $F{vatAmount} : 0.0)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="4">
+			<staticText>
+				<reportElement x="0" y="2" width="226" height="2"/>
+				<box>
+					<pen lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineStyle="Dashed"/>
+					<bottomPen lineStyle="Dashed"/>
+					<rightPen lineStyle="Dashed"/>
+				</box>
+				<textElement>
+					<font fontName="Arial"/>
+					<paragraph leftIndent="15" rightIndent="25"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,21 @@
+
+#Description: Sales order - NSB 8A form workflow and journal entries configuration
+
+SalesOrder6.typeId=1
+SalesOrder6.form=salesOrder/viewForm
+SalesOrder6.edit=sales_order_nsb8a_edit
+SalesOrder6.print=salesOrder/printout
+SalesOrder6.service=eulap.eb.service.SalesOrderService
+SalesOrder6.oo.parent_to_child=1
+SalesOrder6.oo.child_to_child=12002
+SalesOrder6.flow=1;2
+SalesOrder6.1.statusId=1
+SalesOrder6.1.required=
+SalesOrder6.1.next=2
+SalesOrder6.1.product_code=24045
+SalesOrder6.1.module_code=8
+SalesOrder6.2.statusId=30
+SalesOrder6.2.required=1
+SalesOrder6.2.next=0
+SalesOrder6.2.product_code=24045
+SalesOrder6.2.module_code=16

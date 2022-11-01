@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+#tblPRReference {
+	cellspacing: 0;
+	border: none;
+}
+
+#tblPRReference thead th {
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+
+#tblPRReference tbody td {
+	border-top: 1px solid #000000;
+}
+
+.tdProperties {
+	border-right: 1px solid #000000;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISTypeByMonth2" pageWidth="730" pageHeight="572" orientation="Landscape" columnWidth="730" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="0.826446280991739"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="totals">
+		<parameter name="salesTotalCentral" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+		<parameter name="salesGrandTotal" class="java.lang.Double"/>
+		<parameter name="percentToSalesId" class="java.lang.Integer"/>
+		<field name="amount" class="java.lang.Double"/>
+		<field name="divisionId" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="salesTotalCentral" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+	<parameter name="salesGrandTotal" class="java.lang.Double"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<field name="typeDtos" class="java.util.List"/>
+	<field name="isbsTotalDtos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="15">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="730" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$P{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$P{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{typeDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISTypeByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

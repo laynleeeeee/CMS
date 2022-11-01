@@ -1,0 +1,20 @@
+
+#Description: Request for leave workflow cofiguration
+
+EmployeeRequest1.typeId=1
+EmployeeRequest1.form=employeeRequest/1/view
+EmployeeRequest1.edit=request_for_leave_edit
+EmployeeRequest1.print=employeeRequest/1/pdf
+EmployeeRequest1.service=eulap.eb.service.EmployeeRequestService
+EmployeeRequest1.oo.parent_to_child=1
+EmployeeRequest1.flow=1;2
+EmployeeRequest1.1.statusId=1
+EmployeeRequest1.1.required=
+EmployeeRequest1.1.next=2
+EmployeeRequest1.1.product_code=20005
+EmployeeRequest1.1.module_code=8
+EmployeeRequest1.2.statusId=3
+EmployeeRequest1.2.required=3
+EmployeeRequest1.2.next=0
+EmployeeRequest1.2.product_code=20005
+EmployeeRequest1.2.module_code=64

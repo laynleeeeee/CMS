@@ -1,0 +1,132 @@
+#top {
+    height:40px;
+    min-width: 980px;
+    position: relative;
+    background-color: #505050;
+}
+#menu-wrapper {
+    height: 40px;
+    width:1200px;
+    margin:0 auto;
+    display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+#top-menu {
+    float: left;
+    color: white;
+}
+#top-menu a {
+    float: left;
+    display: block;
+    text-decoration: none;
+    border-bottom: medium none;
+    margin-left: 0px;
+    color: white;
+}
+#mSwitch span {
+	display: block;
+	float: left;
+	padding: 10px;
+	color: white;
+}
+#mHome span {
+   	display: block;
+    float: left;
+   	padding: 10px;
+    color: white;
+}
+#mSearch {
+    float: left;
+    color: black;
+    width: 250px;
+	margin-left: 20px;
+	margin-top: 8px;
+	border: 1px solid #d1d1d1;
+    padding: 1px 15px 1px 2px;
+    font: normal medium Arial,Helvetica,Sans-serif;
+	color: gray;
+}
+.menuLeft span {
+	display: block;
+    float: left;
+   	padding: 10px;
+}
+
+#mReport span {
+    display: block;
+    float: left;
+   	padding: 10px;
+}
+
+#mApprove span {
+    display: block;
+    float: left;
+   	padding: 10px;
+}
+
+#settings {
+    float: right;
+	padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#user{
+	float: right;
+	padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#rightSide{
+	float: right;
+}
+
+input[disabled], textarea[disabled],
+select[disabled='disabled']{
+    color: black !important;
+	-webkit-text-fill-color: rgba(0, 0, 0, 1);
+	-webkit-opacity: 1;
+	background: white;
+}
+
+textarea {
+	border: 1px solid gray;
+	resize: none;
+}
+
+.txtAreaRemarks  {
+	font-family: sans-serif;
+	background-color: #FFFFFF;
+	border: none;
+	width: 90%;
+	resize: none;
+}
+
+#txtWithholdingTax, .txtQuantity, .txtBrand, .txtUnitCost, .txtInvUnitCost,
+.txtStockCode, .txtPartNo, .txtStockCodeFrom, .txtFromItemId, .txtStockCodeTo {
+	border: none;
+	background-color: #FFFFFF;
+	background: transparent;
+}
+
+.ui-autocomplete-loading {
+	background: white url('././images/spinner.gif') right center no-repeat;
+}
+
+.grid-container-left {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 5px;
+}
+
+.grid-container-right {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: 200px;
+}
+
+.grid-item {
+	align-self: center;
+	justify-self: center;
+}

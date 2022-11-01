@@ -1,0 +1,4 @@
+
+-- Description: Create an index to item for better query result. 
+
+create index INDEX_ITEM on ITEM(STOCK_CODE, DESCRIPTION, UNIT_MEASUREMENT_ID, ITEM_CATEGORY_ID, ACTIVE);

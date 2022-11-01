@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PayrollRecord" pageWidth="896" pageHeight="572" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="896" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.1000000000000152"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<field name="employeeName" class="java.lang.String"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="value" class="java.lang.Double"/>
+	<field name="titleOrder" class="java.lang.Integer"/>
+	<field name="computeTotal" class="java.lang.Boolean"/>
+	<variable name="counter" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{employeeName}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="14" width="896" height="21"/>
+				<box>
+					<pen lineColor="#BBBBBB"/>
+					<topPen lineColor="#BBBBBB"/>
+					<leftPen lineColor="#BBBBBB"/>
+					<bottomPen lineWidth="0.5" lineColor="#BBBBBB"/>
+					<rightPen lineColor="#BBBBBB"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payroll Record]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="63">
+			<crosstab ignoreWidth="false">
+				<reportElement x="0" y="0" width="896" height="63"/>
+				<crosstabHeaderCell>
+					<cellContents backcolor="#DCDCDC" mode="Opaque">
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="20" height="30"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[#]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="20" y="0" width="120" height="30"/>
+							<box>
+								<bottomPen lineWidth="0.0"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Arial" size="9" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Employee Name]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="counter" width="20" totalPosition="End">
+					<bucket class="java.lang.Integer">
+						<bucketExpression><![CDATA[$V{counter}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="20" height="15"/>
+								<textElement textAlignment="Right">
+									<font fontName="Arial" size="9"/>
+									<paragraph rightIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{counter}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Transparent">
+							<box>
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="2.5" lineStyle="Double"/>
+							</box>
+							<staticText>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="140" height="12"/>
+								<box>
+									<topPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Left">
+									<font fontName="Arial" size="9" isBold="true"/>
+									<paragraph leftIndent="3"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="employeeName" width="120">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{employeeName}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Transparent">
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="120" height="15"/>
+								<textElement textAlignment="Left">
+									<font fontName="Arial" size="9"/>
+									<paragraph leftIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{employeeName}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents mode="Transparent"/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="titleOrder" height="0">
+					<bucket class="java.lang.Integer">
+						<bucketExpression><![CDATA[$F{titleOrder}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="65" height="0"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{titleOrder}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="computeTotal" height="0">
+					<bucket class="java.lang.Boolean">
+						<bucketExpression><![CDATA[$F{computeTotal}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="65" height="0"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{computeTotal}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="title" height="30">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{title}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#DCDCDC" mode="Opaque">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField isBlankWhenNull="false">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="65" height="30"/>
+								<box>
+									<bottomPen lineWidth="0.0"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{title}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents mode="Transparent"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="valueMeasure" class="java.lang.Double" calculation="Sum">
+					<measureExpression><![CDATA[$F{value}]]></measureExpression>
+				</measure>
+				<crosstabCell width="65" height="15">
+					<cellContents mode="Transparent">
+						<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="65" height="15"/>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" size="9"/>
+								<paragraph rightIndent="3"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="12" rowTotalGroup="counter">
+					<cellContents backcolor="#BFE1FF" mode="Transparent">
+						<box>
+							<topPen lineWidth="0.5"/>
+							<bottomPen lineWidth="2.5" lineStyle="Double"/>
+						</box>
+						<textField pattern="#,##0.00;(#,##0.00)">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="65" height="12">
+								<printWhenExpression><![CDATA[$V{computeTotal}]]></printWhenExpression>
+							</reportElement>
+							<box>
+								<topPen lineWidth="0.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="3"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="title">
+					<cellContents backcolor="#BFE1FF" mode="Transparent">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="counter" columnTotalGroup="title">
+					<cellContents backcolor="#BFE1FF" mode="Transparent">
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="employeeName">
+					<cellContents mode="Transparent"/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="employeeName" columnTotalGroup="title">
+					<cellContents mode="Transparent"/>
+				</crosstabCell>
+				<crosstabCell columnTotalGroup="titleOrder">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="counter" columnTotalGroup="titleOrder">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="employeeName" columnTotalGroup="titleOrder">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell columnTotalGroup="computeTotal">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="counter" columnTotalGroup="computeTotal">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="employeeName" columnTotalGroup="computeTotal">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

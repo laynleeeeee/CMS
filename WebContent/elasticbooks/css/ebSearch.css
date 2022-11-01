@@ -1,0 +1,188 @@
+/**
+*CSS for Elasticbooks Searching
+
+*/
+
+/**** Form Div Template Section  *****/
+body,html,.searchContainer {
+    height: 100%;
+    padding: 0;
+}
+
+body,html{
+    background-color: rgb(245, 245, 245);
+}
+
+.searchContainer {
+    width:900px; 
+    margin:0 auto;
+    padding: 0;
+    font-family: sans-serif;
+	border-left: 1px solid  #E0E0E0 ;
+	border-right: 1px solid  #E0E0E0 ;
+	background-color: white;
+}
+
+/**** Search Result DIV Section  *****/
+
+.searchResultDiv {
+    width:625px;
+    float:right; 
+    height: 6%;
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    color: #B8B8B8;
+    padding-top: 25px;
+   	text-indent: 15px;
+	border-left: 1px solid #D8D8D8;
+}
+
+.searchFilters {
+	margin-left: 30px;
+	font-size: small;
+	font-style: italic;
+	color: 	#A0A0A0;
+}
+
+/**** Main DIV Section  *****/
+
+.mainResultDiv {
+    width:625px;
+    float:right; 
+    height: 94%;
+    text-indent: 15px;
+    font-family: sans-serif;
+    border-left: 1px solid #D8D8D8;
+}
+
+.mainResultDiv table {
+	font-size: xx-small;
+}
+
+.editImg {
+	padding-left: 80px;
+}
+
+.resultTbl {
+	padding-left: 30px;
+}
+
+.resultTbl a{
+	font-size:x-small;
+	font-weight: bold;
+}
+
+.titlename {
+ 	padding-left: 15px;
+}
+
+h5 {
+	margin-left: 15px;
+}
+
+/**** Search Filter DIV Section  *****/
+
+.searchFilterHeader {
+    width:265px;
+	text-indent: 5px;
+	text-align: left;
+	font-size: medium;
+	color: #B8B8B8;
+	padding-top: 30px;
+}
+
+a, a:VISITED, a:HOVER{
+	color: blue;
+	text-decoration: none;
+}
+
+.formFloat {
+	display:none;
+	background: white;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -250px;
+}
+
+.sub_navigation{
+	background-color: white;
+	border: 1px solid gray;
+	padding: 3px;
+	font-size: small;
+	border-radius: 5px;
+    box-shadow:inset 0 0 2px #B8B8B8;
+}
+
+/**** Horizontal Line DIV Section  *****/
+
+hr.normal{
+	width:95%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 90%);
+	height: 1px;
+	align: center;
+}
+
+hr.thin{
+	width:75%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 90%);
+	height: 1px;
+	align: center;
+}
+
+hr.thin2{
+	width:95%; 
+ 	border: 0;
+	background-color: hsla(240, 50%, 50%, 0.5);
+	height: 2px;
+	align: center;
+}
+
+hr.med{
+	width:95%; 
+ 	border: 0;
+	background-color: hsl(350, 0%, 70%);
+	height: 1px;
+	align: center;
+}
+
+.frmDataTbl{
+	width: 565px;
+	margin: 33px;
+}
+
+tfoot {
+	font-size: small;
+}
+
+ul {
+		margin:0;
+		padding:0;
+		list-style-type:none;
+		min-width:20px;
+}
+
+ul#navigation {
+	float:left;
+}
+
+ul#navigation li {
+	float:left;
+	min-width:20px;
+}
+
+ul.sub_navigation {
+	position:absolute;
+	display:none;
+}
+
+ul.sub_navigation li {
+	clear:both;
+}
+span.showCloseBtn {
+	cursor: pointer;
+	float: right;
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeProfile" pageWidth="572" pageHeight="896" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.2100000000000166"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="administrativeInvestigation" class="java.lang.Boolean"/>
+	<parameter name="adminInvesDetail" class="java.lang.String"/>
+	<parameter name="crimeConvicted" class="java.lang.Boolean"/>
+	<parameter name="crimeConvictedDetail" class="java.lang.String"/>
+	<parameter name="usedProhibitedDrug" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="30" width="50" height="10"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{crimeConvicted} == true ? "Yes" : "No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="305" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[1. Have you been found guilty of any administrative investigation?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="305" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[2. Have you been convicted of any crimes by any court?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="10" width="135" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[If Yes, please state brief details.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="148" y="10" width="404" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{adminInvesDetail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="55" width="50" height="10"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{usedProhibitedDrug} == true ? "Yes" : "No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="40" width="135" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[If Yes, please state brief details.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="55" width="305" height="10"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+					<paragraph rightIndent="3"/>
+				</textElement>
+				<text><![CDATA[3. Have you been into any prohibited drugs?]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="148" y="40" width="404" height="10"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{crimeConvictedDetail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="0" width="50" height="10"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{administrativeInvestigation} == true ? "Yes" : "No"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AnnualAlphalistWTFinal" pageWidth="936" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="896" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty">
+	<property name="ireport.zoom" value="1.3660269107301422"/>
+	<property name="ireport.x" value="16"/>
+	<property name="ireport.y" value="21"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="printedDate" class="java.lang.String"/>
+	<parameter name="printedBy" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="yearEnd" class="java.lang.String"/>
+	<parameter name="schedules" class="java.lang.String"/>
+	<field name="tin" class="java.lang.String"/>
+	<field name="registeredName" class="java.lang.String"/>
+	<field name="payeesAddress" class="java.lang.String"/>
+	<field name="atcCode" class="java.lang.String"/>
+	<field name="natureOfIncomePayment" class="java.lang.String"/>
+	<field name="incomePayment" class="java.lang.Double"/>
+	<field name="taxRate" class="java.lang.Double"/>
+	<field name="actualAmtWthld" class="java.lang.Double"/>
+	<field name="branchCode" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="firstName" class="java.lang.String"/>
+	<field name="middleName" class="java.lang.String"/>
+	<field name="employeeName" class="java.lang.String"/>
+	<field name="statusCode" class="java.lang.String"/>
+	<variable name="grandTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{actualAmtWthld}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="228" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="38" width="259" height="16"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{yearEnd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="72" width="30" height="22"/>
+				<box bottomPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIN:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="30" y="72" width="337" height="22"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyTin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="94" width="159" height="22"/>
+				<box bottomPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WITHHOLDING AGENT'S NAME:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="159" y="94" width="737" height="22"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="22" width="379" height="16"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="0" width="259" height="22"/>
+				<box topPadding="0" bottomPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BIR FROM 1604F-SCHEDULE "+$P{schedules}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="769" y="144" width="57" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RATE OF TAX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="144" width="118" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME OF EMPLOYEES
+(Last Name, First Name, Middle Name))]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="144" width="84" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAXPAYER IDENTIFICATION NUMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="174" width="69" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(8)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="558" y="144" width="142" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NATURE OF INCOME PAYMENT
+(Refer to BIR Form No. 1601 FQ)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="826" y="174" width="70" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(10)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="144" width="101" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS OF PAYEES]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="558" y="211" width="142" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["-----------------------------------"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="211" width="30" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["----"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="489" y="211" width="69" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["---------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="174" width="84" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="144" width="69" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="144" width="30" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEQ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="174" width="101" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(4)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="174" width="86" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(3)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="174" width="69" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(6)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="174" width="118" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(4)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="174" width="30" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="200" y="211" width="118" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["------------------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="114" y="144" width="86" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTERED NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="144" width="69" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT OF INCOME PAYMENT]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="419" y="211" width="70" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["---------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="769" y="174" width="57" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(9)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="826" y="144" width="70" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT OF TAX WITHHELD]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="318" y="211" width="101" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["-----------------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="558" y="174" width="142" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(7)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="114" y="211" width="86" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["--------------------"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="826" y="211" width="70" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["---------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="144" width="70" height="30"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[*STATUS ( As to Residence, Nationality)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="769" y="211" width="57" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["----------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="174" width="70" height="23"/>
+				<box bottomPadding="2" rightPadding="5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(5)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="700" y="211" width="69" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["--------------"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="30" y="211" width="84" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["----------------------"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="30" splitType="Prevent">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="30" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="30" y="0" width="84" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tin}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="114" y="0" width="86" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{registeredName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="200" y="0" width="118" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="419" y="0" width="70" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statusCode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="489" y="0" width="69" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atcCode}.trim()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="558" y="0" width="142" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{natureOfIncomePayment}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="769" y="0" width="57" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{taxRate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="826" y="0" width="70" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{actualAmtWthld}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="318" y="-1" width="101" height="31" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payeesAddress}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="700" y="0" width="69" height="30" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{incomePayment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="25">
+			<subreport>
+				<reportElement x="0" y="0" width="896" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="887" y="4" width="0" height="16" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="54">
+			<staticText>
+				<reportElement x="0" y="13" width="826" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Grand Total:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="826" y="13" width="70" height="20" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="826" y="0" width="70" height="13" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["---------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="33" width="826" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[End of Report]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="826" y="33" width="70" height="20" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["==========="]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

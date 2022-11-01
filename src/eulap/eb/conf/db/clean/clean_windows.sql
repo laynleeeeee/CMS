@@ -1,0 +1,36 @@
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\clean\clean_db_06_07_2022_18_00.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\base\audit_trail.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\inv\purchase_order_type.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\base\ar_miscellaneous_ar_line.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\inv\expirable_item.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_audit_trail_change_prev_and_new_state_data_type_06_07_2022_17_35.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_supplier_add_blacklist_03_23_2022_14_15.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_purchase_order_add_po_type_id_06_09_2022_15_38.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_sales_order_so_type_06_23_2022_10_10.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_item_add_expirable_10_26_2021_16_02.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_purchase_order_type_06_14_2022_14_55.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_ar_miscellaneous_ar_line_object_type_id_04_21_2022_16_34.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_approved_for_work_and_dispatch_form_status_03_22_2022_11_04.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_form_status_06_14_2022_10_08.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_form_status_06_16_2022_14_14.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_form_status_06_17_2022_10_41.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_ar_line_type_06_30_2022_17_37.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_atc_default_data_07_04_2022_11_53.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_expirable_item_object_or_type_id_07_10_2022_17_03.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\clean\update_form_type_name_by_division_06_23_2022_13_40.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\clean\update_form_type_status_by_division_07_04_2022_15_49.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\update_wt_acct_seeting_set_atc_value_12_06_2021_11_41.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\clean\insert_default_chart_of_account.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\sp\sp_get_unposted_forms.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\sp\sp_get_available_batch_numbers.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\sp\sp_get_item_batch_available_stocks.sql
+SET FOREIGN_KEY_CHECKS = 0; 
+SOURCE C:\Users\samue\eulap\CMS\src\eulap\eb\conf\db\disbursement\requisition_form.sql
+SOURCE C:\Users\samue\eulap\CMS\src\eulap\eb\conf\db\disbursement\requisition_form_item.sql
+SOURCE C:\Users\samue\eulap\CMS\src\eulap\eb\conf\db\disbursement\purchase_requisition_item.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_requisition_form_item_add_rf_id_04_06_2021_13_53.sql
+SOURCE C:\Users\samue\eulap\CMS\src\eulap\eb\conf\db\inv\withdrawal_slip.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\inv\withdrawal_slip_item.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\update\update_withdrawal_slip_object_type_id_06_10_14_55.sql
+SOURCE C:\Users\samue\eulap\test\CMS\src\eulap\eb\conf\db\data\insert_withdrawal_slip_or_type_id_06_10_2022_10_28.sql
+SET FOREIGN_KEY_CHECKS = 1;

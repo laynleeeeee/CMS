@@ -1,0 +1,16 @@
+
+-- Description: Script for creating paid receivable. This table will hold the partial and full paid account
+CREATE TABLE `PAID_RECEIVABLE` (
+  `PAID_RECEIVABLE_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `PAYMENT_ID` int(10) unsigned NOT NULL,
+  `ACCOUNT_RECEIVABLE_ID` int(10) unsigned NOT NULL,
+  `PAID_PRINCIPAL` decimal(10,2) NOT NULL,
+  `PAID_INTEREST` decimal(10,2) NOT NULL,
+  `CREATED_BY` int(10) unsigned NOT NULL,
+  `CREATED_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPDATED_BY` int(10) unsigned NOT NULL,
+  `UPDATED_DATE` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`PAID_RECEIVABLE_ID`),
+  KEY `FK_PAYMENT` (`PAYMENT_ID`),
+  KEY `FK_ACCOUNT_RECEIVABLE` (`ACCOUNT_RECEIVABLE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

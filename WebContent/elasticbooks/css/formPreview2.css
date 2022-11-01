@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+/**
+* CSS for Elasticbooks Form Preview
+
+*/
+
+.label{
+	text-align: right;
+	width: 180px;
+	font-size: small;
+	font-weight: bold;
+}
+
+.label-value {
+	padding: 5px 15px;
+	text-align: left;
+	font-size: small;
+}
+
+.border-top {
+	border-top: 1px solid #000000;
+}
+
+.border-right {
+	border-right: 1px solid #000000;
+}
+
+.border-right-none {
+	border-right: none;
+}
+
+.txt-align-right {
+	text-align: right;
+}
+
+.v-align-top {
+	vertical-align: top;
+}
+
+.th-td-norm {
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+}
+
+.th-td-edge {
+	border-top: 1px solid #000000;
+	border-right: none
+}
+
+.td-numeric {
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	text-align: right;
+}

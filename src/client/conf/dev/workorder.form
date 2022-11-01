@@ -1,0 +1,26 @@
+
+# Description	: Work order form workflow and report configuration file
+
+WorkOrder.typeId=1
+WorkOrder.form=workOrder/viewForm
+WorkOrder.edit=work_order_edit
+WorkOrder.print=workOrder/printout
+WorkOrder.service=eulap.eb.service.WorkOrderService
+WorkOrder.oo.parent_to_child=1
+WorkOrder.oo.child_to_child=12008
+WorkOrder.flow=1;2;3
+WorkOrder.1.statusId=1
+WorkOrder.1.required=
+WorkOrder.1.next=2
+WorkOrder.1.product_code=12006
+WorkOrder.1.module_code=8
+WorkOrder.2.statusId=3
+WorkOrder.2.required=1
+WorkOrder.2.next=3
+WorkOrder.2.product_code=12006
+WorkOrder.2.module_code=16
+WorkOrder.3.statusId=29
+WorkOrder.3.required=2
+WorkOrder.3.next=0
+WorkOrder.3.product_code=12006
+WorkOrder.3.module_code=32

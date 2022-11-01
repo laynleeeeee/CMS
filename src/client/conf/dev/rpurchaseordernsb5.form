@@ -1,0 +1,21 @@
+
+# Description	: Purchase order - NSB5 form workflow and journal entries configuration
+
+RPurchaseOrder4.typeId=1
+RPurchaseOrder4.form=retailPurchaseOrder/viewForm
+RPurchaseOrder4.edit=po_nsb5_edit
+RPurchaseOrder4.print=retailPurchaseOrderPDF/nsbFormat
+RPurchaseOrder4.service=eulap.eb.service.RPurchaseOrderService
+RPurchaseOrder4.oo.parent_to_child=1
+RPurchaseOrder4.oo.child_to_child=3010
+RPurchaseOrder4.flow=1;2
+RPurchaseOrder4.1.statusId=1
+RPurchaseOrder4.1.required=
+RPurchaseOrder4.1.next=2
+RPurchaseOrder4.1.product_code=24004
+RPurchaseOrder4.1.module_code=3
+RPurchaseOrder4.2.statusId=3
+RPurchaseOrder4.2.required=1
+RPurchaseOrder4.2.next=0
+RPurchaseOrder4.2.product_code=24004
+RPurchaseOrder4.2.module_code=16

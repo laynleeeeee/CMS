@@ -1,0 +1,25 @@
+
+#Description: Sales quotation form workflow and report configuration file
+
+SalesQuotation.typeId=1
+SalesQuotation.form=salesQuotation/viewForm
+SalesQuotation.edit=sales_quotation_edit
+SalesQuotation.print=salesQuotation/printout
+SalesQuotation.service=eulap.eb.service.SalesQuotationService
+SalesQuotation.oo.parent_to_child=1
+SalesQuotation.flow=1;2;3
+SalesQuotation.1.statusId=1
+SalesQuotation.1.required=
+SalesQuotation.1.next=2
+SalesQuotation.1.product_code=12000
+SalesQuotation.1.module_code=8
+SalesQuotation.2.statusId=3
+SalesQuotation.2.required=1
+SalesQuotation.2.next=3
+SalesQuotation.2.product_code=12000
+SalesQuotation.2.module_code=16
+SalesQuotation.3.statusId=28
+SalesQuotation.3.required=2
+SalesQuotation.3.next=0
+SalesQuotation.3.product_code=12000
+SalesQuotation.3.module_code=32

@@ -1,0 +1,20 @@
+/**
+* Cascading style sheet for different inputs.  
+
+*/
+
+@CHARSET "UTF-8";
+input.numberClass{
+	width: 85px;
+	text-align: right;
+}
+
+input.interestClass {
+	width: 40px;
+	text-align: right;
+}
+
+input.dateClass {
+	width: 80px;
+}
+

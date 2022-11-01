@@ -1,0 +1,21 @@
+
+#Description: Authority To Withdraw form workflow and report configuration file
+
+AuthorityToWithdraw.typeId=1
+AuthorityToWithdraw.form=authorityToWithdaw/viewForm
+AuthorityToWithdraw.edit=authority_to_withdraw_edit
+AuthorityToWithdraw.print=authorityToWithdaw/printout
+AuthorityToWithdraw.service=eulap.eb.service.AuthorityToWithdrawService
+AuthorityToWithdraw.oo.parent_to_child=1
+AuthorityToWithdraw.oo.child_to_child=12001
+AuthorityToWithdraw.flow=1;2
+AuthorityToWithdraw.1.statusId=1
+AuthorityToWithdraw.1.required=
+AuthorityToWithdraw.1.next=2
+AuthorityToWithdraw.1.product_code=12002
+AuthorityToWithdraw.1.module_code=8
+AuthorityToWithdraw.2.statusId=3
+AuthorityToWithdraw.2.required=1
+AuthorityToWithdraw.2.next=0
+AuthorityToWithdraw.2.product_code=12002
+AuthorityToWithdraw.2.module_code=16

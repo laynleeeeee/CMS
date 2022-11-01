@@ -1,0 +1,122 @@
+# Income statement configuration for Eulap Software Solutions.
+# income_title=The title of the income.
+# income_total_label=The label of the total income when generating report.
+# expense_titel=The title of the expenses.
+# expense_total_label=The label of the total expenses amount
+# account_classses=The different configured class  
+income_title=REVENUE
+income_total_label=GROSS PROFIT (LOSS)
+expense_title=EXPENSES
+expense_total_label=TOTAL EXPENSES
+account_classes=revenue;cost_of_sales;expenses
+
+###################################################################################################
+# CONFIGURATION OF ACCOUNT CLASSES																  #
+###################################################################################################
+# account_class_name.label = The label that will be used in the report.
+# account_class_name.is_positive = true to if this account class is revenue type, otherwise false.
+# account_class_name.is_gross_profit = True to set this account class as gross profit, otherwise false.
+# account_class_name.sequence_number = The sequence number of the account class, descending order.
+
+revenue.label=Revenue
+revenue.is_positive=true
+revenue.is_income=true
+revenue.sequence_number=100
+revenue.account_types=at_net_sales;at_revenue;at_other_income;at_selling;
+
+cost_of_sales.label=Cost of Sales
+cost_of_sales.is_positive=false
+cost_of_sales.is_income=true
+cost_of_sales.sequence_number=90
+cost_of_sales.account_types=at_cost_of_sales;at_direct_materials;at_direct_labor;at_mfg_overhead;at_mfg_overhead_rm;at_inventory_adjustment;
+
+expenses.label=Expenses
+expenses.is_positive=true
+expenses.is_income=false
+expenses.sequence_number=50
+expenses.account_types=at_operating_expenses;at_general_admin;at_depreciation;at_interest_expense;at_other_expenses;
+
+###################################################################################################
+# CONFIGURATION FOR ACCOUNT TYPES																  #
+###################################################################################################
+# account_type_name.db_account_type_id = the account type id (ACCOUNT_TYPE_ID) in the database.
+# account_type_name.is_positive = True to add the value of the account type in the total amount, otherwise deduct from the total amount. 
+# account_type_name.sequence_number = The sequence number of the account type, descending order.
+
+# Revenue
+at_net_sales.db_account_type_id=5
+at_net_sales.is_positive=true
+at_net_sales.as_of_balance=false
+at_net_sales.sequence_number=100
+
+# Cost of Sales
+at_cost_of_sales.db_account_type_id=6
+at_cost_of_sales.is_positive=true
+at_cost_of_sales.as_of_balance=false
+at_cost_of_sales.sequence_number=100
+
+# Expenses
+at_operating_expenses.db_account_type_id=7
+at_operating_expenses.is_positive=true
+at_operating_expenses.as_of_balance=false
+at_operating_expenses.sequence_number=100
+
+at_revenue.db_account_type_id=16
+at_revenue.is_positive=true
+at_revenue.as_of_balance=false
+at_revenue.sequence_number=100
+
+at_direct_materials.db_account_type_id=17
+at_direct_materials.is_positive=true
+at_direct_materials.as_of_balance=false
+at_direct_materials.sequence_number=100
+
+at_direct_labor.db_account_type_id=18
+at_direct_labor.is_positive=true
+at_direct_labor.as_of_balance=false
+at_direct_labor.sequence_number=100
+
+at_mfg_overhead.db_account_type_id=19
+at_mfg_overhead.is_positive=true
+at_mfg_overhead.as_of_balance=false
+at_mfg_overhead.sequence_number=100
+
+at_mfg_overhead_rm.db_account_type_id=20
+at_mfg_overhead_rm.is_positive=true
+at_mfg_overhead_rm.as_of_balance=false
+at_mfg_overhead_rm.sequence_number=100
+
+at_selling.db_account_type_id=21
+at_selling.is_positive=true
+at_selling.as_of_balance=false
+at_selling.sequence_number=100
+
+at_general_admin.db_account_type_id=22
+at_general_admin.is_positive=true
+at_general_admin.as_of_balance=false
+at_general_admin.sequence_number=100
+
+at_depreciation.db_account_type_id=23
+at_depreciation.is_positive=true
+at_depreciation.as_of_balance=false
+at_depreciation.sequence_number=100
+
+at_interest_expense.db_account_type_id=24
+at_interest_expense.is_positive=true
+at_interest_expense.as_of_balance=false
+at_interest_expense.sequence_number=100
+
+at_other_income.db_account_type_id=25
+at_other_income.is_positive=true
+at_other_income.as_of_balance=false
+at_other_income.sequence_number=100
+
+at_other_expenses.db_account_type_id=26
+at_other_expenses.is_positive=true
+at_other_expenses.as_of_balance=false
+at_other_expenses.sequence_number=100
+
+at_inventory_adjustment.db_account_type_id=30
+at_inventory_adjustment.is_positive=true
+at_inventory_adjustment.as_of_balance=false
+at_inventory_adjustment.sequence_number=100

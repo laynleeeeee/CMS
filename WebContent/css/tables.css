@@ -1,0 +1,118 @@
+/*
+
+*/
+
+@CHARSET "UTF-8";
+
+.dataTable {
+	width: 100%;
+	border-color: black;
+	border-collapse: collapse;
+	border-right: 1px solid #F5F2EF;
+	font-size: 13px;
+}
+
+.dataTable thead, .dataTable th {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+.dataTable thead, .dataTable th, .dataTable tbody, .dataTable td {
+	padding: 2px;
+	border-top: 1px solid #F5F2EF;
+	border-left: 1px solid #F5F2EF;
+	border-bottom: 1px solid #F5F2EF;
+	border-right: 1px solid #F5F2EF;
+}
+
+.dataTable td {
+	height: 25px;
+}
+
+.dataTable td table, .dataTable td table tbody, .dataTable td table td {
+    border:none;
+}
+
+.dataTable tr.highlight td {
+	background-color: #F0F0F0;
+}
+
+.dataTable td.timeClass{
+	text-align: right;
+}
+
+.dataTable td.numberClass {
+	text-align: right;
+}
+
+.status{
+	text-align: center;
+}
+.formTable {
+	font-size: 12px;
+}
+
+.paymentRow {
+	background-color: #aaccff;
+}
+
+.paidAccountRow {
+	background-color: #d5e5ff;
+}
+
+.reportHeader {
+	font-size: 14px;
+	width: 100%;
+}
+
+.reportTable {
+	font-size: 14px;
+	width: 80%;
+	border: 1;
+}
+
+.reportTable td {
+	padding-left: 40px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+}
+
+.summaryTr {
+	font-style: inherit;
+	font-weight: bold;
+	padding-left: 0;
+}
+
+.tableInfo {
+	width: 100%;
+	border-color: black;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.tableInfo td {
+	height: 25px;
+	padding: 2px;
+}
+
+.tableInfo td.title {
+	font-weight: bold;
+}
+
+.label {
+	font-weight: bold;
+}
+
+.dueReceivable, .overDueReceivable{
+	font-style: italic;
+}
+
+.dueReceivable {
+	color: #F66240;
+}
+
+.overDueReceivable {
+	color: #D40000;
+	font-weight: bold;
+}

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AccountSaleFormHTML" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000423"/>
+	<property name="ireport.x" value="86"/>
+	<property name="ireport.y" value="84"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="customer" class="java.lang.String"/>
+	<parameter name="term" class="java.lang.String"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="remarks" class="java.lang.String"/>
+	<parameter name="date" class="java.util.Date"/>
+	<parameter name="accountSalesNo" class="java.lang.String"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="validatedBy" class="java.lang.String"/>
+	<parameter name="validatorPosition" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="totalAmount" class="java.lang.Double"/>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="typeId" class="java.lang.Integer"/>
+	<parameter name="customerAcct" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="formLabel" class="java.lang.String"/>
+	<field name="saleItems" class="java.util.List"/>
+	<field name="arLines" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="88" width="572" height="25" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="14" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" isLazy="true" onErrorType="Blank">
+				<reportElement x="0" y="0" width="572" height="45" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{companyLogo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="45" width="572" height="25" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Courier New" size="18" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="70" width="572" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Courier New" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="79" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="467" y="0" width="105" height="15" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{accountSalesNo}+"</font>"]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="45" width="351" height="15"/>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="60" y="0" width="7" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="0" y="0" width="60" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Remarks </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="67" y="0" width="284" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{remarks}.replaceAll( "&", "&amp;" ) +"</font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="30" width="351" height="15"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="67" y="0" width="284" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{address}.replaceAll( "&", "&amp;" ) + " </font>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="0" y="0" width="60" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Address </font>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="60" y="0" width="7" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="15" width="351" height="15"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="67" y="0" width="284" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{customerAcct}.replaceAll( "&", "&amp;" ) + " </font>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="0" y="0" width="60" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Account </font>"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement positionType="Float" x="60" y="0" width="7" height="15"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="395" y="0" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{formLabel}+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="460" y="0" width="7" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="0" y="0" width="60" height="15"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Customer </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="67" y="0" width="284" height="15" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{customer}.replaceAll( "&", "&amp;" ) + " </font>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="60" y="0" width="7" height="15"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="467" y="15" width="105" height="15" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+new SimpleDateFormat("MM/dd/yyyy").format($P{date})+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="460" y="15" width="7" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="395" y="15" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Date </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="467" y="30" width="105" height="15" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+new SimpleDateFormat("MM/dd/yyyy").format($P{dueDate})+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="460" y="30" width="7" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="395" y="30" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Due Date </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="395" y="45" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Term </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="460" y="45" width="7" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="467" y="45" width="105" height="15" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{term}.replaceAll( "&", "&amp;" )+"</font>"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="15"/>
+				<subreportParameter name="fontSize">
+					<subreportParameterExpression><![CDATA[$P{fontSize}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="typeId">
+					<subreportParameterExpression><![CDATA[$P{typeId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saleItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SaleItemHTML.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="10">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="10"/>
+				<subreportParameter name="fontSize">
+					<subreportParameterExpression><![CDATA[$P{fontSize}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{arLines})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SaleArLineHTML.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="121" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="572" height="11" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* * * Nothing follows * * *"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="12" width="430" height="13" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>TOTAL AMOUNT</font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="448" y="12" width="124" height="13" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+new DecimalFormat("#,##0.00").format($P{totalAmount})+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="430" y="12" width="18" height="13" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="269" y="37" width="123" height="68" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="123" height="16" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle" markup="styled">
+						<font fontName="Courier New" size="9" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Received by:</font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="135" y="37" width="134" height="68" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="2" y="47" width="129" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{validatorPosition} == null ? "" :"<font size='"+$P{fontSize} +"'>"+$P{validatorPosition}.replaceAll( "&", "&amp;" )+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="2" y="31" width="129" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{validatedBy} == null ? "" :"<font size='"+$P{fontSize} +"'>"+$P{validatedBy}.replaceAll( "&", "&amp;" )+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="134" height="16" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle" markup="styled">
+						<font fontName="Courier New" size="9" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Validated by:</font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="37" width="135" height="68" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="3" y="47" width="129" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{creatorPosition}.replaceAll( "&", "&amp;" )+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="3" y="31" width="129" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{createdBy}.replaceAll( "&", "&amp;" )+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="135" height="16" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle" markup="styled">
+						<font fontName="Courier New" size="9" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Created by:</font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="25" width="572" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="392" y="37" width="180" height="68"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="180" height="68" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Courier New" size="7" isBold="false"/>
+						<paragraph leftIndent="2" rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Certified that the particulars given above are in good order and condition and the amount indicated represents the price actually charged. The company's responsibilities ceases when goods are delivered to the customer in good order."]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

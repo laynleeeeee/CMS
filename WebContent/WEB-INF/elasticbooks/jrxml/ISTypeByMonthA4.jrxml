@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISTypeByMonth" pageWidth="730" pageHeight="572" orientation="Landscape" columnWidth="730" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="4.594972986357251"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="totals">
+		<parameter name="salesTotalCentral" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+		<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+		<parameter name="salesGrandTotal" class="java.lang.Double"/>
+		<parameter name="percentToSalesId" class="java.lang.Integer"/>
+		<field name="amount" class="java.lang.Double"/>
+		<field name="divisionId" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="accountType" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="salesTotalCentral" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB3" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB4" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB5" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8" class="java.lang.Double"/>
+	<parameter name="salesTotalNSB8A" class="java.lang.Double"/>
+	<parameter name="salesGrandTotal" class="java.lang.Double"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<field name="accounts" class="java.util.List"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="totals" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="730" height="15" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="salesTotalNSB3">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="percentToSalesId">
+					<subreportParameterExpression><![CDATA[$P{percentToSalesId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesGrandTotal">
+					<subreportParameterExpression><![CDATA[$P{salesGrandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB4">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalCentral">
+					<subreportParameterExpression><![CDATA[$P{salesTotalCentral}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8A">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="accountType">
+					<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB8">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB8}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="salesTotalNSB5">
+					<subreportParameterExpression><![CDATA[$P{salesTotalNSB5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{accounts})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ISDetialsByMonthA4.jasper"]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement positionType="Float" x="0" y="15" width="730" height="7"/>
+				<componentElement>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="100" y="0" width="45" height="7"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+						<datasetRun subDataset="totals">
+							<datasetParameter name="salesGrandTotal">
+								<datasetParameterExpression><![CDATA[$P{salesGrandTotal}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalNSB8A">
+								<datasetParameterExpression><![CDATA[$P{salesTotalNSB8A}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalNSB8">
+								<datasetParameterExpression><![CDATA[$P{salesTotalNSB8}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalNSB5">
+								<datasetParameterExpression><![CDATA[$P{salesTotalNSB5}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalNSB4">
+								<datasetParameterExpression><![CDATA[$P{salesTotalNSB4}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalNSB3">
+								<datasetParameterExpression><![CDATA[$P{salesTotalNSB3}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="salesTotalCentral">
+								<datasetParameterExpression><![CDATA[$P{salesTotalCentral}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="percentToSalesId">
+								<datasetParameterExpression><![CDATA[$P{percentToSalesId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{totals})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="7" width="45">
+							<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="45" height="7">
+									<printWhenExpression><![CDATA[!$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box bottomPadding="1">
+									<topPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="5"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="45" height="7">
+									<printWhenExpression><![CDATA[$F{divisionId}.equals($P{percentToSalesId})]]></printWhenExpression>
+								</reportElement>
+								<box bottomPadding="1">
+									<topPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Arial" size="5"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}/$P{salesGrandTotal}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="100" height="7"/>
+					<box leftPadding="2" bottomPadding="1" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="none">
+						<font fontName="Arial" size="5" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Subtotal"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

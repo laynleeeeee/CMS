@@ -1,0 +1,22 @@
+
+#Description: Payroll.
+
+#Payroll
+Payroll.typeId=1
+Payroll.form=payroll/viewForm
+Payroll.edit=payroll_edit
+Payroll.print=payroll/payrollReport/pdf/false
+Payroll.service=eulap.eb.service.payroll.PayrollService
+Payroll.oo.parent_to_child=1
+Payroll.oo.child_to_child=10
+Payroll.flow=1;2;
+Payroll.1.statusId=1
+Payroll.1.required=
+Payroll.1.next=2
+Payroll.1.product_code=250
+Payroll.1.module_code=8
+Payroll.2.statusId=3
+Payroll.2.required=3
+Payroll.2.next=0
+Payroll.2.product_code=250
+Payroll.2.module_code=64

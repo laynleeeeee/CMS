@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ApInvoiceMainPdf" pageWidth="612" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="supplier" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="tin" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<parameter name="invoiceNo" class="java.lang.String"/>
+	<parameter name="invoiceDate" class="java.lang.String"/>
+	<parameter name="glDate" class="java.lang.String"/>
+	<parameter name="dueDate" class="java.lang.String"/>
+	<parameter name="preparedBy" class="java.lang.String"/>
+	<parameter name="preparedPosition" class="java.lang.String"/>
+	<parameter name="preparedDate" class="java.lang.String"/>
+	<parameter name="checkedBy" class="java.lang.String"/>
+	<parameter name="checkedPosition" class="java.lang.String"/>
+	<parameter name="checkedDate" class="java.lang.String"/>
+	<parameter name="approvedBy" class="java.lang.String"/>
+	<parameter name="approvedPosition" class="java.lang.String"/>
+	<parameter name="approvedDate" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="sequenceNumber" class="java.lang.Integer">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="birLogo" class="java.lang.String"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="bmsNumber" class="java.lang.String"/>
+	<parameter name="amount" class="java.lang.Double"/>
+	<parameter name="street" class="java.lang.String"/>
+	<parameter name="province" class="java.lang.String"/>
+	<parameter name="referenceNo" class="java.lang.String"/>
+	<parameter name="tin1" class="java.lang.String"/>
+	<parameter name="tin2" class="java.lang.String"/>
+	<parameter name="tin3" class="java.lang.String"/>
+	<parameter name="tin4" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="isImportation" class="java.lang.Boolean"/>
+	<parameter name="importEntryNo" class="java.lang.String"/>
+	<parameter name="assessmentReleaseDate" class="java.lang.String"/>
+	<parameter name="registeredName" class="java.lang.String"/>
+	<parameter name="importationDate" class="java.lang.String"/>
+	<parameter name="countryOfOrigin" class="java.lang.String"/>
+	<parameter name="totalLandedCost" class="java.lang.Double"/>
+	<parameter name="dutiableValue" class="java.lang.Double"/>
+	<parameter name="chargesFromCustom" class="java.lang.Double"/>
+	<parameter name="taxableImport" class="java.lang.Double"/>
+	<parameter name="exemptImport" class="java.lang.Double"/>
+	<parameter name="orNumber" class="java.lang.String"/>
+	<parameter name="paymentDate" class="java.lang.String"/>
+	<parameter name="isLoan" class="java.lang.Boolean"/>
+	<parameter name="principalLoan" class="java.lang.Double"/>
+	<parameter name="principalPayment" class="java.lang.Double"/>
+	<parameter name="supplierAccount" class="java.lang.String"/>
+	<parameter name="supplierFullname" class="java.lang.String"/>
+	<field name="apLineDtos" class="java.util.List"/>
+	<field name="cocTaxDtos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="100" splitType="Prevent">
+			<printWhenExpression><![CDATA[!$P{isImportation} && !$P{isLoan}]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="street">
+					<subreportParameterExpression><![CDATA[$P{street}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedBy">
+					<subreportParameterExpression><![CDATA[$P{approvedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceNo">
+					<subreportParameterExpression><![CDATA[$P{invoiceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin">
+					<subreportParameterExpression><![CDATA[$P{tin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedDate">
+					<subreportParameterExpression><![CDATA[$P{checkedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedBy">
+					<subreportParameterExpression><![CDATA[$P{preparedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sequenceNumber">
+					<subreportParameterExpression><![CDATA[$P{sequenceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="amount">
+					<subreportParameterExpression><![CDATA[$P{amount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bmsNumber">
+					<subreportParameterExpression><![CDATA[$P{bmsNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="title">
+					<subreportParameterExpression><![CDATA[$P{title}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="description">
+					<subreportParameterExpression><![CDATA[$P{description}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="province">
+					<subreportParameterExpression><![CDATA[$P{province}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin1">
+					<subreportParameterExpression><![CDATA[$P{tin1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin2">
+					<subreportParameterExpression><![CDATA[$P{tin2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin3">
+					<subreportParameterExpression><![CDATA[$P{tin3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin4">
+					<subreportParameterExpression><![CDATA[$P{tin4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedDate">
+					<subreportParameterExpression><![CDATA[$P{approvedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedDate">
+					<subreportParameterExpression><![CDATA[$P{preparedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedBy">
+					<subreportParameterExpression><![CDATA[$P{checkedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedPosition">
+					<subreportParameterExpression><![CDATA[$P{checkedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="address">
+					<subreportParameterExpression><![CDATA[$P{address}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedPosition">
+					<subreportParameterExpression><![CDATA[$P{approvedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="glDate">
+					<subreportParameterExpression><![CDATA[$P{glDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedPosition">
+					<subreportParameterExpression><![CDATA[$P{preparedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="referenceNo">
+					<subreportParameterExpression><![CDATA[$P{referenceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{apLineDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ApInvoiceNonPOPDF.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100" splitType="Prevent">
+			<printWhenExpression><![CDATA[$P{isImportation}]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100"/>
+				<subreportParameter name="exemptImport">
+					<subreportParameterExpression><![CDATA[$P{exemptImport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dutiableValue">
+					<subreportParameterExpression><![CDATA[$P{dutiableValue}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="street">
+					<subreportParameterExpression><![CDATA[$P{street}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedBy">
+					<subreportParameterExpression><![CDATA[$P{approvedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceNo">
+					<subreportParameterExpression><![CDATA[$P{invoiceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin">
+					<subreportParameterExpression><![CDATA[$P{tin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedDate">
+					<subreportParameterExpression><![CDATA[$P{checkedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalLandedCost">
+					<subreportParameterExpression><![CDATA[$P{totalLandedCost}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedBy">
+					<subreportParameterExpression><![CDATA[$P{preparedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sequenceNumber">
+					<subreportParameterExpression><![CDATA[$P{sequenceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="amount">
+					<subreportParameterExpression><![CDATA[$P{amount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bmsNumber">
+					<subreportParameterExpression><![CDATA[$P{bmsNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="title">
+					<subreportParameterExpression><![CDATA[$P{title}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="taxableImport">
+					<subreportParameterExpression><![CDATA[$P{taxableImport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="assessmentReleaseDate">
+					<subreportParameterExpression><![CDATA[$P{assessmentReleaseDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="description">
+					<subreportParameterExpression><![CDATA[$P{description}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="province">
+					<subreportParameterExpression><![CDATA[$P{province}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="countryOfOrigin">
+					<subreportParameterExpression><![CDATA[$P{countryOfOrigin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin1">
+					<subreportParameterExpression><![CDATA[$P{tin1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="chargesFromCustom">
+					<subreportParameterExpression><![CDATA[$P{chargesFromCustom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="importationDate">
+					<subreportParameterExpression><![CDATA[$P{importationDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="paymentDate">
+					<subreportParameterExpression><![CDATA[$P{paymentDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin2">
+					<subreportParameterExpression><![CDATA[$P{tin2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin3">
+					<subreportParameterExpression><![CDATA[$P{tin3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin4">
+					<subreportParameterExpression><![CDATA[$P{tin4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isImportation">
+					<subreportParameterExpression><![CDATA[$P{isImportation}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedDate">
+					<subreportParameterExpression><![CDATA[$P{approvedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedBy">
+					<subreportParameterExpression><![CDATA[$P{checkedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedDate">
+					<subreportParameterExpression><![CDATA[$P{preparedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="importEntryNo">
+					<subreportParameterExpression><![CDATA[$P{importEntryNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedPosition">
+					<subreportParameterExpression><![CDATA[$P{checkedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="registeredName">
+					<subreportParameterExpression><![CDATA[$P{registeredName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="address">
+					<subreportParameterExpression><![CDATA[$P{address}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedPosition">
+					<subreportParameterExpression><![CDATA[$P{approvedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="glDate">
+					<subreportParameterExpression><![CDATA[$P{glDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedPosition">
+					<subreportParameterExpression><![CDATA[$P{preparedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="referenceNo">
+					<subreportParameterExpression><![CDATA[$P{referenceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orNumber">
+					<subreportParameterExpression><![CDATA[$P{orNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{apLineDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ApInvoiceImportationPDF.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100" splitType="Prevent">
+			<printWhenExpression><![CDATA[$P{isLoan}]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100"/>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="street">
+					<subreportParameterExpression><![CDATA[$P{street}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="principalPayment">
+					<subreportParameterExpression><![CDATA[$P{principalPayment}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedBy">
+					<subreportParameterExpression><![CDATA[$P{approvedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin">
+					<subreportParameterExpression><![CDATA[$P{tin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceNo">
+					<subreportParameterExpression><![CDATA[$P{invoiceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedBy">
+					<subreportParameterExpression><![CDATA[$P{preparedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedDate">
+					<subreportParameterExpression><![CDATA[$P{checkedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sequenceNumber">
+					<subreportParameterExpression><![CDATA[$P{sequenceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="amount">
+					<subreportParameterExpression><![CDATA[$P{amount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bmsNumber">
+					<subreportParameterExpression><![CDATA[$P{bmsNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="title">
+					<subreportParameterExpression><![CDATA[$P{title}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="description">
+					<subreportParameterExpression><![CDATA[$P{description}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="province">
+					<subreportParameterExpression><![CDATA[$P{province}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin1">
+					<subreportParameterExpression><![CDATA[$P{tin1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin2">
+					<subreportParameterExpression><![CDATA[$P{tin2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin3">
+					<subreportParameterExpression><![CDATA[$P{tin3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin4">
+					<subreportParameterExpression><![CDATA[$P{tin4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="principalLoan">
+					<subreportParameterExpression><![CDATA[$P{principalLoan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAccount">
+					<subreportParameterExpression><![CDATA[$P{supplierAccount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedDate">
+					<subreportParameterExpression><![CDATA[$P{approvedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedBy">
+					<subreportParameterExpression><![CDATA[$P{checkedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedDate">
+					<subreportParameterExpression><![CDATA[$P{preparedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedPosition">
+					<subreportParameterExpression><![CDATA[$P{checkedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedPosition">
+					<subreportParameterExpression><![CDATA[$P{approvedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="glDate">
+					<subreportParameterExpression><![CDATA[$P{glDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedPosition">
+					<subreportParameterExpression><![CDATA[$P{preparedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="referenceNo">
+					<subreportParameterExpression><![CDATA[$P{referenceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{apLineDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ApLoanPdf.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100">
+					<printWhenExpression><![CDATA[$F{cocTaxDtos} != null && !$F{cocTaxDtos}.isEmpty() && $P{currency}.equals("PHP")]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="street">
+					<subreportParameterExpression><![CDATA[$P{street}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin">
+					<subreportParameterExpression><![CDATA[$P{tin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="invoiceNo">
+					<subreportParameterExpression><![CDATA[$P{invoiceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalLandedCost">
+					<subreportParameterExpression><![CDATA[$P{totalLandedCost}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedDate">
+					<subreportParameterExpression><![CDATA[$P{checkedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="amount">
+					<subreportParameterExpression><![CDATA[$P{amount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bmsNumber">
+					<subreportParameterExpression><![CDATA[$P{bmsNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isLoan">
+					<subreportParameterExpression><![CDATA[$P{isLoan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="description">
+					<subreportParameterExpression><![CDATA[$P{description}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="assessmentReleaseDate">
+					<subreportParameterExpression><![CDATA[$P{assessmentReleaseDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="province">
+					<subreportParameterExpression><![CDATA[$P{province}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierZipCode">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="importationDate">
+					<subreportParameterExpression><![CDATA[$P{importationDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierTin">
+					<subreportParameterExpression><![CDATA[$P{tin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isImportation">
+					<subreportParameterExpression><![CDATA[$P{isImportation}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="principalLoan">
+					<subreportParameterExpression><![CDATA[$P{principalLoan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyZipCode">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedDate">
+					<subreportParameterExpression><![CDATA[$P{preparedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedBy">
+					<subreportParameterExpression><![CDATA[$P{checkedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="registeredName">
+					<subreportParameterExpression><![CDATA[$P{registeredName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdBy">
+					<subreportParameterExpression><![CDATA[$P{preparedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorTin">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orNumber">
+					<subreportParameterExpression><![CDATA[$P{orNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="exemptImport">
+					<subreportParameterExpression><![CDATA[$P{exemptImport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dutiableValue">
+					<subreportParameterExpression><![CDATA[$P{dutiableValue}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="principalPayment">
+					<subreportParameterExpression><![CDATA[$P{principalPayment}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedBy">
+					<subreportParameterExpression><![CDATA[$P{approvedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorPosition">
+					<subreportParameterExpression><![CDATA[$P{preparedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierFullname">
+					<subreportParameterExpression><![CDATA[$P{supplierFullname}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedBy">
+					<subreportParameterExpression><![CDATA[$P{preparedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sequenceNumber">
+					<subreportParameterExpression><![CDATA[$P{sequenceNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="title">
+					<subreportParameterExpression><![CDATA[$P{title}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAddress">
+					<subreportParameterExpression><![CDATA[$P{address}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="taxableImport">
+					<subreportParameterExpression><![CDATA[$P{taxableImport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="countryOfOrigin">
+					<subreportParameterExpression><![CDATA[$P{countryOfOrigin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="chargesFromCustom">
+					<subreportParameterExpression><![CDATA[$P{chargesFromCustom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin1">
+					<subreportParameterExpression><![CDATA[$P{tin1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="paymentDate">
+					<subreportParameterExpression><![CDATA[$P{paymentDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin2">
+					<subreportParameterExpression><![CDATA[$P{tin2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin3">
+					<subreportParameterExpression><![CDATA[$P{tin3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tin4">
+					<subreportParameterExpression><![CDATA[$P{tin4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAccount">
+					<subreportParameterExpression><![CDATA[$P{supplierAccount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedDate">
+					<subreportParameterExpression><![CDATA[$P{approvedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="importEntryNo">
+					<subreportParameterExpression><![CDATA[$P{importEntryNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedPosition">
+					<subreportParameterExpression><![CDATA[$P{checkedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="address">
+					<subreportParameterExpression><![CDATA[$P{address}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="approvedPosition">
+					<subreportParameterExpression><![CDATA[$P{approvedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="glDate">
+					<subreportParameterExpression><![CDATA[$P{glDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="preparedPosition">
+					<subreportParameterExpression><![CDATA[$P{preparedPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="referenceNo">
+					<subreportParameterExpression><![CDATA[$P{referenceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cocTaxDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307_2018.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100">
+					<printWhenExpression><![CDATA[$F{cocTaxDtos} != null && !$F{cocTaxDtos}.isEmpty() && $P{currency}.equals("PHP")]]></printWhenExpression>
+				</reportElement>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307Back.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

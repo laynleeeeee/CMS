@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ISComparisonPerformance" pageWidth="2120" pageHeight="572" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="2120" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="ireport.zoom" value="0.9090909090909101"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="total">
+		<parameter name="currentYSales" class="java.lang.Double"/>
+		<parameter name="prevYSales" class="java.lang.Double"/>
+		<field name="currentYAmount" class="java.lang.Double"/>
+		<field name="prevYAmount" class="java.lang.Double"/>
+		<variable name="currentPercent" class="java.lang.Double">
+			<variableExpression><![CDATA[$F{currentYAmount}/$P{currentYSales}]]></variableExpression>
+			<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		</variable>
+		<variable name="prevPercent" class="java.lang.Double">
+			<variableExpression><![CDATA[$F{prevYAmount}/$P{prevYSales}]]></variableExpression>
+			<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="dateRange" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="dateTo" class="java.util.Date"/>
+	<parameter name="percentToSalesId" class="java.lang.Integer"/>
+	<parameter name="currYear" class="java.lang.Integer"/>
+	<parameter name="prevYear" class="java.lang.Integer"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="division" class="java.lang.String"/>
+	<field name="currentYSales" class="java.lang.Double"/>
+	<field name="prevYSales" class="java.lang.Double"/>
+	<field name="productionCosts" class="java.util.List"/>
+	<field name="grossIncome" class="java.util.List"/>
+	<field name="sellingExpenses" class="java.util.List"/>
+	<field name="genAndAdminExpenses" class="java.util.List"/>
+	<field name="operatingExpenses" class="java.util.List"/>
+	<field name="otheIncome" class="java.util.List"/>
+	<field name="netIncomeBefore" class="java.util.List"/>
+	<field name="interestExpenses" class="java.util.List"/>
+	<field name="depreciation" class="java.util.List"/>
+	<field name="netIncomeAfter" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="131">
+			<subreport>
+				<reportElement x="0" y="0" width="752" height="80"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeaderLandscapeShort.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="80" width="752" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{division} != null ? $P{division} + " " : "") + "COMPARISON OF PERFORMANCE"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="752" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dateRange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="112" width="752" height="15" forecolor="#FF0000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comparison of Performace("+$P{currYear}+" vs "+$P{prevYear}+")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="150" height="23"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="150" y="0" width="80" height="23"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Y"+$P{currYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="230" y="0" width="80" height="23"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% to Sales]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="310" y="0" width="80" height="23"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Y"+$P{prevYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="390" y="0" width="80" height="23"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% to Sales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="470" y="0" width="80" height="23"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Inc (Dec)]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="550" y="0" width="80" height="23"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<topPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["% of Inc (Dec) Sales" +"Y"+$P{prevYear} +"VS. Y"+$P{prevYear}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="189">
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="162" width="480" height="27"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{netIncomeAfter})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="80" height="27" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="80" y="0" width="80" height="27" isPrintWhenDetailOverflows="true" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="160" y="0" width="80" height="27" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="240" y="0" width="80" height="27" isPrintWhenDetailOverflows="true" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="320" y="0" width="80" height="27" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="400" y="0" width="80" height="27" isPrintWhenDetailOverflows="true" backcolor="#7D7D7D"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="15" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Production Costs]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="15" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{productionCosts})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="30" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GROSS INCOME]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="30" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{grossIncome})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="45" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Selling expenses]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="45" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sellingExpenses})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="60" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gen and Admin Expenses]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="60" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{genAndAdminExpenses})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="75" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL OPERATING EXPENSES]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="75" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{operatingExpenses})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="90" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OTHER INCOME (EXPENSES)]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="90" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{otheIncome})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="105" width="150" height="27"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NET INCOME (LOSS),
+before int  exp & dep]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="105" width="480" height="27"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{netIncomeBefore})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="27" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="27"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="27" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="27"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="27" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="27"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="true"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="132" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Interest Expense]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="132" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{interestExpenses})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="147" width="150" height="15"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Depreciation]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="150" y="147" width="480" height="15"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal" ignoreWidth="true">
+					<datasetRun subDataset="total">
+						<datasetParameter name="currentYSales">
+							<datasetParameterExpression><![CDATA[$F{currentYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="prevYSales">
+							<datasetParameterExpression><![CDATA[$F{prevYSales}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{depreciation})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="15" width="480">
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="0" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="240" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{prevPercent}) ? $V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="160" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="400" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}-$V{prevPercent}) ? $V{currentPercent}-$V{prevPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="80" y="0" width="80" height="15" isPrintWhenDetailOverflows="true"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[!Double.isNaN($V{currentPercent}) ? $V{currentPercent} : 0]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="320" y="0" width="80" height="15"/>
+							<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+							<textElement textAlignment="Right" verticalAlignment="Bottom">
+								<font fontName="Arial" size="9" isBold="false"/>
+								<paragraph rightIndent="2"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentYAmount}-$F{prevYAmount}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="162" width="150" height="27" backcolor="#7D7D7D"/>
+				<box leftPadding="3" bottomPadding="1" rightPadding="3"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NET INCOME (LOSS),
+after int  exp & dep]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="150" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currentYSales}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="230" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[!Double.isNaN($F{currentYSales}/$F{currentYSales}) ? $F{currentYSales}/$F{currentYSales} : 0]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="310" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prevYSales}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="390" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[!Double.isNaN($F{prevYSales}/$F{prevYSales}) ? $F{prevYSales}/$F{prevYSales} : 0]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="470" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currentYSales}-$F{prevYSales}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="550" y="0" width="80" height="15"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prevYSales} != 0 ? (!Double.isNaN(($F{currentYSales}-$F{prevYSales})/$F{prevYSales}) ? ($F{currentYSales}-$F{prevYSales})/$F{prevYSales} : 0) : 0]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

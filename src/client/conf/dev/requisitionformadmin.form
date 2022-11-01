@@ -1,0 +1,21 @@
+
+# Description: Material Requisition form workflow and report configuration file
+
+RequisitionForm6.typeId=1
+RequisitionForm6.form=requisitionForm/6/view
+RequisitionForm6.edit=requisition_form_admin_edit
+RequisitionForm6.print=requisitionForm/6/pdf
+RequisitionForm6.service=eulap.eb.service.RequisitionFormService
+RequisitionForm6.acct_transaction_types=2
+RequisitionForm6.oo.parent_to_child=1
+RequisitionForm6.flow=1;2
+RequisitionForm6.1.statusId=1
+RequisitionForm6.1.required=
+RequisitionForm6.1.next=2
+RequisitionForm6.1.product_code=40008
+RequisitionForm6.1.module_code=8
+RequisitionForm6.2.statusId=3
+RequisitionForm6.2.required=1
+RequisitionForm6.2.next=0
+RequisitionForm6.2.product_code=40008
+RequisitionForm6.2.module_code=16

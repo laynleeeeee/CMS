@@ -1,0 +1,21 @@
+
+#Description: Sales order - Central form workflow and journal entries configuration
+
+SalesOrder1.typeId=1
+SalesOrder1.form=salesOrder/viewForm
+SalesOrder1.edit=sales_order_central_edit
+SalesOrder1.print=salesOrder/printout
+SalesOrder1.service=eulap.eb.service.SalesOrderService
+SalesOrder1.oo.parent_to_child=1
+SalesOrder1.oo.child_to_child=12002
+SalesOrder1.flow=1;2
+SalesOrder1.1.statusId=1
+SalesOrder1.1.required=
+SalesOrder1.1.next=2
+SalesOrder1.1.product_code=24040
+SalesOrder1.1.module_code=8
+SalesOrder1.2.statusId=30
+SalesOrder1.2.required=1
+SalesOrder1.2.next=0
+SalesOrder1.2.product_code=24040
+SalesOrder1.2.module_code=16

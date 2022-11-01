@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReceivingReportMainPdf" pageWidth="612" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="checkedBy" class="java.lang.String"/>
+	<parameter name="supplierInvoiceNo" class="java.lang.String"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="rrDate" class="java.util.Date"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="warehouse" class="java.lang.String"/>
+	<parameter name="grandTotal" class="java.lang.Double"/>
+	<parameter name="rrNumber" class="java.lang.Integer"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="companyTin" class="java.lang.String"/>
+	<parameter name="supplier" class="java.lang.String"/>
+	<parameter name="term" class="java.lang.String"/>
+	<parameter name="totalVat" class="java.lang.Double"/>
+	<parameter name="deliveryReceiptNo" class="java.lang.String"/>
+	<parameter name="invoiceDate" class="java.util.Date"/>
+	<parameter name="checkerPosition" class="java.lang.String"/>
+	<parameter name="wtAcctSetting" class="java.lang.String"/>
+	<parameter name="subTotal" class="java.lang.Double"/>
+	<parameter name="withholdingTax" class="java.lang.Double"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="birLogo" class="java.lang.String"/>
+	<parameter name="supplierTin" class="java.lang.String"/>
+	<parameter name="supplierAddress" class="java.lang.String"/>
+	<parameter name="remarks" class="java.lang.String"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="bmsNumber" class="java.lang.String"/>
+	<field name="receivingReportDtos" class="java.util.List"/>
+	<field name="cocTaxDtos" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100"/>
+				<subreportParameter name="invoiceDate">
+					<subreportParameterExpression><![CDATA[$P{invoiceDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="deliveryReceiptNo">
+					<subreportParameterExpression><![CDATA[$P{deliveryReceiptNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkerPosition">
+					<subreportParameterExpression><![CDATA[$P{checkerPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="remarks">
+					<subreportParameterExpression><![CDATA[$P{remarks}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorPosition">
+					<subreportParameterExpression><![CDATA[$P{creatorPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="warehouse">
+					<subreportParameterExpression><![CDATA[$P{warehouse}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bmsNumber">
+					<subreportParameterExpression><![CDATA[$P{bmsNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="rrDate">
+					<subreportParameterExpression><![CDATA[$P{rrDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="division">
+					<subreportParameterExpression><![CDATA[$P{division}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subTotal">
+					<subreportParameterExpression><![CDATA[$P{subTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dueDate">
+					<subreportParameterExpression><![CDATA[$P{dueDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="rrNumber">
+					<subreportParameterExpression><![CDATA[$P{rrNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalVat">
+					<subreportParameterExpression><![CDATA[$P{totalVat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="grandTotal">
+					<subreportParameterExpression><![CDATA[$P{grandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="checkedBy">
+					<subreportParameterExpression><![CDATA[$P{checkedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="wtAcctSetting">
+					<subreportParameterExpression><![CDATA[$P{wtAcctSetting}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="withholdingTax">
+					<subreportParameterExpression><![CDATA[$P{withholdingTax}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdBy">
+					<subreportParameterExpression><![CDATA[$P{createdBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierInvoiceNo">
+					<subreportParameterExpression><![CDATA[$P{supplierInvoiceNo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="term">
+					<subreportParameterExpression><![CDATA[$P{term}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{receivingReportDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ReceivingReportPdf.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100">
+					<printWhenExpression><![CDATA[$F{cocTaxDtos} != null && !$F{cocTaxDtos}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="birLogo">
+					<subreportParameterExpression><![CDATA[$P{birLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="createdBy">
+					<subreportParameterExpression><![CDATA[$P{createdBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierTin">
+					<subreportParameterExpression><![CDATA[$P{supplierTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAddress">
+					<subreportParameterExpression><![CDATA[$P{supplierAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorTin">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyZipCode">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="creatorPosition">
+					<subreportParameterExpression><![CDATA[$P{creatorPosition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyTin">
+					<subreportParameterExpression><![CDATA[$P{companyTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$P{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierZipCode">
+					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplier">
+					<subreportParameterExpression><![CDATA[$P{supplier}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cocTaxDtos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307_2018.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="612" height="100">
+					<printWhenExpression><![CDATA[$F{cocTaxDtos} != null && !$F{cocTaxDtos}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BIRForm2307Back.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

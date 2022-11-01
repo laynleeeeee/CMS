@@ -1,0 +1,20 @@
+
+#Description: Employee document.
+
+EmployeeDocument.typeId=1
+EmployeeDocument.form=employeeDocument/form/view
+EmployeeDocument.edit=employee_document_edit
+EmployeeDocument.print=employeeDocument/pdf
+EmployeeDocument.service=eulap.eb.service.EmployeeDocumentService
+EmployeeDocument.oo.parent_to_child=1
+EmployeeDocument.flow=1;2
+EmployeeDocument.1.statusId=1
+EmployeeDocument.1.required=
+EmployeeDocument.1.next=2
+EmployeeDocument.1.product_code=20006
+EmployeeDocument.1.module_code=8
+EmployeeDocument.2.statusId=3
+EmployeeDocument.2.required=3
+EmployeeDocument.2.next=0
+EmployeeDocument.2.product_code=20006
+EmployeeDocument.2.module_code=64

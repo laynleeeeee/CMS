@@ -1,0 +1,5 @@
+
+-- Description	: Insert script to add delivery receipt temporary account
+
+INSERT INTO DELIVERY_RECEIPT_ACCOUNT (COMPANY_ID, DIVISION_ID, DEFAULT_SERVICE_AC_ID, ACTIVE, CREATED_BY, CREATED_DATE, UPDATED_BY, UPDATED_DATE)
+VALUES (1, 1, 14, 1, 1, NOW(), 1, NOW());

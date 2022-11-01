@@ -1,0 +1,4 @@
+
+-- Description: Drop DELETED column in AP_INVOICE table
+
+ALTER TABLE AP_INVOICE DROP DELETED;

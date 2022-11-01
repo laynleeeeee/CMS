@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BankReconReport" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3310000000000022"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="asOfDate" class="java.lang.String"/>
+	<parameter name="bankDate" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="printedDate" class="java.lang.String"/>
+	<parameter name="printedBy" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<field name="bankBalance" class="java.lang.Double"/>
+	<field name="bookBalance" class="java.lang.Double"/>
+	<field name="adjustedBalance" class="java.lang.Double"/>
+	<field name="variance" class="java.lang.Double"/>
+	<field name="bankAcctName" class="java.lang.String"/>
+	<field name="bankRecons" class="java.util.List"/>
+	<field name="companyName" class="java.lang.String"/>
+	<title>
+		<band height="76" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="572" height="31" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="572" height="20"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{asOfDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="40"/>
+				<subreportParameter name="bankDate">
+					<subreportParameterExpression><![CDATA[$P{bankDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bankAcctName">
+					<subreportParameterExpression><![CDATA[$F{bankAcctName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bankBalance">
+					<subreportParameterExpression><![CDATA[$F{bankBalance}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bookBalance">
+					<subreportParameterExpression><![CDATA[$F{bookBalance}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="adjustedBalance">
+					<subreportParameterExpression><![CDATA[$F{adjustedBalance}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="variance">
+					<subreportParameterExpression><![CDATA[$F{variance}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyName">
+					<subreportParameterExpression><![CDATA[$F{companyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bankRecons})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BankReconSubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="25">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="25" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="printedBy">
+					<subreportParameterExpression><![CDATA[$P{printedBy}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="printedDate">
+					<subreportParameterExpression><![CDATA[$P{printedDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</lastPageFooter>
+</jasperReport>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CashSaleForm" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3310000000000084"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="date" class="java.util.Date"/>
+	<parameter name="csNumber" class="java.lang.String"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="salesInvoiceNo" class="java.lang.String"/>
+	<parameter name="cash" class="java.lang.Double"/>
+	<parameter name="total" class="java.lang.Double"/>
+	<parameter name="change" class="java.lang.Double"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receivedBy" class="java.lang.String"/>
+	<parameter name="checkNo" class="java.lang.String"/>
+	<parameter name="checkAmount" class="java.lang.String"/>
+	<parameter name="fontSize" class="java.lang.Integer"/>
+	<parameter name="typeId" class="java.lang.Integer"/>
+	<parameter name="formLabel" class="java.lang.String"/>
+	<parameter name="totalVat" class="java.lang.Double"/>
+	<parameter name="totalAmountDue" class="java.lang.Double"/>
+	<parameter name="wtAmount" class="java.lang.Double"/>
+	<parameter name="wtAcctSetting" class="java.lang.String"/>
+	<field name="saleItems" class="java.util.List"/>
+	<field name="arLines" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="80" width="572" height="31" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="1" y="111" width="572" height="15" isPrintInFirstWholeBand="true"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="101" y="0" width="243" height="15" isPrintInFirstWholeBand="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{customerName}.replaceAll( "&", "&amp;" ) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="0" y="0" width="93" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Customer </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="456" y="0" width="115" height="15" isPrintInFirstWholeBand="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{csNumber}.replaceAll( "&", "&amp;" ) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="449" y="0" width="8" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="384" y="0" width="65" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>"+$P{formLabel}+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="93" y="0" width="8" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="1" y="128" width="572" height="15" isPrintInFirstWholeBand="true"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="0" y="0" width="93" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Sales Invoice </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="92" y="0" width="8" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="100" y="0" width="243" height="15" isPrintInFirstWholeBand="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{salesInvoiceNo}.replaceAll( "&", "&amp;" ) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="456" y="0" width="115" height="15" isPrintInFirstWholeBand="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"' >"
++ new SimpleDateFormat("MM/dd/yyyy").format($P{date}) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="384" y="0" width="64" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Date </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="448" y="0" width="8" height="15" isPrintInFirstWholeBand="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>: </font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="80"/>
+				<subreportParameter name="companyAddress">
+					<subreportParameterExpression><![CDATA[$P{companyAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="companyLogo">
+					<subreportParameterExpression><![CDATA[$P{companyLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrintoutHeader.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7"/>
+	</pageHeader>
+	<detail>
+		<band height="15" splitType="Immediate">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="15"/>
+				<subreportParameter name="fontSize">
+					<subreportParameterExpression><![CDATA[$P{fontSize}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="typeId">
+					<subreportParameterExpression><![CDATA[$P{typeId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saleItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SaleItem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="10" splitType="Immediate">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="10"/>
+				<subreportParameter name="fontSize">
+					<subreportParameterExpression><![CDATA[$P{fontSize}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{arLines})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SaleArLine.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="117" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="36" y="58" width="200" height="15"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Authorized Signature </font>"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="572" height="12"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* * * Nothing Follows * * *"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="36" y="42" width="200" height="15"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{receivedBy}.replaceAll( "&", "&amp;" ) +" </font>"]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="272" y="12" width="300" height="105" isPrintWhenDetailOverflows="true"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="75" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Check No. </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="60" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Cash/Check </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="90" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{change}) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="90" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Change </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="30" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + "Withholding Tax" + "</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="60" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{cash}) + "</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Sub Total </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="15" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{totalVat}) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="74" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" + $P{checkNo}.replaceAll( "&", "&amp;" ) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="45" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Total Amount Due</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="200" y="30" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{wtAmount} != null ? "<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{wtAmount}) + "</font>" : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="0" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{total}) +" </font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="15" width="200" height="15" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>Total VAT</font>"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="100" y="30" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" size="10" isBold="false"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{wtAcctSetting} != null ? "<font size='"+$P{fontSize} +"'>" +$P{wtAcctSetting} + "</font>" : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="200" y="45" width="100" height="15" isPrintWhenDetailOverflows="true"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+						<font fontName="Arial" isBold="true"/>
+						<paragraph rightIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font size='"+$P{fontSize} +"'>" +new DecimalFormat("#,##0.00").format($P{totalAmountDue}) +" </font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

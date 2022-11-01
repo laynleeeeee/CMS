@@ -1,0 +1,20 @@
+
+#Description: Cash Bond Contract.
+
+FormDeduction2.typeId=1
+FormDeduction2.form=formDeduction/form/view
+FormDeduction2.edit=cash_bond_contract_edit
+FormDeduction2.print=formDeduction/pdf
+FormDeduction2.service=eulap.eb.service.FormDeductionService
+FormDeduction2.oo.parent_to_child=1
+FormDeduction2.flow=1;2
+FormDeduction2.1.statusId=1
+FormDeduction2.1.required=
+FormDeduction2.1.next=2
+FormDeduction2.1.product_code=20011
+FormDeduction2.1.module_code=8
+FormDeduction2.2.statusId=3
+FormDeduction2.2.required=3
+FormDeduction2.2.next=0
+FormDeduction2.2.product_code=20011
+FormDeduction2.2.module_code=64

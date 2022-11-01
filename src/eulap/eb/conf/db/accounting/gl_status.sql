@@ -1,0 +1,10 @@
+
+-- Description: sql script in creating GL_STATUS table.
+
+DROP TABLE IF EXISTS GL_STATUS;
+
+CREATE TABLE GL_STATUS (
+       GL_STATUS_ID int(10) unsigned NOT NULL AUTO_INCREMENT,
+       DESCRIPTION varchar(100) NOT NULL,
+       PRIMARY KEY (GL_STATUS_ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NSBAriBillingStatement" pageWidth="576" pageHeight="790" whenNoDataType="AllSectionsNoDetail" columnWidth="576" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.7715610000000117"/>
+	<property name="ireport.x" value="38"/>
+	<property name="ireport.y" value="242"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyLogo" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="date" class="java.util.Date"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="customerAddress" class="java.lang.String"/>
+	<parameter name="remarks" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../WEB-INF/CMS/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="creatorPosition" class="java.lang.String"/>
+	<parameter name="createdDate" class="java.util.Date"/>
+	<parameter name="approvedBy" class="java.lang.String"/>
+	<parameter name="approvedDate" class="java.util.Date"/>
+	<parameter name="approverPosition" class="java.lang.String"/>
+	<parameter name="customerAcct" class="java.lang.String"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="term" class="java.lang.String"/>
+	<parameter name="wtName" class="java.lang.String"/>
+	<parameter name="wtAmount" class="java.lang.Double"/>
+	<parameter name="totalAmount" class="java.lang.Double"/>
+	<parameter name="totalVat" class="java.lang.Double"/>
+	<parameter name="sequenceNo" class="java.lang.Integer"/>
+	<parameter name="drNumber" class="java.lang.String"/>
+	<parameter name="tin" class="java.lang.String"/>
+	<parameter name="attention" class="java.lang.String"/>
+	<parameter name="drRefNumber" class="java.lang.String"/>
+	<parameter name="salesRepresentative" class="java.lang.String"/>
+	<parameter name="reviewedBy" class="java.lang.String"/>
+	<parameter name="receivedBy" class="java.lang.String"/>
+	<parameter name="receivedDate" class="java.util.Date"/>
+	<parameter name="infoType" class="java.lang.Integer"/>
+	<parameter name="amount" class="java.lang.Double"/>
+	<parameter name="poNumber" class="java.lang.String"/>
+	<parameter name="recoupment" class="java.lang.Double"/>
+	<parameter name="retention" class="java.lang.Double"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<parameter name="subTotal" class="java.lang.Double"/>
+	<parameter name="showUOM" class="java.lang.Boolean"/>
+	<parameter name="taxTypeId" class="java.lang.Integer"/>
+	<field name="serialArItems" class="java.util.List"/>
+	<field name="nonSerialArItems" class="java.util.List"/>
+	<field name="ariLines" class="java.util.List"/>
+	<field name="arInvoiceTruckingLines" class="java.util.List"/>
+	<field name="arInvoiceEquipmentLines" class="java.util.List"/>
+	<variable name="totalSiVat" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0.00]]></initialValueExpression>
+	</variable>
+	<variable name="totalAriVat" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0.00]]></initialValueExpression>
+	</variable>
+	<variable name="totalVat" class="java.lang.Double">
+		<variableExpression><![CDATA[($F{nonSerialArItems} != null ? $V{totalAriVat} : 0.00) + ($F{serialArItems} != null ? $V{totalSiVat} : 0.00)]]></variableExpression>
+	</variable>
+	<variable name="vatAmount" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{totalVat} > 0.00 ? $V{totalVat} : null]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="230" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0" isBlankWhenNull="true">
+				<reportElement x="365" y="98" width="79" height="12"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sequenceNo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
+				<reportElement x="392" y="125" width="153" height="16"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="392" y="141" width="153" height="16" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="6"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{term}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="392" y="171" width="153" height="16" isPrintWhenDetailOverflows="true"/>
+				<box leftPadding="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{poNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="392" y="158" width="153" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tin}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="85" y="103" width="250" height="34"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="250" height="34" isPrintWhenDetailOverflows="true"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Courier New" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{customerName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="85" y="137" width="250" height="26"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="250" height="26" isPrintWhenDetailOverflows="true"/>
+					<textElement>
+						<font fontName="Courier New" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{customerAddress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="85" y="168" width="250" height="19"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="250" height="19" isPrintWhenDetailOverflows="true"/>
+					<box leftPadding="20"/>
+					<textElement>
+						<font fontName="Courier New" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{customerName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="85" y="185" width="250" height="40"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="250" height="40" isPrintWhenDetailOverflows="true"/>
+					<textElement>
+						<font fontName="Courier New" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{attention}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{serialArItems} != null && !$F{serialArItems}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="576" height="24" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="infoType">
+					<subreportParameterExpression><![CDATA[$P{infoType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{serialArItems})]]></dataSourceExpression>
+				<returnValue subreportVariable="totalSiVat" toVariable="totalSiVat" calculation="Sum"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "NSBAriSerialItem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="24">
+			<printWhenExpression><![CDATA[$F{nonSerialArItems} != null && !$F{nonSerialArItems}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="576" height="24" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="infoType">
+					<subreportParameterExpression><![CDATA[$P{infoType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{nonSerialArItems})]]></dataSourceExpression>
+				<returnValue subreportVariable="totalAriVat" toVariable="totalAriVat" calculation="Sum"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "NSBAriItem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="24">
+			<printWhenExpression><![CDATA[$F{ariLines} != null && !$F{ariLines}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="576" height="24" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="isDescriptionOnly">
+					<subreportParameterExpression><![CDATA[true]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="infoType">
+					<subreportParameterExpression><![CDATA[$P{infoType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{ariLines})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "NSBAriLine.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="305">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="164" y="129" width="70" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="45" y="129" width="85" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{salesRepresentative}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="259" y="129" width="70" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reviewedBy}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement x="449" y="145" width="60" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{receivedDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="215" y="68" width="268" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{currency}+ "     "+ new DecimalFormat("#,##0.00").format($P{amount})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="359" y="145" width="65" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{receivedBy}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="203" y="1" width="280" height="12" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{totalVat} != null && $P{totalVat} != 0.0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{subTotal} != null && $P{subTotal} != 0.0 ? "VATABLE" : "") + "     " + ($P{subTotal} != 0 ? new DecimalFormat("#,##0.00").format($P{subTotal}) : null)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="203" y="13" width="280" height="12" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{totalVat} != null && $P{totalVat} != 0.0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{totalVat} != null && $P{totalVat} != 0.0 ? "Output VAT" : "") + "     " + ($P{totalVat} != 0 ? new DecimalFormat("#,##0.00").format($P{totalVat}) : null)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="152" y="68" width="153" height="15">
+					<printWhenExpression><![CDATA[$P{taxTypeId} == 3]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZERO RATED SALES]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="69" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="103" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{recoupment} != 0.00 ? $P{recoupment} : null]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<reportElement x="345" y="12" width="103" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{retention} != 0.00 ? $P{retention} : null]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="116" y="24" width="207" height="12"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=========nothing follows=========]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="116" y="0" width="207" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{recoupment} != null && $P{recoupment} != 0.00 ? "Recoupment" : ""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="116" y="12" width="207" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{retention} != null && $P{retention} != 0.00 ? "Retention" : ""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="168" y="55" width="194" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{drRefNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="68" y="55" width="96" height="12" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{drRefNumber}.trim().isEmpty() ? "" : "Manual DR Ref#-"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

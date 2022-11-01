@@ -1,0 +1,21 @@
+
+#Description: Account Sales workflow configuration
+
+AccountSales.typeId=1
+AccountSales.form=accountSales/viewForm
+AccountSales.edit=account_sales_edit
+AccountSales.print=accountSales/pdf
+AccountSales.service=eulap.eb.service.AccountSalePoService
+AccountSales.acct_transaction_types=3
+AccountSales.oo.parent_to_child=1
+AccountSales.flow=1;2
+AccountSales.1.statusId=1
+AccountSales.1.required=
+AccountSales.1.next=2
+AccountSales.1.product_code=267
+AccountSales.1.module_code=8
+AccountSales.2.statusId=3
+AccountSales.2.required=1
+AccountSales.2.next=0
+AccountSales.2.product_code=267
+AccountSales.2.module_code=16
